@@ -9,6 +9,7 @@ Commands::Commands(Server *s) {
 	rplWelcome = std::shared_ptr<RPL_WELCOME>(new RPL_WELCOME());
 	rplYourHost = std::shared_ptr<RPL_YOURHOST>(new RPL_YOURHOST());
 	rplCreated = std::shared_ptr<RPL_CREATED>(new RPL_CREATED());
+	rplMyInfo = std::shared_ptr<RPL_MYINFO>(new RPL_MYINFO());
 	rplISupport = std::shared_ptr<RPL_ISUPPORT>(new RPL_ISUPPORT());
 	errNeedMoreParams = std::shared_ptr<ERR_NEEDMOREPARAMS>(new ERR_NEEDMOREPARAMS());
 	errAlreadyRegistered = std::shared_ptr<ERR_ALREADYREGISTERED>(new ERR_ALREADYREGISTERED());
@@ -53,6 +54,7 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplWelcome->arranger(target), target);
 	sendCommand(rplYourHost->arranger(target), target);
 	sendCommand(rplCreated->arranger(target), target);
+	sendCommand(rplMyInfo->arranger(target), target);
 	sendCommand(rplISupport->arranger(target, "AWAYLEN=200"), target);
 	sendCommand(rplISupport->arranger(target, "CASEMAPPING=rfc7613"), target);
 	sendCommand(rplISupport->arranger(target, "CHANLIMIT=#&:50"), target);
