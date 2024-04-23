@@ -7,6 +7,7 @@ Commands::Commands(Server *s) {
 	nick = std::shared_ptr<NICK>(new NICK(this));
 	user = std::shared_ptr<USER>(new USER(this));
 	rplWelcome = std::shared_ptr<RPL_WELCOME>(new RPL_WELCOME());
+	rplYourHost = std::shared_ptr<RPL_YOURHOST>(new RPL_YOURHOST());
 	errNeedMoreParams = std::shared_ptr<ERR_NEEDMOREPARAMS>(new ERR_NEEDMOREPARAMS());
 	errAlreadyRegistered = std::shared_ptr<ERR_ALREADYREGISTERED>(new ERR_ALREADYREGISTERED());
 	errPasswMismatch = std::shared_ptr<ERR_PASSWDMISMATCH>(new ERR_PASSWDMISMATCH());
@@ -47,6 +48,7 @@ void Commands::sendCommand(std::string message) {
 
 void Commands::registrationReply(Client *target) {
 	sendCommand(rplWelcome->arranger(target), target);
+	sendCommand(rplYourHost->arranger(target), target);
 	//FIXME call function to send the registration response to client
 }
 
