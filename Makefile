@@ -9,6 +9,7 @@ SRC     = main.cpp Server.cpp Client.cpp Channel.cpp Commands.cpp \
 		./commands/ACommand.cpp ./commands/PASS.cpp ./commands/NICK.cpp ./commands/USER.cpp \
 		./commands/RPL_WELCOME.cpp ./commands/RPL_YOURHOST.cpp ./commands/RPL_CREATED.cpp \
 		./commands/RPL_MYINFO.cpp ./commands/RPL_ISUPPORT.cpp ./commands/RPL_LUSERCLIENT.cpp \
+		./commands/RPL_LUSERME.cpp \
 		./commands/ERR_NEEDMOREPARAMS.cpp ./commands/ERR_ALREADYREGISTERED.cpp \
 		./commands/ERR_PASSWDMISMATCH.cpp ./commands/ERR_NONICKNAMEGIVEN.cpp \
 		./commands/ERR_NICKNAMEINUSE.cpp ./commands/ERR_ERRONEUSNICKNAME.cpp
@@ -23,7 +24,7 @@ HEADERS = $(INC_D)/Server.hpp $(INC_D)/Client.hpp $(INC_D)/Channel.hpp $(INC_D)/
           $(INC_D)/commands/ACommand.hpp $(INC_D)/commands/PASS.hpp $(INC_D)/commands/NICK.hpp \
 		  $(INC_D)/commands/USER.hpp $(INC_D)/commands/RPL_WELCOME.hpp $(INC_D)/commands/RPL_YOURHOST.hpp \
 		  $(INC_D)/commands/RPL_CREATED.hpp $(INC_D)/commands/RPL_MYINFO.hpp $(INC_D)/commands/RPL_ISUPPORT.hpp \
-		  $(INC_D)/commands/RPL_LUSERCLIENT.hpp \
+		  $(INC_D)/commands/RPL_LUSERCLIENT.hpp $(INC_D)/commands/RPL_LUSERME.hpp \
 		  $(INC_D)/commands/ERR_NEEDMOREPARAMS.hpp $(INC_D)/commands/ERR_ALREADYREGISTERED.hpp \
 		  $(INC_D)/commands/ERR_PASSWDMISMATCH.hpp $(INC_D)/commands/ERR_NONICKNAMEGIVEN.hpp \
 		  $(INC_D)/commands/ERR_NICKNAMEINUSE.hpp $(INC_D)/commands/ERR_ERRONEUSNICKNAME.hpp
