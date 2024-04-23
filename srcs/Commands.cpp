@@ -79,6 +79,8 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplISupport->arranger(target, "STATUSMSG=@+"), target);
 	sendCommand(rplISupport->arranger(target, "TOPICLEN=307"), target);
 	sendCommand(rplISupport->arranger(target, "USERLEN=12"), target);
+	sendCommand(rplLUserClient->arranger(target), target);
+	sendCommand(rplLUserMe->arranger(target), target);
 	//FIXME call function to send the registration response to client
 }
 
