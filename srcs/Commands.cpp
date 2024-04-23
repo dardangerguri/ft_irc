@@ -11,6 +11,7 @@ Commands::Commands(Server *s) {
 	rplCreated = std::shared_ptr<RPL_CREATED>(new RPL_CREATED());
 	rplMyInfo = std::shared_ptr<RPL_MYINFO>(new RPL_MYINFO());
 	rplISupport = std::shared_ptr<RPL_ISUPPORT>(new RPL_ISUPPORT());
+	rplUModeIs = std::shared_ptr<RPL_UMODEIS>(new RPL_UMODEIS());
 	rplLUserClient = std::shared_ptr<RPL_LUSERCLIENT>(new RPL_LUSERCLIENT(this));
 	rplLUserMe = std::shared_ptr<RPL_LUSERME>(new RPL_LUSERME(this));
 	errNeedMoreParams = std::shared_ptr<ERR_NEEDMOREPARAMS>(new ERR_NEEDMOREPARAMS());
@@ -83,6 +84,7 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplLUserClient->arranger(target), target);
 	sendCommand(rplLUserMe->arranger(target), target);
 	sendCommand(errNoMotd->arranger(target), target);
+	sendCommand(rplUModeIs->arranger(target), target);
 	//FIXME call function to send the registration response to client
 }
 

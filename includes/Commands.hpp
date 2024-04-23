@@ -16,6 +16,7 @@ class RPL_YOURHOST;
 class RPL_CREATED;
 class RPL_MYINFO;
 class RPL_ISUPPORT;
+class RPL_UMODEIS;
 class RPL_LUSERCLIENT;
 class RPL_LUSERME;
 class ERR_NEEDMOREPARAMS;
@@ -47,6 +48,7 @@ class Commands {
 		std::shared_ptr<RPL_CREATED>			rplCreated;
 		std::shared_ptr<RPL_MYINFO>				rplMyInfo;
 		std::shared_ptr<RPL_ISUPPORT>			rplISupport;
+		std::shared_ptr<RPL_UMODEIS>			rplUModeIs;
 		std::shared_ptr<RPL_LUSERCLIENT>		rplLUserClient;
 		std::shared_ptr<RPL_LUSERME>			rplLUserMe;
 		std::shared_ptr<ERR_NEEDMOREPARAMS>		errNeedMoreParams;
@@ -73,6 +75,7 @@ class Commands {
 # include "RPL_CREATED.hpp"
 # include "RPL_MYINFO.hpp"
 # include "RPL_ISUPPORT.hpp"
+# include "RPL_UMODEIS.hpp"
 # include "RPL_LUSERCLIENT.hpp"
 # include "RPL_LUSERME.hpp"
 # include "ERR_NEEDMOREPARAMS.hpp"
