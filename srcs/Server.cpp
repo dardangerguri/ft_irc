@@ -57,6 +57,10 @@ bool Server::nickExists(std::string input) {
 	return (false);
 }
 
+unsigned int Server::getClientCount() {
+	return (clients.size());
+}
+
 void	Server::initListenSocket() {
 	// Creating socket
 	this->serverSocket = socket(AF_INET, SOCK_STREAM, 0);

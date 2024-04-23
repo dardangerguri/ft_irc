@@ -11,6 +11,7 @@ Commands::Commands(Server *s) {
 	rplCreated = std::shared_ptr<RPL_CREATED>(new RPL_CREATED());
 	rplMyInfo = std::shared_ptr<RPL_MYINFO>(new RPL_MYINFO());
 	rplISupport = std::shared_ptr<RPL_ISUPPORT>(new RPL_ISUPPORT());
+	rplLUserClient = std::shared_ptr<RPL_LUSERCLIENT>(new RPL_LUSERCLIENT(this));
 	errNeedMoreParams = std::shared_ptr<ERR_NEEDMOREPARAMS>(new ERR_NEEDMOREPARAMS());
 	errAlreadyRegistered = std::shared_ptr<ERR_ALREADYREGISTERED>(new ERR_ALREADYREGISTERED());
 	errPasswMismatch = std::shared_ptr<ERR_PASSWDMISMATCH>(new ERR_PASSWDMISMATCH());

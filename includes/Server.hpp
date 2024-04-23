@@ -22,9 +22,10 @@ class Server {
 		Server(char *port, char *password);
 		~Server();
 
-		void	run();
-		bool	checkPassword(std::string input);
-		bool	nickExists(std::string input);
+		void			run();
+		bool			checkPassword(std::string input);
+		bool			nickExists(std::string input);
+		unsigned int	getClientCount();
 
 	private:
 		Server();
