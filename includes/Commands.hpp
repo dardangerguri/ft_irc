@@ -14,6 +14,7 @@ class USER;
 class RPL_WELCOME;
 class RPL_YOURHOST;
 class RPL_CREATED;
+class RPL_ISUPPORT;
 class ERR_NEEDMOREPARAMS;
 class ERR_ALREADYREGISTERED;
 class ERR_PASSWDMISMATCH;
@@ -40,6 +41,7 @@ class Commands {
 		std::shared_ptr<RPL_WELCOME>			rplWelcome;
 		std::shared_ptr<RPL_YOURHOST>			rplYourHost;
 		std::shared_ptr<RPL_CREATED>			rplCreated;
+		std::shared_ptr<RPL_ISUPPORT>			rplISupport;
 		std::shared_ptr<ERR_NEEDMOREPARAMS>		errNeedMoreParams;
 		std::shared_ptr<ERR_ALREADYREGISTERED>	errAlreadyRegistered;
 		std::shared_ptr<ERR_PASSWDMISMATCH>		errPasswMismatch;
@@ -61,6 +63,7 @@ class Commands {
 # include "RPL_WELCOME.hpp"
 # include "RPL_YOURHOST.hpp"
 # include "RPL_CREATED.hpp"
+# include "RPL_ISUPPORT.hpp"
 # include "ERR_NEEDMOREPARAMS.hpp"
 # include "ERR_ALREADYREGISTERED.hpp"
 # include "ERR_PASSWDMISMATCH.hpp"
