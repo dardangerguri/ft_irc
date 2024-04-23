@@ -22,7 +22,8 @@ void PASS::handleCommand(std::string message, Client *source) {
 		commands->sendCommand(commands->errAlreadyRegistered->arranger(source), source);
 	else if (commands->server->checkPassword(parameters[0])) {
 		source->setValidPass();
-		source->tryToRegister();
+		if (source->tryToRegister())
+			commands->registrationReply(source);
 	}
 	else
 		commands->sendCommand(commands->errPasswMismatch->arranger(source), source);

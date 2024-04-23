@@ -76,11 +76,14 @@ bool Client::hasMode(char mode) {
 	return (false);
 }
 
-void Client::tryToRegister(void) {
+bool Client::tryToRegister(void) {
+	if (this->hasMode('r'))
+		return (false);
 	if (!username.empty() && !nickname.empty() && validPass) {
 		this->addMode('r');
-		//FIXME call function to send the registration response to client
+		return (true);
 	}
+	return (false);
 }
 
 int Client::getSocketFd(void) {

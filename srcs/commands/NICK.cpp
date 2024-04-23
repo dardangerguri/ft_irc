@@ -22,7 +22,8 @@ void NICK::handleCommand(std::string message, Client *source) {
 			commands->sendCommand(commands->errNicknameInUse->arranger(parameters[0], source), source);
 		else {
 			source->setNickname(parameters[0]);
-			source->tryToRegister();
+			if (source->tryToRegister())
+				commands->registrationReply(source);
 		}
 	}
 	else

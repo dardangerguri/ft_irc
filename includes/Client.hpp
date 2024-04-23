@@ -18,7 +18,7 @@ class Client {
 		bool		addMode(char mode);
 		bool		delMode(char mode);
 		bool		hasMode(char mode);
-		void		tryToRegister(void);
+		bool		tryToRegister(void);
 
 		int			getSocketFd(void);
 		std::string	getMsgFromBuffer(void);

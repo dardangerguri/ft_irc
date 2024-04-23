@@ -30,6 +30,7 @@ class Commands {
 		void		sendCommand(std::string message, Client *target);
 		void		sendCommand(std::string message, Channel *target);
 		void		sendCommand(std::string message);
+		void		registrationReply(Client *target);
 
 		std::shared_ptr<PASS>					pass;
 		std::shared_ptr<NICK>					nick;

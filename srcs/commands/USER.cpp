@@ -22,7 +22,8 @@ void USER::handleCommand(std::string message, Client *source) {
 		else {
 			source->setUsername(parameters[0]);
 			source->setRealname(parameters[3]);
-			source->tryToRegister();
+			if (source->tryToRegister())
+				commands->registrationReply(source);
 		}
 	}
 	else

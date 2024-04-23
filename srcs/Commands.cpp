@@ -45,6 +45,11 @@ void Commands::sendCommand(std::string message) {
 	return ;
 }
 
+void Commands::registrationReply(Client *target) {
+	sendCommand(rplWelcome->arranger(target), target);
+	//FIXME call function to send the registration response to client
+}
+
 std::shared_ptr<ACommand> Commands::getCommandFromList(std::string command) {
 	if (commandList.find(command) != commandList.end())
 		return (commandList[command]);
