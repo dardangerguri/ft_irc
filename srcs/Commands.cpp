@@ -6,6 +6,7 @@ Commands::Commands(Server *s) {
 	pass = std::shared_ptr<PASS>(new PASS(this));
 	nick = std::shared_ptr<NICK>(new NICK(this));
 	user = std::shared_ptr<USER>(new USER(this));
+	rplWelcome = std::shared_ptr<RPL_WELCOME>(new RPL_WELCOME());
 	errNeedMoreParams = std::shared_ptr<ERR_NEEDMOREPARAMS>(new ERR_NEEDMOREPARAMS());
 	errAlreadyRegistered = std::shared_ptr<ERR_ALREADYREGISTERED>(new ERR_ALREADYREGISTERED());
 	errPasswMismatch = std::shared_ptr<ERR_PASSWDMISMATCH>(new ERR_PASSWDMISMATCH());
