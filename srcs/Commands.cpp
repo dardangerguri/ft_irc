@@ -16,11 +16,6 @@ Commands::Commands(Server *s) {
 	commandList["PASS"] = this->pass;
 	commandList["NICK"] = this->nick;
 	commandList["USER"] = this->user;
-	commandList["ERR_NEEDMOREPARAMS"] = this->errNeedMoreParams;
-	commandList["ERR_ALREADYREGISTERED"] = this->errAlreadyRegistered;
-	commandList["ERR_PASSWDMISMATCH"] = this->errPasswMismatch;
-	commandList["ERR_NONICKNAMEGIVEN"] = this->errNoNicknameGiven;
-	commandList["ERR_ERRONEUSNICKNAME"] = this->errErroneusNickname;
 }
 
 Commands::~Commands() {
