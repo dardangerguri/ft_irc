@@ -19,6 +19,7 @@ Commands::Commands(Server *s) {
 	errNoNicknameGiven = std::shared_ptr<ERR_NONICKNAMEGIVEN>(new ERR_NONICKNAMEGIVEN());
 	errNicknameInUse = std::shared_ptr<ERR_NICKNAMEINUSE>(new ERR_NICKNAMEINUSE());
 	errErroneusNickname = std::shared_ptr<ERR_ERRONEUSNICKNAME>(new ERR_ERRONEUSNICKNAME());
+	errNoMotd = std::shared_ptr<ERR_NOMOTD>(new ERR_NOMOTD());
 
 	commandList["PASS"] = this->pass;
 	commandList["NICK"] = this->nick;
@@ -81,6 +82,7 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplISupport->arranger(target, "USERLEN=12"), target);
 	sendCommand(rplLUserClient->arranger(target), target);
 	sendCommand(rplLUserMe->arranger(target), target);
+	sendCommand(errNoMotd->arranger(target), target);
 	//FIXME call function to send the registration response to client
 }
 

@@ -24,6 +24,7 @@ class ERR_PASSWDMISMATCH;
 class ERR_NONICKNAMEGIVEN;
 class ERR_NICKNAMEINUSE;
 class ERR_ERRONEUSNICKNAME;
+class ERR_NOMOTD;
 
 class Commands {
 	public:
@@ -54,6 +55,7 @@ class Commands {
 		std::shared_ptr<ERR_NONICKNAMEGIVEN>	errNoNicknameGiven;
 		std::shared_ptr<ERR_NICKNAMEINUSE>		errNicknameInUse;
 		std::shared_ptr<ERR_ERRONEUSNICKNAME>	errErroneusNickname;
+		std::shared_ptr<ERR_NOMOTD>				errNoMotd;
 
 	private:
 		Commands();
@@ -79,5 +81,6 @@ class Commands {
 # include "ERR_NONICKNAMEGIVEN.hpp"
 # include "ERR_NICKNAMEINUSE.hpp"
 # include "ERR_ERRONEUSNICKNAME.hpp"
+# include "ERR_NOMOTD.hpp"
 
 #endif
