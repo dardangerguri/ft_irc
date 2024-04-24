@@ -40,7 +40,7 @@ std::string NICK::arranger() {
 
 bool NICK::validateNickname(std::string input) {
 	size_t		i = 0;
-	std::string	characters = "[]{}\\|";
+	std::string	characters = "[]{}\\|_";
 
 	while (std::isalnum(input[i]) || characters.find(input[i]) != std::string::npos) {
 		i++;
