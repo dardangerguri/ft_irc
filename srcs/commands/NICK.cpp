@@ -39,7 +39,8 @@ std::string NICK::arranger() {
 	return (this->command);
 }
 
-bool NICK::validateNickname(std::string input) {
+bool NICK::validateNickname(std::string &input) {
+	size_t 		maxNickLen = 12;
 	size_t		i = 0;
 	std::string	characters = "[]{}\\|_";
 
@@ -48,5 +49,9 @@ bool NICK::validateNickname(std::string input) {
 	}
 	if (i != input.size())
 		return (false);
+
+	if (input.size() > maxNickLen)
+		input.resize(maxNickLen);
+
 	return (true);
 }

@@ -17,7 +17,7 @@ class NICK : public ACommand {
 		NICK(void);
 		NICK(NICK const &copy);
 
-		bool	validateNickname(std::string input);
+		bool	validateNickname(std::string &input);
 };
 
 #endif
