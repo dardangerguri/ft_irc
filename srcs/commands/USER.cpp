@@ -42,9 +42,6 @@ std::string USER::arranger() {
 bool USER::validateParameters(std::vector<std::string> & parameters) {
 	size_t maxUserLen = 12;
 
-	if (parameters[1] != "0" || parameters[2] != "*")
-		return (false);
-
 	if (parameters[0].size() > maxUserLen)
 		parameters[0].resize(maxUserLen);
 
