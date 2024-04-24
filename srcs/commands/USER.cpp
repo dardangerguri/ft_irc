@@ -20,10 +20,14 @@ void USER::handleCommand(std::string message, Client *source) {
 		if (source->hasMode('r'))
 			commands->sendCommand(commands->errAlreadyRegistered->arranger(source), source);
 		else {
-			source->setUsername(parameters[0]);
-			source->setRealname(parameters[3]);
-			if (source->tryToRegister())
-				commands->registrationReply(source);
+			if (source->getValidPass()) {
+				source->setUsername(parameters[0]);
+				source->setRealname(parameters[3]);
+				if (source->tryToRegister())
+					commands->registrationReply(source);
+			}
+			else
+				commands->sendCommand(commands->errPasswMismatch->arranger(source), source);
 		}
 	}
 	else

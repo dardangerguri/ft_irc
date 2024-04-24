@@ -25,6 +25,7 @@ class Client {
 		std::string	getNickname(void);
 		std::string	getUsername(void);
 		std::string	getRealname(void);
+		bool		getValidPass(void);
 
 		void		setNickname(std::string newNickname);
 		void		setUsername(std::string newUsername);

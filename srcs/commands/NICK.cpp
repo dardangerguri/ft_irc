@@ -21,9 +21,13 @@ void NICK::handleCommand(std::string message, Client *source) {
 		if (commands->server->nickExists(parameters[0]))
 			commands->sendCommand(commands->errNicknameInUse->arranger(parameters[0], source), source);
 		else {
-			source->setNickname(parameters[0]);
-			if (source->tryToRegister())
-				commands->registrationReply(source);
+			if (source->getValidPass()) {
+				source->setNickname(parameters[0]);
+				if (source->tryToRegister())
+					commands->registrationReply(source);
+			}
+			else
+				commands->sendCommand(commands->errPasswMismatch->arranger(source), source);
 		}
 	}
 	else

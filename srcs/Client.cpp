@@ -108,6 +108,10 @@ std::string Client::getRealname(void) {
 	return (realname);
 }
 
+bool Client::getValidPass(void) {
+	return (validPass);
+}
+
 void Client::setNickname(std::string newNickname) {
 	this->nickname = newNickname;
 	//FIXME inform other clients about the change
