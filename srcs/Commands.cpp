@@ -14,6 +14,7 @@ Commands::Commands(Server *s) {
 	rplUModeIs = std::shared_ptr<RPL_UMODEIS>(new RPL_UMODEIS());
 	rplLUserClient = std::shared_ptr<RPL_LUSERCLIENT>(new RPL_LUSERCLIENT(this));
 	rplLUserMe = std::shared_ptr<RPL_LUSERME>(new RPL_LUSERME(this));
+	errUnknownCommand = std::shared_ptr<ERR_UNKNOWNCOMMAND>(new ERR_UNKNOWNCOMMAND());
 	errNeedMoreParams = std::shared_ptr<ERR_NEEDMOREPARAMS>(new ERR_NEEDMOREPARAMS());
 	errAlreadyRegistered = std::shared_ptr<ERR_ALREADYREGISTERED>(new ERR_ALREADYREGISTERED());
 	errPasswMismatch = std::shared_ptr<ERR_PASSWDMISMATCH>(new ERR_PASSWDMISMATCH());
@@ -25,6 +26,7 @@ Commands::Commands(Server *s) {
 	commandList["PASS"] = this->pass;
 	commandList["NICK"] = this->nick;
 	commandList["USER"] = this->user;
+	commandList["ERR_UNKNOWNCOMMAND"] = this->errUnknownCommand;
 }
 
 Commands::~Commands() {

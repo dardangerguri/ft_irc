@@ -19,6 +19,7 @@ class RPL_ISUPPORT;
 class RPL_UMODEIS;
 class RPL_LUSERCLIENT;
 class RPL_LUSERME;
+class ERR_UNKNOWNCOMMAND;
 class ERR_NEEDMOREPARAMS;
 class ERR_ALREADYREGISTERED;
 class ERR_PASSWDMISMATCH;
@@ -51,6 +52,7 @@ class Commands {
 		std::shared_ptr<RPL_UMODEIS>			rplUModeIs;
 		std::shared_ptr<RPL_LUSERCLIENT>		rplLUserClient;
 		std::shared_ptr<RPL_LUSERME>			rplLUserMe;
+		std::shared_ptr<ERR_UNKNOWNCOMMAND>		errUnknownCommand;
 		std::shared_ptr<ERR_NEEDMOREPARAMS>		errNeedMoreParams;
 		std::shared_ptr<ERR_ALREADYREGISTERED>	errAlreadyRegistered;
 		std::shared_ptr<ERR_PASSWDMISMATCH>		errPasswMismatch;
@@ -78,6 +80,7 @@ class Commands {
 # include "RPL_UMODEIS.hpp"
 # include "RPL_LUSERCLIENT.hpp"
 # include "RPL_LUSERME.hpp"
+# include "ERR_UNKNOWNCOMMAND.hpp"
 # include "ERR_NEEDMOREPARAMS.hpp"
 # include "ERR_ALREADYREGISTERED.hpp"
 # include "ERR_PASSWDMISMATCH.hpp"
