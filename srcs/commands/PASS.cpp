@@ -4,6 +4,7 @@
 PASS::PASS(Commands *c) {
 	commands = c;
 	command = "PASS";
+	requireRegistration = false;
 }
 
 PASS::~PASS(void) {
@@ -27,7 +28,6 @@ void PASS::handleCommand(std::string message, Client *source) {
 	}
 	else
 		commands->sendCommand(commands->errPasswMismatch->arranger(source), source);
-
 }
 
 std::string PASS::arranger() {

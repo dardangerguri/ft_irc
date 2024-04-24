@@ -21,3 +21,7 @@ void ACommand::handleCommand(std::string message, Client *source) {
 	(void)message;
 	(void)source;
 }
+
+bool ACommand::getRequireRegistration(void) {
+	return (requireRegistration);
+}

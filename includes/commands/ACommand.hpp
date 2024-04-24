@@ -17,10 +17,12 @@ class ACommand {
 		virtual void	handleCommand(std::string message, Client *source);
 
 		std::vector<std::string>	parseMessage(std::string message);
+		bool						getRequireRegistration(void);
 
 	protected:
 		std::string		command;
 		Commands		*commands;
+		bool			requireRegistration = true;
 
 	private:
 		ACommand(ACommand const &copy);

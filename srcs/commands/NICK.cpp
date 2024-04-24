@@ -3,6 +3,7 @@
 NICK::NICK(Commands *c) {
 	commands = c;
 	command = "NICK";
+	requireRegistration = false;
 }
 
 NICK::~NICK(void) {

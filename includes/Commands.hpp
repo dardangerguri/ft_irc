@@ -27,6 +27,7 @@ class ERR_NONICKNAMEGIVEN;
 class ERR_NICKNAMEINUSE;
 class ERR_ERRONEUSNICKNAME;
 class ERR_NOMOTD;
+class ERR_NOTREGISTERED;
 
 class Commands {
 	public:
@@ -60,6 +61,7 @@ class Commands {
 		std::shared_ptr<ERR_NICKNAMEINUSE>		errNicknameInUse;
 		std::shared_ptr<ERR_ERRONEUSNICKNAME>	errErroneusNickname;
 		std::shared_ptr<ERR_NOMOTD>				errNoMotd;
+		std::shared_ptr<ERR_NOTREGISTERED>		errNotRegistered;
 
 	private:
 		Commands();
@@ -88,5 +90,6 @@ class Commands {
 # include "ERR_NICKNAMEINUSE.hpp"
 # include "ERR_ERRONEUSNICKNAME.hpp"
 # include "ERR_NOMOTD.hpp"
+# include "ERR_NOTREGISTERED.hpp"
 
 #endif

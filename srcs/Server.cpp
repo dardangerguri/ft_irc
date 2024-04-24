@@ -210,10 +210,14 @@ void Server::parseMsg(std::string message, Client *client) {
 
 	//FIXME don't do the same thing below twice
 	if (commands->getCommandFromList(command)) {
-		commands->getCommandFromList(command)->handleCommand(restOfMessage, client);
+		if (commands->getCommandFromList(command)->getRequireRegistration() && !client->hasMode('r'))
+			commands->sendCommand(commands->errNotRegistered->arranger(client), client);
+		else
+			commands->getCommandFromList(command)->handleCommand(restOfMessage, client);
 	}
 	else {
 		// FIXME: Handle invalid commands properly!
+		commands->sendCommand("421 " + client->getNickname() + " " + command + " :Unknown command", client);
 		std::cout << "Command " << command << " is not available!" << std::endl;
 	}
 }

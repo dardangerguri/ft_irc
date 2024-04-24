@@ -4,6 +4,7 @@
 USER::USER(Commands *c) {
 	commands = c;
 	command = "USER";
+	requireRegistration = false;
 }
 
 USER::~USER(void) {

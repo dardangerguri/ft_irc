@@ -22,6 +22,7 @@ Commands::Commands(Server *s) {
 	errNicknameInUse = std::shared_ptr<ERR_NICKNAMEINUSE>(new ERR_NICKNAMEINUSE());
 	errErroneusNickname = std::shared_ptr<ERR_ERRONEUSNICKNAME>(new ERR_ERRONEUSNICKNAME());
 	errNoMotd = std::shared_ptr<ERR_NOMOTD>(new ERR_NOMOTD());
+	errNotRegistered = std::shared_ptr<ERR_NOTREGISTERED>(new ERR_NOTREGISTERED());
 
 	commandList["PASS"] = this->pass;
 	commandList["NICK"] = this->nick;
