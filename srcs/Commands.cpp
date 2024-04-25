@@ -27,7 +27,6 @@ Commands::Commands(Server *s) {
 	commandList["PASS"] = this->pass;
 	commandList["NICK"] = this->nick;
 	commandList["USER"] = this->user;
-	commandList["ERR_UNKNOWNCOMMAND"] = this->errUnknownCommand;
 }
 
 Commands::~Commands() {
