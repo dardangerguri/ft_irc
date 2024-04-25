@@ -26,9 +26,14 @@ Commands::Commands(Server *s) {
 	errAlreadyRegistered = std::shared_ptr<ERR_ALREADYREGISTERED>(new ERR_ALREADYREGISTERED());
 	errPasswMismatch = std::shared_ptr<ERR_PASSWDMISMATCH>(new ERR_PASSWDMISMATCH());
 
-	commandList["NICK"] = this->nick;
-	commandList["PASS"] = this->pass;
-	commandList["USER"] = this->user;
+	try {
+		commandList["NICK"] = this->nick;
+		commandList["PASS"] = this->pass;
+		commandList["USER"] = this->user;
+	}
+	catch (std::exception &e) {
+		throw std::runtime_error("Could not add the command to the commandList!");
+	}
 }
 
 Commands::~Commands() {
