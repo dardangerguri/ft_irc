@@ -45,7 +45,9 @@ void Commands::sendCommand(std::string message, Client *target) {
 	std::cerr << BLUE "Sending: " RESET +  message << std::endl;
 
 	message += "\r\n";
-    send(target->getSocketFd(), message.c_str(), message.length(), 0);
+    if (send(target->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+		std::cerr << RED << "Error: Sending messages failed!" << RESET << std::endl;
+	}
 }
 
 void Commands::sendCommand(std::string message, Channel *target) {
