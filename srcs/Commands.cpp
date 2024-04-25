@@ -3,9 +3,10 @@
 Commands::Commands(Server *s) {
 	server = s;
 
-	pass = std::shared_ptr<PASS>(new PASS(this));
 	nick = std::shared_ptr<NICK>(new NICK(this));
+	pass = std::shared_ptr<PASS>(new PASS(this));
 	user = std::shared_ptr<USER>(new USER(this));
+
 	rplWelcome = std::shared_ptr<RPL_WELCOME>(new RPL_WELCOME());
 	rplYourHost = std::shared_ptr<RPL_YOURHOST>(new RPL_YOURHOST());
 	rplCreated = std::shared_ptr<RPL_CREATED>(new RPL_CREATED());
@@ -14,18 +15,19 @@ Commands::Commands(Server *s) {
 	rplUModeIs = std::shared_ptr<RPL_UMODEIS>(new RPL_UMODEIS());
 	rplLUserClient = std::shared_ptr<RPL_LUSERCLIENT>(new RPL_LUSERCLIENT(this));
 	rplLUserMe = std::shared_ptr<RPL_LUSERME>(new RPL_LUSERME(this));
+
 	errUnknownCommand = std::shared_ptr<ERR_UNKNOWNCOMMAND>(new ERR_UNKNOWNCOMMAND());
+	errNoMotd = std::shared_ptr<ERR_NOMOTD>(new ERR_NOMOTD());
+	errNoNicknameGiven = std::shared_ptr<ERR_NONICKNAMEGIVEN>(new ERR_NONICKNAMEGIVEN());
+	errErroneusNickname = std::shared_ptr<ERR_ERRONEUSNICKNAME>(new ERR_ERRONEUSNICKNAME());
+	errNicknameInUse = std::shared_ptr<ERR_NICKNAMEINUSE>(new ERR_NICKNAMEINUSE());
+	errNotRegistered = std::shared_ptr<ERR_NOTREGISTERED>(new ERR_NOTREGISTERED());
 	errNeedMoreParams = std::shared_ptr<ERR_NEEDMOREPARAMS>(new ERR_NEEDMOREPARAMS());
 	errAlreadyRegistered = std::shared_ptr<ERR_ALREADYREGISTERED>(new ERR_ALREADYREGISTERED());
 	errPasswMismatch = std::shared_ptr<ERR_PASSWDMISMATCH>(new ERR_PASSWDMISMATCH());
-	errNoNicknameGiven = std::shared_ptr<ERR_NONICKNAMEGIVEN>(new ERR_NONICKNAMEGIVEN());
-	errNicknameInUse = std::shared_ptr<ERR_NICKNAMEINUSE>(new ERR_NICKNAMEINUSE());
-	errErroneusNickname = std::shared_ptr<ERR_ERRONEUSNICKNAME>(new ERR_ERRONEUSNICKNAME());
-	errNoMotd = std::shared_ptr<ERR_NOMOTD>(new ERR_NOMOTD());
-	errNotRegistered = std::shared_ptr<ERR_NOTREGISTERED>(new ERR_NOTREGISTERED());
 
-	commandList["PASS"] = this->pass;
 	commandList["NICK"] = this->nick;
+	commandList["PASS"] = this->pass;
 	commandList["USER"] = this->user;
 }
 

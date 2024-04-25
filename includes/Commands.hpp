@@ -8,26 +8,28 @@
 # include <unordered_map>
 # include <memory>
 
-class PASS;
 class NICK;
+class PASS;
 class USER;
-class RPL_WELCOME;
-class RPL_YOURHOST;
-class RPL_CREATED;
-class RPL_MYINFO;
-class RPL_ISUPPORT;
-class RPL_UMODEIS;
-class RPL_LUSERCLIENT;
-class RPL_LUSERME;
-class ERR_UNKNOWNCOMMAND;
-class ERR_NEEDMOREPARAMS;
-class ERR_ALREADYREGISTERED;
-class ERR_PASSWDMISMATCH;
-class ERR_NONICKNAMEGIVEN;
-class ERR_NICKNAMEINUSE;
-class ERR_ERRONEUSNICKNAME;
-class ERR_NOMOTD;
-class ERR_NOTREGISTERED;
+
+class RPL_WELCOME; //001
+class RPL_YOURHOST; //002
+class RPL_CREATED; //003
+class RPL_MYINFO; //004
+class RPL_ISUPPORT; //005
+class RPL_UMODEIS; //221
+class RPL_LUSERCLIENT; //251
+class RPL_LUSERME; //255
+
+class ERR_UNKNOWNCOMMAND; //421
+class ERR_NOMOTD; //422
+class ERR_NONICKNAMEGIVEN; //431
+class ERR_ERRONEUSNICKNAME; //432
+class ERR_NICKNAMEINUSE; //433
+class ERR_NOTREGISTERED; //451
+class ERR_NEEDMOREPARAMS; //461
+class ERR_ALREADYREGISTERED; //462
+class ERR_PASSWDMISMATCH; //464
 
 class Commands {
 	public:
@@ -42,9 +44,10 @@ class Commands {
 		void		sendCommand(std::string message);
 		void		registrationReply(Client *target);
 
-		std::shared_ptr<PASS>					pass;
 		std::shared_ptr<NICK>					nick;
+		std::shared_ptr<PASS>					pass;
 		std::shared_ptr<USER>					user;
+
 		std::shared_ptr<RPL_WELCOME>			rplWelcome;
 		std::shared_ptr<RPL_YOURHOST>			rplYourHost;
 		std::shared_ptr<RPL_CREATED>			rplCreated;
@@ -53,15 +56,16 @@ class Commands {
 		std::shared_ptr<RPL_UMODEIS>			rplUModeIs;
 		std::shared_ptr<RPL_LUSERCLIENT>		rplLUserClient;
 		std::shared_ptr<RPL_LUSERME>			rplLUserMe;
+
 		std::shared_ptr<ERR_UNKNOWNCOMMAND>		errUnknownCommand;
+		std::shared_ptr<ERR_NOMOTD>				errNoMotd;
+		std::shared_ptr<ERR_NONICKNAMEGIVEN>	errNoNicknameGiven;
+		std::shared_ptr<ERR_ERRONEUSNICKNAME>	errErroneusNickname;
+		std::shared_ptr<ERR_NICKNAMEINUSE>		errNicknameInUse;
+		std::shared_ptr<ERR_NOTREGISTERED>		errNotRegistered;
 		std::shared_ptr<ERR_NEEDMOREPARAMS>		errNeedMoreParams;
 		std::shared_ptr<ERR_ALREADYREGISTERED>	errAlreadyRegistered;
 		std::shared_ptr<ERR_PASSWDMISMATCH>		errPasswMismatch;
-		std::shared_ptr<ERR_NONICKNAMEGIVEN>	errNoNicknameGiven;
-		std::shared_ptr<ERR_NICKNAMEINUSE>		errNicknameInUse;
-		std::shared_ptr<ERR_ERRONEUSNICKNAME>	errErroneusNickname;
-		std::shared_ptr<ERR_NOMOTD>				errNoMotd;
-		std::shared_ptr<ERR_NOTREGISTERED>		errNotRegistered;
 
 	private:
 		Commands();
@@ -71,9 +75,10 @@ class Commands {
 		std::unordered_map<std::string, std::shared_ptr<ACommand>>	commandList;
 };
 
-# include "PASS.hpp"
 # include "NICK.hpp"
+# include "PASS.hpp"
 # include "USER.hpp"
+
 # include "RPL_WELCOME.hpp"
 # include "RPL_YOURHOST.hpp"
 # include "RPL_CREATED.hpp"
@@ -82,14 +87,15 @@ class Commands {
 # include "RPL_UMODEIS.hpp"
 # include "RPL_LUSERCLIENT.hpp"
 # include "RPL_LUSERME.hpp"
+
 # include "ERR_UNKNOWNCOMMAND.hpp"
+# include "ERR_NOMOTD.hpp"
+# include "ERR_NONICKNAMEGIVEN.hpp"
+# include "ERR_ERRONEUSNICKNAME.hpp"
+# include "ERR_NICKNAMEINUSE.hpp"
+# include "ERR_NOTREGISTERED.hpp"
 # include "ERR_NEEDMOREPARAMS.hpp"
 # include "ERR_ALREADYREGISTERED.hpp"
 # include "ERR_PASSWDMISMATCH.hpp"
-# include "ERR_NONICKNAMEGIVEN.hpp"
-# include "ERR_NICKNAMEINUSE.hpp"
-# include "ERR_ERRONEUSNICKNAME.hpp"
-# include "ERR_NOMOTD.hpp"
-# include "ERR_NOTREGISTERED.hpp"
 
 #endif

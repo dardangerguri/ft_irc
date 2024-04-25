@@ -5,15 +5,32 @@ SRC_D   = srcs/
 INC_D   = includes/
 OBJ_D   = obj/
 
-SRC     = main.cpp Server.cpp Client.cpp Channel.cpp Commands.cpp \
-		./commands/ACommand.cpp ./commands/PASS.cpp ./commands/NICK.cpp ./commands/USER.cpp \
-		./commands/RPL_WELCOME.cpp ./commands/RPL_YOURHOST.cpp ./commands/RPL_CREATED.cpp \
-		./commands/RPL_MYINFO.cpp ./commands/RPL_ISUPPORT.cpp ./commands/RPL_UMODEIS.cpp \
-		./commands/RPL_LUSERCLIENT.cpp ./commands/RPL_LUSERME.cpp ./commands/ERR_UNKNOWNCOMMAND.cpp \
-		./commands/ERR_NEEDMOREPARAMS.cpp ./commands/ERR_ALREADYREGISTERED.cpp \
-		./commands/ERR_PASSWDMISMATCH.cpp ./commands/ERR_NONICKNAMEGIVEN.cpp \
-		./commands/ERR_NICKNAMEINUSE.cpp ./commands/ERR_ERRONEUSNICKNAME.cpp \
-		./commands/ERR_NOMOTD.cpp ./commands/ERR_NOTREGISTERED.cpp \
+SRC     = 	main.cpp \
+			Server.cpp \
+			Client.cpp \
+			Channel.cpp \
+			Commands.cpp \
+			./commands/ACommand.cpp \
+			./commands/NICK.cpp \
+			./commands/PASS.cpp \
+			./commands/USER.cpp \
+			./commands/RPL_WELCOME.cpp \
+			./commands/RPL_YOURHOST.cpp \
+			./commands/RPL_CREATED.cpp \
+			./commands/RPL_MYINFO.cpp \
+			./commands/RPL_ISUPPORT.cpp \
+			./commands/RPL_UMODEIS.cpp \
+			./commands/RPL_LUSERCLIENT.cpp \
+			./commands/RPL_LUSERME.cpp \
+			./commands/ERR_UNKNOWNCOMMAND.cpp \
+			./commands/ERR_NOMOTD.cpp \
+			./commands/ERR_NONICKNAMEGIVEN.cpp \
+			./commands/ERR_ERRONEUSNICKNAME.cpp \
+			./commands/ERR_NICKNAMEINUSE.cpp \
+			./commands/ERR_NOTREGISTERED.cpp \
+			./commands/ERR_NEEDMOREPARAMS.cpp \
+			./commands/ERR_ALREADYREGISTERED.cpp \
+			./commands/ERR_PASSWDMISMATCH.cpp \
 
 OBJ_D   = obj/
 OBJ     = $(SRC:.cpp=.o)
