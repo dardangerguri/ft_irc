@@ -13,5 +13,5 @@ ERR_NICKNAMEINUSE &ERR_NICKNAMEINUSE::operator = (ERR_NICKNAMEINUSE const &copy)
 }
 
 std::string ERR_NICKNAMEINUSE::arranger(std::string sourceNickname, Client *source) {
-	return (command + " " + source->getNickname() + " " + sourceNickname + " :Not enough parameters");
+	return (command + " " + source->getNickname() + " " + sourceNickname + " :Nickname is already in use");
 }
