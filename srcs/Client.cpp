@@ -39,12 +39,11 @@ bool Client::isAllowedUserMode(char mode) {
 	// Modes supported by this server:
 	// +o : oper user mode
 	// +r : registered user mode
-	// Other modes supported by IRC standard:
 	// +i : invisible user mode
 	// +O : local oper user mode
 	// +w : WALLOPS user mode
 
-	std::unordered_set<char> supportedModes = {'o', 'r'};
+	std::unordered_set<char> supportedModes = {'o', 'r', 'i', 'O', 'w'};
 
 	if (supportedModes.find(mode) != supportedModes.end())
 		return (true);
