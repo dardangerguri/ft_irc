@@ -211,12 +211,12 @@ void Server::parseMsg(std::string message, Client *client) {
 	if (pos != std::string::npos)
 		restOfMessage = restOfMessage.substr(restOfMessage.find_first_not_of(' '));
 
-	//FIXME don't do the same thing below twice
-	if (commands->getCommandFromList(command)) {
-		if (commands->getCommandFromList(command)->getRequireRegistration() && !client->hasMode('r'))
+	std::shared_ptr<ACommand> commandPtr = commands->getCommandFromList(command);
+	if (commandPtr) {
+		if (commandPtr->getRequireRegistration() && !client->hasMode('r'))
 			commands->sendCommand(commands->errNotRegistered->arranger(client), client);
 		else
-			commands->getCommandFromList(command)->handleCommand(restOfMessage, client);
+			commandPtr->handleCommand(restOfMessage, client);
 	}
 	else {
 		commands->sendCommand(commands->errUnknownCommand->arranger(command, client), client);
