@@ -219,9 +219,7 @@ void Server::parseMsg(std::string message, Client *client) {
 			commands->getCommandFromList(command)->handleCommand(restOfMessage, client);
 	}
 	else {
-		// FIXME: Handle invalid commands properly!
-		commands->sendCommand("421 " + client->getNickname() + " " + command + " :Unknown command", client);
-		std::cout << "Command " << command << " is not available!" << std::endl;
+		commands->sendCommand(commands->errUnknownCommand->arranger(command, client), client);
 	}
 }
 
