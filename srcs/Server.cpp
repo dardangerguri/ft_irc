@@ -185,6 +185,9 @@ void Server::handleClientData(size_t pollFdIndex) {
 
 // Checks if the command is valid and checks if it can find in the commandList
 void Server::parseMsg(std::string message, Client *client) {
+	//Debug
+	std::cerr << RED "Received: " RESET +  message << std::endl;
+
 	if (message.empty())
 		return ;
 

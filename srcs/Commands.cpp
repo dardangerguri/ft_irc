@@ -36,10 +36,9 @@ Commands::~Commands() {
 }
 
 void Commands::sendCommand(std::string message, Client *target) {
-	// std::string response = BLUE "Sending this: " RESET;
-    // response += message;
-	// response += "\n";
-	// std::cout << response;
+	//Debug
+	std::cerr << BLUE "Sending: " RESET +  message << std::endl;
+
 	message += "\r\n";
     send(target->getSocketFd(), message.c_str(), message.length(), 0);
 }
