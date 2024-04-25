@@ -38,16 +38,7 @@ OBJS    = $(addprefix $(OBJ_D), $(OBJ))
 
 INC     = -I$(INC_D) -I$(INC_D)commands/
 
-HEADERS = $(INC_D)/Server.hpp $(INC_D)/Client.hpp $(INC_D)/Channel.hpp $(INC_D)/Commands.hpp \
-          $(INC_D)/commands/ACommand.hpp $(INC_D)/commands/PASS.hpp $(INC_D)/commands/NICK.hpp \
-		  $(INC_D)/commands/USER.hpp $(INC_D)/commands/RPL_WELCOME.hpp $(INC_D)/commands/RPL_YOURHOST.hpp \
-		  $(INC_D)/commands/RPL_CREATED.hpp $(INC_D)/commands/RPL_MYINFO.hpp $(INC_D)/commands/RPL_ISUPPORT.hpp \
-		  $(INC_D)/commands/RPL_UMODEIS.hpp $(INC_D)/commands/RPL_LUSERCLIENT.hpp \
-		  $(INC_D)/commands/RPL_LUSERME.hpp $(INC_D)/commands/ERR_UNKNOWNCOMMAND.hpp \
-		  $(INC_D)/commands/ERR_NEEDMOREPARAMS.hpp $(INC_D)/commands/ERR_ALREADYREGISTERED.hpp \
-		  $(INC_D)/commands/ERR_PASSWDMISMATCH.hpp $(INC_D)/commands/ERR_NONICKNAMEGIVEN.hpp \
-		  $(INC_D)/commands/ERR_NICKNAMEINUSE.hpp $(INC_D)/commands/ERR_ERRONEUSNICKNAME.hpp \
-		  $(INC_D)/commands/ERR_NOMOTD.hpp $(INC_D)/commands/ERR_NOTREGISTERED.hpp
+HEADERS = $(addprefix $(INC_D), $(filter-out main.hpp,$(SRC:.cpp=.hpp)))
 
 all: $(NAME)
 
