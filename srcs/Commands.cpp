@@ -88,7 +88,6 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplLUserMe->arranger(target), target);
 	sendCommand(errNoMotd->arranger(target), target);
 	sendCommand(rplUModeIs->arranger(target), target);
-	//FIXME call function to send the registration response to client
 }
 
 std::shared_ptr<ACommand> Commands::getCommandFromList(std::string command) {
