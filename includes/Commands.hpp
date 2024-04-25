@@ -10,6 +10,8 @@
 
 class NICK;
 class PASS;
+class PING;
+class PONG;
 class USER;
 
 class RPL_WELCOME; //001
@@ -46,6 +48,8 @@ class Commands {
 
 		std::shared_ptr<NICK>					nick;
 		std::shared_ptr<PASS>					pass;
+		std::shared_ptr<PING>					ping;
+		std::shared_ptr<PONG>					pong;
 		std::shared_ptr<USER>					user;
 
 		std::shared_ptr<RPL_WELCOME>			rplWelcome;
@@ -77,6 +81,8 @@ class Commands {
 
 # include "NICK.hpp"
 # include "PASS.hpp"
+# include "PING.hpp"
+# include "PONG.hpp"
 # include "USER.hpp"
 
 # include "RPL_WELCOME.hpp"

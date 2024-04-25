@@ -13,6 +13,8 @@ SRC     = 	main.cpp \
 			./commands/ACommand.cpp \
 			./commands/NICK.cpp \
 			./commands/PASS.cpp \
+			./commands/PING.cpp \
+			./commands/PONG.cpp \
 			./commands/USER.cpp \
 			./commands/RPL_WELCOME.cpp \
 			./commands/RPL_YOURHOST.cpp \

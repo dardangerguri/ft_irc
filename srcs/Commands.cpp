@@ -5,6 +5,8 @@ Commands::Commands(Server *s) {
 
 	nick = std::shared_ptr<NICK>(new NICK(this));
 	pass = std::shared_ptr<PASS>(new PASS(this));
+	ping = std::shared_ptr<PING>(new PING(this));
+	pong = std::shared_ptr<PONG>(new PONG(this));
 	user = std::shared_ptr<USER>(new USER(this));
 
 	rplWelcome = std::shared_ptr<RPL_WELCOME>(new RPL_WELCOME());
@@ -28,6 +30,8 @@ Commands::Commands(Server *s) {
 
 	commandList["NICK"] = this->nick;
 	commandList["PASS"] = this->pass;
+	commandList["PING"] = this->ping;
+	commandList["PONG"] = this->pong;
 	commandList["USER"] = this->user;
 }
 
