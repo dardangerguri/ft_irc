@@ -11,6 +11,8 @@ class Channel {
 		Channel(void);
 		~Channel(void);
 
+		std::string getChannelName(void);
+
 	private:
 		Channel(Channel const &copy);
 		Channel &operator=(Channel const &copy);
