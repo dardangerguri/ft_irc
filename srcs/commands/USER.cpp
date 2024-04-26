@@ -61,13 +61,25 @@ std::vector<std::string> USER::parseMessage(std::string message) {
 	std::stringstream			ss(message);
 	std::string					word, restOfMessage;
 
-	while (i++ < 3 && ss >> word)
-		parameters.push_back(word);
+	while (i++ < 3 && ss >> word) {
+		try {
+			parameters.push_back(word);
+		}
+		catch (...) {
+			// FIXME: ERR_UNKNOWNERROR (400)!
+		}
+	}
+
 
 	std::getline(ss, restOfMessage);
 	size_t pos = restOfMessage.find_first_not_of(' ');
-	if (pos != std::string::npos)
-		parameters.push_back(restOfMessage.substr(restOfMessage.find_first_not_of(' ')));
-
+	if (pos != std::string::npos) {
+		try {
+			parameters.push_back(restOfMessage.substr(restOfMessage.find_first_not_of(' ')));
+		}
+		catch (...) {
+			// FIXME: ERR_UNKNOWNERROR (400)!
+		}
+	}
 	return (parameters);
 }
