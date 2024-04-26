@@ -194,7 +194,7 @@ void Server::parseMsg(std::string message, Client *client) {
 	// make sure we only have ASCII SPACEs and no other whitespace
 	for (char c : message) {
 		if (std::isspace(c) && c != ' ') {
-			// FIXME: Handle whitespace errors properly! remove the line below and send the necessary command
+			// FIXME: ERR_UNKNOWNERROR (400)!
 			std::cerr << "Error: Found other whitespace characters!" << std::endl;
 			return ;
 		}
