@@ -23,6 +23,7 @@ class RPL_UMODEIS; //221
 class RPL_LUSERCLIENT; //251
 class RPL_LUSERME; //255
 
+class ERR_UNKNOWNERROR; //400
 class ERR_UNKNOWNCOMMAND; //421
 class ERR_NOMOTD; //422
 class ERR_NONICKNAMEGIVEN; //431
@@ -61,6 +62,7 @@ class Commands {
 		std::shared_ptr<RPL_LUSERCLIENT>		rplLUserClient;
 		std::shared_ptr<RPL_LUSERME>			rplLUserMe;
 
+		std::shared_ptr<ERR_UNKNOWNERROR>		errUnknownError;
 		std::shared_ptr<ERR_UNKNOWNCOMMAND>		errUnknownCommand;
 		std::shared_ptr<ERR_NOMOTD>				errNoMotd;
 		std::shared_ptr<ERR_NONICKNAMEGIVEN>	errNoNicknameGiven;
@@ -94,6 +96,7 @@ class Commands {
 # include "RPL_LUSERCLIENT.hpp"
 # include "RPL_LUSERME.hpp"
 
+# include "ERR_UNKNOWNERROR.hpp"
 # include "ERR_UNKNOWNCOMMAND.hpp"
 # include "ERR_NOMOTD.hpp"
 # include "ERR_NONICKNAMEGIVEN.hpp"

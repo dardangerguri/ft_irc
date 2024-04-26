@@ -16,7 +16,7 @@ USER &USER::operator = (USER const &copy) {
 }
 
 void USER::handleCommand(std::string message, Client *source) {
-	std::vector<std::string> parameters = parseMessage(message);
+	std::vector<std::string> parameters = parseMessage(message, source);
 	if (parameters.size() == 4 && validateParameters(parameters)) {
 		if (source->hasMode('r'))
 			commands->sendCommand(commands->errAlreadyRegistered->arranger(source), source);
@@ -54,7 +54,7 @@ bool USER::validateParameters(std::vector<std::string> & parameters) {
 	return true;
 }
 
-std::vector<std::string> USER::parseMessage(std::string message) {
+std::vector<std::string> USER::parseMessage(std::string message, Client *source) {
 	int	i = 0;
 
 	std::vector<std::string>	parameters;
@@ -66,7 +66,8 @@ std::vector<std::string> USER::parseMessage(std::string message) {
 			parameters.push_back(word);
 		}
 		catch (...) {
-			// FIXME: ERR_UNKNOWNERROR (400)!
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding the parameter to the list has failed", source), source);
 		}
 	}
 
@@ -78,7 +79,8 @@ std::vector<std::string> USER::parseMessage(std::string message) {
 			parameters.push_back(restOfMessage.substr(restOfMessage.find_first_not_of(' ')));
 		}
 		catch (...) {
-			// FIXME: ERR_UNKNOWNERROR (400)!
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding the parameter to the list has failed", source), source);
 		}
 	}
 	return (parameters);
