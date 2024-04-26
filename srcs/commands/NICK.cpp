@@ -15,7 +15,7 @@ NICK &NICK::operator = (NICK const &copy) {
 }
 
 void NICK::handleCommand(std::string message, Client *source) {
-	std::vector<std::string> parameters = parseMessage(message);
+	std::vector<std::string> parameters = parseMessage(message, source);
 	if (parameters.empty())
 		commands->sendCommand(commands->errNoNicknameGiven->arranger(source), source);
 	else if (validateNickname(parameters[0])) {

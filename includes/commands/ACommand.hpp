@@ -16,7 +16,7 @@ class ACommand {
 
 		virtual void	handleCommand(std::string message, Client *source);
 
-		std::vector<std::string>	parseMessage(std::string message);
+		std::vector<std::string>	parseMessage(std::string message, Client *source);
 		bool						getRequireRegistration(void);
 
 	protected:

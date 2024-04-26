@@ -6,7 +6,7 @@ ACommand::ACommand(void) {
 ACommand::~ACommand(void) {
 }
 
-std::vector<std::string> ACommand::parseMessage(std::string message) {
+std::vector<std::string> ACommand::parseMessage(std::string message, Client *source) {
 	//split them based on the spaces
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
@@ -16,7 +16,8 @@ std::vector<std::string> ACommand::parseMessage(std::string message) {
 			parameters.push_back(word);
 		}
 		catch (...) {
-			// FIXME: ERR_UNKNOWNERROR (400)!
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding the parameter to the list has failed", source), source);
 		}
 	}
 	return (parameters);

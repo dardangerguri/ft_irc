@@ -22,6 +22,7 @@ SRC     = 	main.cpp \
 			./commands/RPL_UMODEIS.cpp \
 			./commands/RPL_LUSERCLIENT.cpp \
 			./commands/RPL_LUSERME.cpp \
+			./commands/ERR_UNKNOWNERROR.cpp \
 			./commands/ERR_UNKNOWNCOMMAND.cpp \
 			./commands/ERR_NOMOTD.cpp \
 			./commands/ERR_NONICKNAMEGIVEN.cpp \
