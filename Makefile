@@ -27,6 +27,7 @@ SRC     = 	main.cpp \
 			./commands/RPL_LUSERME.cpp \
 			./commands/ERR_UNKNOWNERROR.cpp \
 			./commands/ERR_NOSUCHNICK.cpp \
+			./commands/ERR_NOSUCHCHANNEL.cpp \
 			./commands/ERR_NORECIPIENT.cpp \
 			./commands/ERR_NOTEXTTOSEND.cpp \
 			./commands/ERR_UNKNOWNCOMMAND.cpp \
