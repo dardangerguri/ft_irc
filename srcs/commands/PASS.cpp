@@ -16,7 +16,7 @@ PASS &PASS::operator = (PASS const &copy) {
 }
 
 void PASS::handleCommand(std::string message, Client *source) {
-	std::vector<std::string> parameters = parseMessage(message);
+	std::vector<std::string> parameters = parseMessage(message, source);
 	if (parameters.empty())
 		commands->sendCommand(commands->errNeedMoreParams->arranger(this->command, source), source);
 	else if (source->hasMode('r'))
