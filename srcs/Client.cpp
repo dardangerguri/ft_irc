@@ -90,8 +90,15 @@ int Client::getSocketFd(void) {
 }
 
 std::string Client::getMsgFromBuffer(void) {
-	std::string message = this->msgBuffer.substr(0, this->msgBuffer.find("\r\n"));
-	this->msgBuffer = this->msgBuffer.substr(this->msgBuffer.find("\r\n") + 2);
+	std::string message;
+
+	size_t pos = this->msgBuffer.find("\r\n");
+	if (pos != std::string::npos) {
+		message = this->msgBuffer.substr(0, pos);
+		this->msgBuffer = this->msgBuffer.substr(pos + 2);
+	}
+	else
+		return ("");
 	return (message);
 }
 
