@@ -6,6 +6,9 @@
 # include "colors.h"
 # include <iostream>
 # include <unordered_set>
+# include <vector>
+
+class Channel;
 
 class Client {
 	public:
@@ -44,7 +47,10 @@ class Client {
 		std::string						realname;
 		bool							validPass;
 		std::unordered_set<char>		userMode;
-		// std::vector<Channel *>	joinedChannels;
+		std::vector<Channel *>	joinedChannels;
+		std::vector<Channel *>	invitedChannels;
 };
+
+# include "Channel.hpp"
 
 #endif

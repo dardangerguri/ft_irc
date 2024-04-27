@@ -77,7 +77,7 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplISupport->arranger(target, "AWAYLEN=200"), target);
 	sendCommand(rplISupport->arranger(target, "CASEMAPPING=rfc7613"), target);
 	sendCommand(rplISupport->arranger(target, "CHANLIMIT=#&:50"), target);
-	sendCommand(rplISupport->arranger(target, "CHANMODES=b,k,l,imnpst"), target);
+	sendCommand(rplISupport->arranger(target, "CHANMODES=,k,l,it"), target);
 	sendCommand(rplISupport->arranger(target, "CHANNELLEN=32"), target);
 	sendCommand(rplISupport->arranger(target, "CHANTYPES=#"), target);
 	sendCommand(rplISupport->arranger(target, "ELIST="), target);
@@ -91,9 +91,9 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplISupport->arranger(target, "MODES=12"), target);
 	sendCommand(rplISupport->arranger(target, "NETWORK=IRC\x20\\BOYS\x20Network"), target);
 	sendCommand(rplISupport->arranger(target, "NICKLEN=12"), target);
-	sendCommand(rplISupport->arranger(target, "PREFIX=(ov)@+"), target);
+	sendCommand(rplISupport->arranger(target, "PREFIX=(o)@"), target);
 	sendCommand(rplISupport->arranger(target, "SILENCE"), target);
-	sendCommand(rplISupport->arranger(target, "STATUSMSG=@+"), target);
+	sendCommand(rplISupport->arranger(target, "STATUSMSG=@"), target);
 	sendCommand(rplISupport->arranger(target, "TOPICLEN=307"), target);
 	sendCommand(rplISupport->arranger(target, "USERLEN=12"), target);
 	sendCommand(rplLUserClient->arranger(target), target);
