@@ -78,7 +78,7 @@ std::vector<std::string> USER::parseMessage(std::string message, Client *source)
 	size_t pos = restOfMessage.find_first_not_of(' ');
 	if (pos != std::string::npos) {
 		try {
-			parameters.push_back(restOfMessage.substr(restOfMessage.find_first_not_of(' ')));
+			parameters.push_back(restOfMessage.substr(pos));
 		}
 		catch (...) {
 			commands->sendCommand(commands->errUnknownError->arranger \
