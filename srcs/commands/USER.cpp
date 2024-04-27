@@ -1,5 +1,4 @@
 #include "USER.hpp"
-#include "ERR_NEEDMOREPARAMS.hpp"
 
 USER::USER(Commands *c) {
 	commands = c;

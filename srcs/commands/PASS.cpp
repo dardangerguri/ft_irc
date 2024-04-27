@@ -1,5 +1,4 @@
 #include "PASS.hpp"
-#include "ERR_NEEDMOREPARAMS.hpp"
 
 PASS::PASS(Commands *c) {
 	commands = c;
