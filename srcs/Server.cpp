@@ -210,6 +210,8 @@ void Server::parseMsg(std::string message, Client *client) {
 	size_t pos = restOfMessage.find_first_not_of(' ');
 	if (pos != std::string::npos)
 		restOfMessage = restOfMessage.substr(pos);
+	else
+		restOfMessage = "";
 
 	std::shared_ptr<ACommand> commandPtr = commands->getCommandFromList(command);
 	if (commandPtr) {
