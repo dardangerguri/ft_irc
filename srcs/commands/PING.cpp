@@ -14,7 +14,10 @@ PING &PING::operator = (PING const &copy) {
 }
 
 void PING::handleCommand(std::string message, Client *source) {
-	std::vector<std::string> parameters = parseMessage(message, source);
+	std::vector<std::string> parameters;
+	if (!message.empty())
+		parameters = parseMessage(message, source);
+
 	if (parameters.empty())
 		commands->sendCommand(commands->errNeedMoreParams->arranger(this->command, source), source);
 	else {

@@ -16,7 +16,10 @@ USER &USER::operator = (USER const &copy) {
 }
 
 void USER::handleCommand(std::string message, Client *source) {
-	std::vector<std::string> parameters = parseMessage(message, source);
+	std::vector<std::string> parameters;
+	if (!message.empty())
+		parameters = parseMessage(message, source);
+
 	if (parameters.size() == 4 && validateParameters(parameters)) {
 		if (source->hasMode('r'))
 			commands->sendCommand(commands->errAlreadyRegistered->arranger(source), source);
