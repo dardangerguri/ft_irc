@@ -43,8 +43,9 @@ class Commands {
 
 		std::shared_ptr<ACommand> getCommandFromList(std::string command);
 		void		sendCommand(std::string message, Client *target);
+		void		sendCommand(std::string message, Client *source, Client *target);
 		void		sendCommand(std::string message, Channel *target);
-		void		sendCommand(std::string message);
+		void		sendCommand(std::string message, Client *source, Channel *target);
 		void		registrationReply(Client *target);
 
 		std::shared_ptr<NICK>					nick;
