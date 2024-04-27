@@ -208,7 +208,7 @@ void Server::parseMsg(std::string message, Client *client) {
 	// remove spaces from the beginning of parameters
 	size_t pos = restOfMessage.find_first_not_of(' ');
 	if (pos != std::string::npos)
-		restOfMessage = restOfMessage.substr(restOfMessage.find_first_not_of(' '));
+		restOfMessage = restOfMessage.substr(pos);
 
 	std::shared_ptr<ACommand> commandPtr = commands->getCommandFromList(command);
 	if (commandPtr) {
