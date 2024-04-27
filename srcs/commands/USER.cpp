@@ -57,12 +57,12 @@ bool USER::validateParameters(std::vector<std::string> & parameters) {
 }
 
 std::vector<std::string> USER::parseMessage(std::string message, Client *source) {
-	int	i = 0;
-
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
-	std::string					word, restOfMessage;
+	std::string					word;
+	std::string					restOfMessage;
 
+	int	i = 0;
 	while (i++ < 3 && ss >> word) {
 		try {
 			parameters.push_back(word);
