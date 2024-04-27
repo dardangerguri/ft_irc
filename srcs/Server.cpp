@@ -200,8 +200,9 @@ void Server::parseMsg(std::string message, Client *client) {
 	}
 
 	// split command from parameters
-	std::stringstream ss(message);
-	std::string command, restOfMessage;
+	std::stringstream	ss(message);
+	std::string			command;
+	std::string			restOfMessage;
 	ss >> command;
 	std::getline(ss, restOfMessage);
 
