@@ -25,6 +25,7 @@ SRC     = 	main.cpp \
 			./commands/RPL_UMODEIS.cpp \
 			./commands/RPL_LUSERCLIENT.cpp \
 			./commands/RPL_LUSERME.cpp \
+			./commands/RPL_INVITING.cpp \
 			./commands/ERR_UNKNOWNERROR.cpp \
 			./commands/ERR_NOSUCHNICK.cpp \
 			./commands/ERR_NOSUCHCHANNEL.cpp \
