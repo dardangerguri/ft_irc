@@ -24,6 +24,7 @@ class RPL_LUSERCLIENT; //251
 class RPL_LUSERME; //255
 
 class ERR_UNKNOWNERROR; //400
+class ERR_NOSUCHNICK; //401
 class ERR_NOTEXTTOSEND; //412
 class ERR_UNKNOWNCOMMAND; //421
 class ERR_NOMOTD; //422
@@ -65,6 +66,7 @@ class Commands {
 		std::shared_ptr<RPL_LUSERME>			rplLUserMe;
 
 		std::shared_ptr<ERR_UNKNOWNERROR>		errUnknownError;
+		std::shared_ptr<ERR_NOSUCHNICK>			errNoSuchNick;
 		std::shared_ptr<ERR_NOTEXTTOSEND>		errNoTextToSend;
 		std::shared_ptr<ERR_UNKNOWNCOMMAND>		errUnknownCommand;
 		std::shared_ptr<ERR_NOMOTD>				errNoMotd;
@@ -100,6 +102,7 @@ class Commands {
 # include "RPL_LUSERME.hpp"
 
 # include "ERR_UNKNOWNERROR.hpp"
+# include "ERR_NOSUCHNICK.hpp"
 # include "ERR_NOTEXTTOSEND.hpp"
 # include "ERR_UNKNOWNCOMMAND.hpp"
 # include "ERR_NOMOTD.hpp"
