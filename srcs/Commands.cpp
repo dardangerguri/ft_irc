@@ -9,6 +9,7 @@ Commands::Commands(Server *s) {
 	ping = std::shared_ptr<PING>(new PING(this));
 	pong = std::shared_ptr<PONG>(new PONG(this));
 	privMsg = std::shared_ptr<PRIVMSG>(new PRIVMSG(this));
+	topic = std::shared_ptr<TOPIC>(new TOPIC(this));
 	user = std::shared_ptr<USER>(new USER(this));
 
 	rplWelcome = std::shared_ptr<RPL_WELCOME>(new RPL_WELCOME());
@@ -20,6 +21,8 @@ Commands::Commands(Server *s) {
 	rplLUserClient = std::shared_ptr<RPL_LUSERCLIENT>(new RPL_LUSERCLIENT(this));
 	rplLUserMe = std::shared_ptr<RPL_LUSERME>(new RPL_LUSERME(this));
 	rplNoTopic = std::shared_ptr<RPL_NOTOPIC>(new RPL_NOTOPIC());
+	rplTopic = std::shared_ptr<RPL_TOPIC>(new RPL_TOPIC());
+	rplTopicWhoTime = std::shared_ptr<RPL_TOPICWHOTIME>(new RPL_TOPICWHOTIME());
 	rplInviting = std::shared_ptr<RPL_INVITING>(new RPL_INVITING());
 
 	errUnknownError = std::shared_ptr<ERR_UNKNOWNERROR>(new ERR_UNKNOWNERROR());
@@ -47,6 +50,7 @@ Commands::Commands(Server *s) {
 		commandList["PING"] = this->ping;
 		commandList["PONG"] = this->pong;
 		commandList["PRIVMSG"] = this->privMsg;
+		commandList["TOPIC"] = this->topic;
 		commandList["USER"] = this->user;
 	}
 	catch (std::exception &e) {

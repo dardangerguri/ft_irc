@@ -17,6 +17,7 @@ SRC     = 	main.cpp \
 			./commands/PING.cpp \
 			./commands/PONG.cpp \
 			./commands/PRIVMSG.cpp \
+			./commands/TOPIC.cpp \
 			./commands/USER.cpp \
 			./commands/RPL_WELCOME.cpp \
 			./commands/RPL_YOURHOST.cpp \
@@ -27,6 +28,8 @@ SRC     = 	main.cpp \
 			./commands/RPL_LUSERCLIENT.cpp \
 			./commands/RPL_LUSERME.cpp \
 			./commands/RPL_NOTOPIC.cpp \
+			./commands/RPL_TOPIC.cpp \
+			./commands/RPL_TOPICWHOTIME.cpp \
 			./commands/RPL_INVITING.cpp \
 			./commands/ERR_UNKNOWNERROR.cpp \
 			./commands/ERR_NOSUCHNICK.cpp \

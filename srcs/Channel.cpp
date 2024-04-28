@@ -14,6 +14,14 @@ std::string Channel::getTopic() {
 	return (topic);
 }
 
+std::string Channel::getTopicAuthor(void) {
+	return (topicAuthor);
+}
+
+std::time_t Channel::getTopicTime(void) {
+	return (topicTime);
+}
+
 unsigned int Channel::getUserLimit() {
 	return (userLimit);
 }
@@ -24,6 +32,14 @@ std::unordered_set<Client *> Channel::getUserList() {
 
 void Channel::setTopic(std::string newTopic) {
 	topic = newTopic;
+}
+
+void Channel::setTopicAuthor(Client *user) {
+	topicAuthor = user->getNickname();
+}
+
+void Channel::setTopicTime(std::time_t time) {
+	topicTime = time;
 }
 
 void Channel::setUserLimit(unsigned int newLimit) {
