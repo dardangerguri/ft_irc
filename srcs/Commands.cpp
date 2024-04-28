@@ -3,6 +3,7 @@
 Commands::Commands(Server *s) {
 	server = s;
 
+	invite = std::shared_ptr<INVITE>(new INVITE(this));
 	nick = std::shared_ptr<NICK>(new NICK(this));
 	pass = std::shared_ptr<PASS>(new PASS(this));
 	ping = std::shared_ptr<PING>(new PING(this));
@@ -39,6 +40,7 @@ Commands::Commands(Server *s) {
 	errChanOPrivsNeeded = std::shared_ptr<ERR_CHANOPRIVSNEEDED>(new ERR_CHANOPRIVSNEEDED());
 
 	try {
+		commandList["INVITE"] = this->invite;
 		commandList["NICK"] = this->nick;
 		commandList["PASS"] = this->pass;
 		commandList["PING"] = this->ping;

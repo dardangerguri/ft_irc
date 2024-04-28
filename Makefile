@@ -11,6 +11,7 @@ SRC     = 	main.cpp \
 			Channel.cpp \
 			Commands.cpp \
 			./commands/ACommand.cpp \
+			./commands/INVITE.cpp \
 			./commands/NICK.cpp \
 			./commands/PASS.cpp \
 			./commands/PING.cpp \

@@ -8,6 +8,7 @@
 # include <unordered_map>
 # include <memory>
 
+class INVITE;
 class NICK;
 class PASS;
 class PING;
@@ -57,6 +58,7 @@ class Commands {
 		void		sendCommand(std::string message, Client *source, Channel *target);
 		void		registrationReply(Client *target);
 
+		std::shared_ptr<INVITE>					invite;
 		std::shared_ptr<NICK>					nick;
 		std::shared_ptr<PASS>					pass;
 		std::shared_ptr<PING>					ping;
@@ -100,6 +102,7 @@ class Commands {
 		std::unordered_map<std::string, std::shared_ptr<ACommand>>	commandList;
 };
 
+# include "INVITE.hpp"
 # include "NICK.hpp"
 # include "PASS.hpp"
 # include "PING.hpp"
