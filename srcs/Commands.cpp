@@ -19,6 +19,7 @@ Commands::Commands(Server *s) {
 	rplLUserMe = std::shared_ptr<RPL_LUSERME>(new RPL_LUSERME(this));
 
 	errUnknownError = std::shared_ptr<ERR_UNKNOWNERROR>(new ERR_UNKNOWNERROR());
+	errNoTextToSend = std::shared_ptr<ERR_NOTEXTTOSEND>(new ERR_NOTEXTTOSEND());
 	errUnknownCommand = std::shared_ptr<ERR_UNKNOWNCOMMAND>(new ERR_UNKNOWNCOMMAND());
 	errNoMotd = std::shared_ptr<ERR_NOMOTD>(new ERR_NOMOTD());
 	errNoNicknameGiven = std::shared_ptr<ERR_NONICKNAMEGIVEN>(new ERR_NONICKNAMEGIVEN());
