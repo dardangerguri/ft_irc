@@ -9,6 +9,7 @@ Commands::Commands(Server *s) {
 	ping = std::shared_ptr<PING>(new PING(this));
 	pong = std::shared_ptr<PONG>(new PONG(this));
 	privMsg = std::shared_ptr<PRIVMSG>(new PRIVMSG(this));
+	topic = std::shared_ptr<TOPIC>(new TOPIC(this));
 	user = std::shared_ptr<USER>(new USER(this));
 
 	rplWelcome = std::shared_ptr<RPL_WELCOME>(new RPL_WELCOME());
@@ -47,6 +48,7 @@ Commands::Commands(Server *s) {
 		commandList["PING"] = this->ping;
 		commandList["PONG"] = this->pong;
 		commandList["PRIVMSG"] = this->privMsg;
+		commandList["TOPIC"] = this->topic;
 		commandList["USER"] = this->user;
 	}
 	catch (std::exception &e) {

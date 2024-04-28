@@ -17,6 +17,7 @@ SRC     = 	main.cpp \
 			./commands/PING.cpp \
 			./commands/PONG.cpp \
 			./commands/PRIVMSG.cpp \
+			./commands/TOPIC.cpp \
 			./commands/USER.cpp \
 			./commands/RPL_WELCOME.cpp \
 			./commands/RPL_YOURHOST.cpp \
