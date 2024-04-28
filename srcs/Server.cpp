@@ -17,7 +17,7 @@ Server::~Server() {
 	std::for_each(clients.begin(), clients.end(), [](Client *c){delete c;});
 	clients.clear();
 
-	std::for_each(channels.begin(), channels.end(), [](Channel *c){delete c;});
+	std::for_each(channels.begin(), channels.end(), [](std::pair<std::string, Channel *>c){delete c.second;});
 	channels.clear();
 
 	delete commands;
@@ -59,6 +59,49 @@ bool Server::nickExists(std::string input) {
 
 unsigned int Server::getClientCount() {
 	return (clients.size());
+}
+
+bool Server::addChannel(std::string channelName) {
+	Channel *newChannel;
+
+	try {
+		try {
+			newChannel = new Channel(channelName);
+		}
+		catch (...) {
+			return (false);
+		}
+		channels.insert({channelName, newChannel});
+		return (true);
+	}
+	catch (...) {
+		delete newChannel;
+		return (false);
+	}
+}
+
+bool Server::delChannel(std::string channelName) {
+	std::unordered_map<std::string, Channel *>::iterator chanIter;
+
+	chanIter = channels.find(channelName);
+	if (chanIter != channels.end()) {
+		delete (chanIter->second);
+		channels.erase(chanIter);
+		return (true);
+	}
+	return (false);
+}
+
+bool Server::channelExists(std::string channelName) {
+	if (channels.find(channelName) != channels.end())
+		return (true);
+	return (false);
+}
+
+Channel *Server::getChannel(std::string channelName) {
+	if (channelExists(channelName))
+		return (channels[channelName]);
+	return (nullptr);
 }
 
 void	Server::initListenSocket() {

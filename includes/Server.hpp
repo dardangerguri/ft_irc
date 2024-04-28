@@ -14,6 +14,7 @@
 # include <netinet/in.h>
 # include <poll.h>
 # include <algorithm>
+# include <unordered_map>
 
 class Commands;
 
@@ -26,19 +27,23 @@ class Server {
 		bool			checkPassword(std::string input);
 		bool			nickExists(std::string input);
 		unsigned int	getClientCount();
+		bool			addChannel(std::string channelName);
+		bool			delChannel(std::string channelName);
+		bool			channelExists(std::string channelName);
+		Channel			*getChannel(std::string channelName);
 
 	private:
 		Server();
 		Server(Server const &copy);
 		Server &operator=(Server const &copy);
 
-		unsigned int			port;
-		std::string				password;
-		int						serverSocket;
-		std::vector<pollfd> 	pfds;
-		std::vector<Client *>	clients;
-		std::vector<Channel *>	channels;
-		Commands				*commands;
+		unsigned int								port;
+		std::string									password;
+		int											serverSocket;
+		std::vector<pollfd> 						pfds;
+		std::vector<Client *>						clients;
+		std::unordered_map<std::string, Channel *>	channels;
+		Commands									*commands;
 
 		void	validatePort(char *port);
 		void	validatePassword(char *password);
