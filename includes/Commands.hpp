@@ -35,6 +35,7 @@ class ERR_NONICKNAMEGIVEN; //431
 class ERR_ERRONEUSNICKNAME; //432
 class ERR_NICKNAMEINUSE; //433
 class ERR_NOTONCHANNEL; //442
+class ERR_USERONCHANNEL; //443
 class ERR_NOTREGISTERED; //451
 class ERR_NEEDMOREPARAMS; //461
 class ERR_ALREADYREGISTERED; //462
@@ -81,6 +82,7 @@ class Commands {
 		std::shared_ptr<ERR_ERRONEUSNICKNAME>	errErroneusNickname;
 		std::shared_ptr<ERR_NICKNAMEINUSE>		errNicknameInUse;
 		std::shared_ptr<ERR_NOTONCHANNEL>		errNotOnChannel;
+		std::shared_ptr<ERR_USERONCHANNEL>		errUserOnChannel;
 		std::shared_ptr<ERR_NOTREGISTERED>		errNotRegistered;
 		std::shared_ptr<ERR_NEEDMOREPARAMS>		errNeedMoreParams;
 		std::shared_ptr<ERR_ALREADYREGISTERED>	errAlreadyRegistered;
@@ -121,6 +123,7 @@ class Commands {
 # include "ERR_ERRONEUSNICKNAME.hpp"
 # include "ERR_NICKNAMEINUSE.hpp"
 # include "ERR_NOTONCHANNEL.hpp"
+# include "ERR_USERONCHANNEL.hpp"
 # include "ERR_NOTREGISTERED.hpp"
 # include "ERR_NEEDMOREPARAMS.hpp"
 # include "ERR_ALREADYREGISTERED.hpp"
