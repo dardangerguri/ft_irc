@@ -35,6 +35,7 @@ SRC     = 	main.cpp \
 			./commands/ERR_NONICKNAMEGIVEN.cpp \
 			./commands/ERR_ERRONEUSNICKNAME.cpp \
 			./commands/ERR_NICKNAMEINUSE.cpp \
+			./commands/ERR_NOTONCHANNEL.cpp \
 			./commands/ERR_NOTREGISTERED.cpp \
 			./commands/ERR_NEEDMOREPARAMS.cpp \
 			./commands/ERR_ALREADYREGISTERED.cpp \
