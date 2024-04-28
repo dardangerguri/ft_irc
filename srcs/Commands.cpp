@@ -20,6 +20,7 @@ Commands::Commands(Server *s) {
 
 	errUnknownError = std::shared_ptr<ERR_UNKNOWNERROR>(new ERR_UNKNOWNERROR());
 	errNoSuchNick = std::shared_ptr<ERR_NOSUCHNICK>(new ERR_NOSUCHNICK());
+	errNoRecipient = std::shared_ptr<ERR_NORECIPIENT>(new ERR_NORECIPIENT());
 	errNoTextToSend = std::shared_ptr<ERR_NOTEXTTOSEND>(new ERR_NOTEXTTOSEND());
 	errUnknownCommand = std::shared_ptr<ERR_UNKNOWNCOMMAND>(new ERR_UNKNOWNCOMMAND());
 	errNoMotd = std::shared_ptr<ERR_NOMOTD>(new ERR_NOMOTD());
