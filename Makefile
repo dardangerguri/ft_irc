@@ -41,6 +41,7 @@ SRC     = 	main.cpp \
 			./commands/ERR_NEEDMOREPARAMS.cpp \
 			./commands/ERR_ALREADYREGISTERED.cpp \
 			./commands/ERR_PASSWDMISMATCH.cpp \
+			./commands/ERR_CHANOPRIVSNEEDED.cpp \
 
 OBJ_D   = obj/
 OBJ     = $(SRC:.cpp=.o)
