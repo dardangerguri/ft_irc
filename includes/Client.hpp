@@ -7,6 +7,7 @@
 # include <iostream>
 # include <unordered_set>
 # include <vector>
+# include <unordered_map>
 
 class Channel;
 
@@ -35,20 +36,27 @@ class Client {
 		void		setRealname(std::string newRealname);
 		void		setValidPass(void);
 
+		bool		joinChannel(Channel *channel);
+		void		leaveChannel(Channel *channel);
+		bool		inviteToChannel(Channel *channel);
+		void		removeInviteToChannel(Channel *channel);
+		bool		inChannel(Channel *channel);
+		bool		isInvitedToChannel(Channel *channel);
+
 	private:
 		Client(void);
 		Client(Client const &copy);
 		Client &operator=(Client const &copy);
 
-		int 							socketFd;
-		std::string						msgBuffer;
-		std::string						nickname;
-		std::string						username;
-		std::string						realname;
-		bool							validPass;
-		std::unordered_set<char>		userMode;
-		std::vector<Channel *>	joinedChannels;
-		std::vector<Channel *>	invitedChannels;
+		int 										socketFd;
+		std::string									msgBuffer;
+		std::string									nickname;
+		std::string									username;
+		std::string									realname;
+		bool										validPass;
+		std::unordered_set<char>					userMode;
+		std::unordered_map<std::string, Channel *>	joinedChannels;
+		std::unordered_map<std::string, Channel *>	invitedChannels;
 };
 
 # include "Channel.hpp"

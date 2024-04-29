@@ -99,6 +99,12 @@ bool Channel::userJoin(Client *user) {
 	catch (...) {
 		return (false);
 	}
+	if (!user->inChannel(this)) {
+		if (!user->joinChannel(this)) {
+			users.erase(user);
+			return (false);
+		}
+	}
 	return (true);
 }
 

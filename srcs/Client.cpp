@@ -134,3 +134,52 @@ void Client::setRealname(std::string newRealname) {
 void Client::setValidPass(void) {
 	this->validPass = true;
 }
+
+bool Client::joinChannel(Channel *channel) {
+	try {
+		joinedChannels.insert({channel->getName(), channel});
+	}
+	catch (...) {
+		return (false);
+	}
+	if (!channel->userIsJoined(this)) {
+		if (!channel->userJoin(this)) {
+			joinedChannels.erase(channel->getName());
+			return (false);
+		}
+	}
+	return (true);
+}
+
+void Client::leaveChannel(Channel *channel) {
+	joinedChannels.erase(channel->getName());
+	if (channel->userIsJoined(this))
+		channel->userLeave(this);
+}
+
+bool Client::inviteToChannel(Channel *channel) {
+	try {
+		invitedChannels.insert({channel->getName(), channel});
+	}
+	catch (...) {
+		return (false);
+	}
+	return (true);
+}
+
+void Client::removeInviteToChannel(Channel *channel) {
+	invitedChannels.erase(channel->getName());
+}
+
+
+bool Client::inChannel(Channel *channel) {
+	if (joinedChannels.find(channel->getName()) != joinedChannels.end())
+		return (true);
+	return (false);
+}
+
+bool Client::isInvitedToChannel(Channel *channel) {
+	if (invitedChannels.find(channel->getName()) != invitedChannels.end())
+		return (true);
+	return (false);
+}
