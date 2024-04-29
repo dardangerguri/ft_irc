@@ -24,6 +24,7 @@ class RPL_ISUPPORT; //005
 class RPL_UMODEIS; //221
 class RPL_LUSERCLIENT; //251
 class RPL_LUSERME; //255
+class RPL_NOTOPIC; //331
 class RPL_INVITING; //341
 
 class ERR_UNKNOWNERROR; //400
@@ -74,6 +75,7 @@ class Commands {
 		std::shared_ptr<RPL_UMODEIS>			rplUModeIs;
 		std::shared_ptr<RPL_LUSERCLIENT>		rplLUserClient;
 		std::shared_ptr<RPL_LUSERME>			rplLUserMe;
+		std::shared_ptr<RPL_NOTOPIC>			rplNoTopic;
 		std::shared_ptr<RPL_INVITING>			rplInviting;
 
 		std::shared_ptr<ERR_UNKNOWNERROR>		errUnknownError;
@@ -118,6 +120,7 @@ class Commands {
 # include "RPL_UMODEIS.hpp"
 # include "RPL_LUSERCLIENT.hpp"
 # include "RPL_LUSERME.hpp"
+# include "RPL_NOTOPIC.hpp"
 # include "RPL_INVITING.hpp"
 
 # include "ERR_UNKNOWNERROR.hpp"
