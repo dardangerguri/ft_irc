@@ -4,7 +4,6 @@
 # include "colors.h"
 # include "Client.hpp"
 # include <iostream>
-# include <vector>
 # include <unordered_set>
 
 class Channel {
@@ -26,23 +25,24 @@ class Channel {
 		bool			delMode(char mode);
 		bool			hasMode(char mode);
 		bool			userJoin(Client *user);
-		bool			userLeave(Client *user);
+		void			userLeave(Client *user);
+		bool			userIsJoined(Client *user);
 		bool			userIsOperator(Client *user);
 		bool			userMakeOperator(Client *user);
-		bool			userRemoveOperator(Client *user);
+		void			userRemoveOperator(Client *user);
 
 	private:
 		Channel(void);
 		Channel(Channel const &copy);
 		Channel &operator=(Channel const &copy);
 
-		std::string					name;
-		std::string					topic;
-		std::string					password;
-		unsigned int				userLimit;
-		std::vector<Client *>		users;
-		std::vector<Client *>		operators;
-		std::unordered_set<char>	channelMode;
+		std::string						name;
+		std::string						topic;
+		std::string						password;
+		unsigned int					userLimit;
+		std::unordered_set<Client *>	users;
+		std::unordered_set<Client *>	operators;
+		std::unordered_set<char>		channelMode;
 };
 
 #endif

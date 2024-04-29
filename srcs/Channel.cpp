@@ -93,26 +93,41 @@ bool Channel::hasMode(char mode) {
 }
 
 bool Channel::userJoin(Client *user) {
-	(void)user;
-	return (false);
+	try {
+		users.insert(user);
+	}
+	catch (...) {
+		return (false);
+	}
+	return (true);
 }
 
-bool Channel::userLeave(Client *user) {
-	(void)user;
+void Channel::userLeave(Client *user) {
+	users.erase(user);
+}
+
+bool Channel::userIsJoined(Client *user) {
+	if (users.find(user) != users.end())
+		return (true);
 	return (false);
 }
 
 bool Channel::userIsOperator(Client *user) {
-	(void)user;
+	if (operators.find(user) != operators.end())
+		return (true);
 	return (false);
 }
 
 bool Channel::userMakeOperator(Client *user) {
-	(void)user;
-	return (false);
+	try {
+		operators.insert(user);
+	}
+	catch (...) {
+		return (false);
+	}
+	return (true);
 }
 
-bool Channel::userRemoveOperator(Client *user) {
-	(void)user;
-	return (false);
+void Channel::userRemoveOperator(Client *user) {
+	operators.erase(user);
 }
