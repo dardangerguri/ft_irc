@@ -23,48 +23,57 @@ void TOPIC::handleCommand(std::string message, Client *source) {
 	if (parameters.empty())
 		commands->sendCommand(commands->errNeedMoreParams->arranger(this->command, source), source);
 	else if (parameters[0][0] == '#') {
-		parameters[0].erase(0, 1);
 		channel = commands->server->getChannel(parameters[0]);
 		if (channel) {
 			if (parameters.size() == 1) {
-				// check topic: send (RPL_TOPIC & RPL_TOPICWHOTIME) or RPL_NOTOPIC or ERR_NOTONCHANNEL
 				if (channel->userIsJoined(source)) {
 					if (channel->getTopic().empty())
-						return ; // RPL_NOTOPIC (331) 
-					else
-						return ; // RPL_TOPIC (332) & RPL_TOPICWHOTIME (333)
+						commands->sendCommand(commands->rplNoTopic->arranger(source, channel), channel);
+					else {
+						commands->sendCommand(commands->rplTopic->arranger(source, channel), channel);
+						commands->sendCommand(commands->rplTopicWhoTime->arranger(source, channel), channel);
+					}
 				}
 				else
-					return ; // ERR_NOTONCHANNEL (442)
+					commands->sendCommand(commands->errNotOnChannel->arranger(source, channel), channel);
 			}
 			else {
-				// set topic (still need to check for modes and stuff, this is still rough prototype)
 				if (channel->hasMode('t')) {
-					if (!source->hasMode('o') && !source->hasMode('O') && !channel->userIsOperator(source)) {
-						return ; //ERR_CHANOPRIVSNEEDED (482)
+					if (!channel->userIsOperator(source)) {
+						commands->sendCommand(commands->errChanOPrivsNeeded->arranger(source, channel), channel);
+						return ;
 					}
 				}
 				if (parameters[1][0] == ':' && parameters[1].size() == 1) {
 					channel->setTopic("");
-					commands->sendCommand(commands->topic->arranger(command, channel, parameters), source, channel);
+					channel->setTopicTime(getCurrTime());
+					channel->setTopicAuthor(source);
+					commands->sendCommand(arranger(command, channel, parameters[1]), source, channel);
 				}
 				else if (parameters[1][0] == ':') {
 					placeholder = parameters[1];
 					placeholder.erase(0, 1);
 					channel->setTopic(placeholder);
-					commands->sendCommand(commands->topic->arranger(command, channel, parameters), source, channel);
+					channel->setTopicTime(getCurrTime());
+					channel->setTopicAuthor(source);
+					commands->sendCommand(arranger(command, channel, parameters[1]), source, channel);
 				}
-				// we could just sendCommand here, but I'm not sure how to deal with if there is no ":" at the beginning of the topic name
-				// now we don't do anything if its missing
 			}
 		}
 		else
-			return ; // ERR_NOSUCHCHANNEL (403)
+			commands->sendCommand(commands->errNoSuchChannel->arranger(parameters[0], source), channel);
 	}
 }
 
 std::string TOPIC::arranger(std::string command, Channel *channel, std::string parameters) {
-	return (command + " " + "#" + channel->getName() + " " + parameters); //paramaters is going to have the ":" at the beginning
+	return (command + " " + channel->getName() + " " + parameters);
+}
+
+std::time_t	TOPIC::getCurrTime(void) {
+	std::chrono::system_clock::time_point n = std::chrono::system_clock::now();
+	std::chrono::seconds s = std::chrono::duration_cast<std::chrono::seconds>(n.time_since_epoch());
+	std::time_t unix_timestamp = s.count();
+	return (unix_timestamp);
 }
 
 std::vector<std::string> TOPIC::parseMessage(std::string message, Client *source) {

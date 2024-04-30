@@ -2,6 +2,7 @@
 # define TOPIC_HPP
 
 # include "ACommand.hpp"
+# include <chrono>
 
 class TOPIC : public ACommand {
 	public:
@@ -17,7 +18,8 @@ class TOPIC : public ACommand {
 		TOPIC(void);
 		TOPIC(TOPIC const &copy);
 
-		std::vector<std::string> parseMessage(std::string message, Client *source);
+		std::vector<std::string>	parseMessage(std::string message, Client *source);
+		std::time_t					getCurrTime(void);
 };
 
 #endif

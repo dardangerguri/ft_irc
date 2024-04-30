@@ -13,10 +13,14 @@ class Channel {
 
 		std::string						getName(void);
 		std::string						getTopic(void);
+		std::string						getTopicAuthor(void);
+		std::time_t						getTopicTime(void);
 		unsigned int					getUserLimit(void);
 		std::unordered_set<Client *>	getUserList(void);
 
 		void							setTopic(std::string newTopic);
+		void							setTopicAuthor(Client *user);
+		void							setTopicTime(std::time_t time);
 		void							setUserLimit(unsigned int newLimit);
 
 		bool							checkPassword(std::string input);
@@ -39,6 +43,8 @@ class Channel {
 
 		std::string						name;
 		std::string						topic;
+		std::string						topicAuthor;
+		std::time_t						topicTime;
 		std::string						password;
 		unsigned int					userLimit;
 		std::unordered_set<Client *>	users;

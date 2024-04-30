@@ -21,6 +21,8 @@ Commands::Commands(Server *s) {
 	rplLUserClient = std::shared_ptr<RPL_LUSERCLIENT>(new RPL_LUSERCLIENT(this));
 	rplLUserMe = std::shared_ptr<RPL_LUSERME>(new RPL_LUSERME(this));
 	rplNoTopic = std::shared_ptr<RPL_NOTOPIC>(new RPL_NOTOPIC());
+	rplTopic = std::shared_ptr<RPL_TOPIC>(new RPL_TOPIC());
+	rplTopicWhoTime = std::shared_ptr<RPL_TOPICWHOTIME>(new RPL_TOPICWHOTIME());
 	rplInviting = std::shared_ptr<RPL_INVITING>(new RPL_INVITING());
 
 	errUnknownError = std::shared_ptr<ERR_UNKNOWNERROR>(new ERR_UNKNOWNERROR());
