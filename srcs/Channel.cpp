@@ -110,6 +110,7 @@ bool Channel::userJoin(Client *user) {
 
 void Channel::userLeave(Client *user) {
 	users.erase(user);
+	userRemoveOperator(user);
 }
 
 bool Channel::userIsJoined(Client *user) {
