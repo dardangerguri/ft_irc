@@ -11,25 +11,26 @@ class Channel {
 		Channel(std::string name);
 		~Channel(void);
 
-		std::string		getName(void);
-		std::string		getTopic(void);
-		unsigned int	getUserLimit(void);
+		std::string						getName(void);
+		std::string						getTopic(void);
+		unsigned int					getUserLimit(void);
+		std::unordered_set<Client *>	getUserList(void);
 
-		void			setTopic(std::string newTopic);
-		void			setUserLimit(unsigned int newLimit);
+		void							setTopic(std::string newTopic);
+		void							setUserLimit(unsigned int newLimit);
 
-		bool			checkPassword(std::string input);
-		bool			validatePassword(char *password);
-		bool			isAllowedChannelMode(char mode);
-		bool			addMode(char mode);
-		bool			delMode(char mode);
-		bool			hasMode(char mode);
-		bool			userJoin(Client *user);
-		void			userLeave(Client *user);
-		bool			userIsJoined(Client *user);
-		bool			userIsOperator(Client *user);
-		bool			userMakeOperator(Client *user);
-		void			userRemoveOperator(Client *user);
+		bool							checkPassword(std::string input);
+		bool							validatePassword(char *password);
+		bool							isAllowedChannelMode(char mode);
+		bool							addMode(char mode);
+		bool							delMode(char mode);
+		bool							hasMode(char mode);
+		bool							userJoin(Client *user);
+		void							userLeave(Client *user);
+		bool							userIsJoined(Client *user);
+		bool							userIsOperator(Client *user);
+		bool							userMakeOperator(Client *user);
+		void							userRemoveOperator(Client *user);
 
 	private:
 		Channel(void);

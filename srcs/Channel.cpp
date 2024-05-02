@@ -18,6 +18,10 @@ unsigned int Channel::getUserLimit() {
 	return (userLimit);
 }
 
+std::unordered_set<Client *> Channel::getUserList() {
+	return (users);
+}
+
 void Channel::setTopic(std::string newTopic) {
 	topic = newTopic;
 }
