@@ -4,6 +4,7 @@ Commands::Commands(Server *s) {
 	server = s;
 
 	invite = std::shared_ptr<INVITE>(new INVITE(this));
+	join = std::shared_ptr<JOIN>(new JOIN(this));
 	nick = std::shared_ptr<NICK>(new NICK(this));
 	part = std::shared_ptr<PART>(new PART(this));
 	pass = std::shared_ptr<PASS>(new PASS(this));
@@ -53,6 +54,7 @@ Commands::Commands(Server *s) {
 
 	try {
 		commandList["INVITE"] = this->invite;
+		commandList["JOIN"] = this->join;
 		commandList["NICK"] = this->nick;
 		commandList["PART"] = this->part;
 		commandList["PASS"] = this->pass;

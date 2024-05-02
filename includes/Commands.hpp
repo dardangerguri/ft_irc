@@ -9,6 +9,7 @@
 # include <memory>
 
 class INVITE;
+class JOIN;
 class NICK;
 class PART;
 class PASS;
@@ -73,6 +74,7 @@ class Commands {
 
 
 		std::shared_ptr<INVITE>					invite;
+		std::shared_ptr<JOIN>					join;
 		std::shared_ptr<NICK>					nick;
 		std::shared_ptr<PART>					part;
 		std::shared_ptr<PASS>					pass;
@@ -129,6 +131,7 @@ class Commands {
 };
 
 # include "INVITE.hpp"
+# include "JOIN.hpp"
 # include "NICK.hpp"
 # include "PART.hpp"
 # include "PASS.hpp"
