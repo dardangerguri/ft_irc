@@ -80,18 +80,28 @@ void Commands::sendCommand(std::string message, Client *source, Client *target) 
 }
 
 void Commands::sendCommand(std::string message, Channel *target) {
-	// send command to every client in channel
-	(void)message;
-	(void)target;
-	return ;
+	//Debug
+	std::cerr << BLUE "Sending to" RESET + target->getName() + BLUE ": " RESET + message << std::endl;
+
+	message += "\r\n";
+	for (Client *user : target->getUserList()) {
+		if (send(user->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+			std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
+		}
+	}
 }
 
 void Commands::sendCommand(std::string message, Client *source, Channel *target) {
-	// send command to every client in channel
-	(void)source;
-	(void)message;
-	(void)target;
-	return ;
+	std::string response = ":" + source->getNickname() + " " + message + "\r\n";
+
+	//Debug
+	std::cerr << BLUE "Sending to" RESET + target->getName() + BLUE ": " RESET + response << std::endl;
+
+	for (Client *user : target->getUserList()) {
+		if (send(user->getSocketFd(), response.c_str(), response.length(), 0) == -1) {
+			std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
+		}
+	}
 }
 
 //FIXME: check ISupport values
