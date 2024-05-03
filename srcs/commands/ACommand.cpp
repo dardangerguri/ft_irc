@@ -31,3 +31,18 @@ void ACommand::handleCommand(std::string message, Client *source) {
 bool ACommand::getRequireRegistration(void) {
 	return (requireRegistration);
 }
+
+// NOTE: The function can fail with an exception
+std::vector<std::string> ACommand::splitComma(std::string input) const {
+	std::vector<std::string>	parameters;
+	std::stringstream			ss(input);
+	std::string					param;
+
+	while(ss.good())
+	{
+		getline(ss, param, ',');
+		parameters.push_back(param);
+	}
+
+	return (parameters);
+}

@@ -6,6 +6,7 @@
 # include <iostream>
 # include <string>
 # include <sstream>
+# include <vector>
 
 class Commands;
 
@@ -23,6 +24,8 @@ class ACommand {
 		std::string		command;
 		Commands		*commands;
 		bool			requireRegistration = true;
+
+		std::vector<std::string>	splitComma(std::string input) const;
 
 	private:
 		ACommand(ACommand const &copy);
