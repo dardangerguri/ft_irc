@@ -57,9 +57,9 @@ bool Channel::checkPassword(std::string input) {
 	return (false);
 }
 
-bool Channel::validatePassword(char *password) {
+bool Channel::validatePassword(std::string password) {
 	// FIXME if validation fails, send ERR_INVALIDMODEPARAM or ERR_INVALIDKEY to client
-	if (password[0]	== '\0')
+	if (password.empty())
 		return (false);
 	if (std::string(password).find(' ') != std::string::npos)
 		return (false);

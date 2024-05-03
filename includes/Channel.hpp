@@ -25,7 +25,7 @@ class Channel {
 		void							setUserLimit(unsigned int newLimit);
 
 		bool							checkPassword(std::string input);
-		bool							validatePassword(char *password);
+		bool							validatePassword(std::string password);
 		bool							isAllowedChannelMode(char mode);
 		bool							addMode(char mode);
 		bool							delMode(char mode);
