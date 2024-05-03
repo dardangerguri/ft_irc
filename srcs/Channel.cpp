@@ -26,6 +26,10 @@ unsigned int Channel::getUserLimit() {
 	return (userLimit);
 }
 
+unsigned int Channel::getUserCount() {
+	return (users.size());
+}
+
 std::unordered_set<Client *> Channel::getUserList() {
 	return (users);
 }

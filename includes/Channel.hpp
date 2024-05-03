@@ -16,6 +16,7 @@ class Channel {
 		std::string						getTopicAuthor(void);
 		std::time_t						getTopicTime(void);
 		unsigned int					getUserLimit(void);
+		unsigned int					getUserCount(void);
 		std::unordered_set<Client *>	getUserList(void);
 
 		void							setTopic(std::string newTopic);
