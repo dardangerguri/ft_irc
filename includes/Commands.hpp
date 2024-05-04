@@ -48,6 +48,7 @@ class ERR_ALREADYREGISTERED; //462
 class ERR_PASSWDMISMATCH; //464
 class ERR_CHANNELISFULL; //471
 class ERR_INVITEONLYCHAN; //473
+class ERR_BADCHANNELKEY; //475
 class ERR_CHANOPRIVSNEEDED; //482
 
 class Commands {
@@ -104,6 +105,7 @@ class Commands {
 		std::shared_ptr<ERR_PASSWDMISMATCH>		errPasswMismatch;
 		std::shared_ptr<ERR_CHANNELISFULL>		errChannelIsFull;
 		std::shared_ptr<ERR_INVITEONLYCHAN>		errInviteOnlyChan;
+		std::shared_ptr<ERR_BADCHANNELKEY>		errBadChannelKey;
 		std::shared_ptr<ERR_CHANOPRIVSNEEDED>	errChanOPrivsNeeded;
 
 	private:
@@ -154,6 +156,7 @@ class Commands {
 # include "ERR_PASSWDMISMATCH.hpp"
 # include "ERR_CHANNELISFULL.hpp"
 # include "ERR_INVITEONLYCHAN.hpp"
+# include "ERR_BADCHANNELKEY.hpp"
 # include "ERR_CHANOPRIVSNEEDED.hpp"
 
 #endif
