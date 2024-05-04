@@ -100,7 +100,7 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplMyInfo->arranger(target), target);
 	sendCommand(rplISupport->arranger(target, "AWAYLEN=200"), target);
 	sendCommand(rplISupport->arranger(target, "CASEMAPPING=rfc7613"), target);
-	sendCommand(rplISupport->arranger(target, "CHANLIMIT=#&:50"), target);
+	sendCommand(rplISupport->arranger(target, "CHANLIMIT=#:"), target);
 	sendCommand(rplISupport->arranger(target, "CHANMODES=,k,l,it"), target);
 	sendCommand(rplISupport->arranger(target, "CHANNELLEN=32"), target);
 	sendCommand(rplISupport->arranger(target, "CHANTYPES=#"), target);
