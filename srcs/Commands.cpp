@@ -44,6 +44,7 @@ Commands::Commands(Server *s) {
 	errChannelIsFull = std::shared_ptr<ERR_CHANNELISFULL>(new ERR_CHANNELISFULL());
 	errInviteOnlyChan = std::shared_ptr<ERR_INVITEONLYCHAN>(new ERR_INVITEONLYCHAN());
 	errBadChannelKey = std::shared_ptr<ERR_BADCHANNELKEY>(new ERR_BADCHANNELKEY());
+	errBadChanMask = std::shared_ptr<ERR_BADCHANMASK>(new ERR_BADCHANMASK());
 	errChanOPrivsNeeded = std::shared_ptr<ERR_CHANOPRIVSNEEDED>(new ERR_CHANOPRIVSNEEDED());
 
 	try {
