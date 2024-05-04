@@ -42,6 +42,7 @@ Commands::Commands(Server *s) {
 	errAlreadyRegistered = std::shared_ptr<ERR_ALREADYREGISTERED>(new ERR_ALREADYREGISTERED());
 	errPasswMismatch = std::shared_ptr<ERR_PASSWDMISMATCH>(new ERR_PASSWDMISMATCH());
 	errChannelIsFull = std::shared_ptr<ERR_CHANNELISFULL>(new ERR_CHANNELISFULL());
+	errInviteOnlyChan = std::shared_ptr<ERR_INVITEONLYCHAN>(new ERR_INVITEONLYCHAN());
 	errChanOPrivsNeeded = std::shared_ptr<ERR_CHANOPRIVSNEEDED>(new ERR_CHANOPRIVSNEEDED());
 
 	try {
