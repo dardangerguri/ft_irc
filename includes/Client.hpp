@@ -16,32 +16,33 @@ class Client {
 		Client(int socketFd);
 		~Client(void);
 
-		void 		addBufferToMsgBuffer(std::string buffer);
-		bool		msgCompleted(void);
-		bool		isAllowedUserMode(char mode);
-		bool		addMode(char mode);
-		bool		delMode(char mode);
-		bool		hasMode(char mode);
-		bool		tryToRegister(void);
+		void 										addBufferToMsgBuffer(std::string buffer);
+		bool 										msgCompleted(void);
+		bool 										isAllowedUserMode(char mode);
+		bool 										addMode(char mode);
+		bool 										delMode(char mode);
+		bool 										hasMode(char mode);
+		bool 										tryToRegister(void);
 
-		int			getSocketFd(void);
-		std::string	getMsgFromBuffer(void);
-		std::string	getNickname(void);
-		std::string	getUsername(void);
-		std::string	getRealname(void);
-		bool		getValidPass(void);
+		int 										getSocketFd(void);
+		std::string									getMsgFromBuffer(void);
+		std::string									getNickname(void);
+		std::string									getUsername(void);
+		std::string									getRealname(void);
+		bool 										getValidPass(void);
+		std::unordered_map<std::string, Channel *>	getJoinedChannels(void);
 
-		void		setNickname(std::string newNickname);
-		void		setUsername(std::string newUsername);
-		void		setRealname(std::string newRealname);
-		void		setValidPass(void);
+		void										setNickname(std::string newNickname);
+		void										setUsername(std::string newUsername);
+		void										setRealname(std::string newRealname);
+		void										setValidPass(void);
 
-		bool		joinChannel(Channel *channel);
-		void		leaveChannel(Channel *channel);
-		bool		inviteToChannel(Channel *channel);
-		void		removeInviteToChannel(Channel *channel);
-		bool		inChannel(Channel *channel);
-		bool		isInvitedToChannel(Channel *channel);
+		bool										joinChannel(Channel *channel);
+		void										leaveChannel(Channel *channel);
+		bool										inviteToChannel(Channel *channel);
+		void										removeInviteToChannel(Channel *channel);
+		bool										inChannel(Channel *channel);
+		bool										isInvitedToChannel(Channel *channel);
 
 	private:
 		Client(void);

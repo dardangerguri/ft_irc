@@ -121,6 +121,10 @@ bool Client::getValidPass(void) {
 	return (validPass);
 }
 
+std::unordered_map<std::string, Channel *> Client::getJoinedChannels(void) {
+	return (joinedChannels);
+}
+
 void Client::setNickname(std::string newNickname) {
 	this->nickname = newNickname;
 	//FIXME inform other clients about the change
