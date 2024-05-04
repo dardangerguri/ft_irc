@@ -42,6 +42,7 @@ class RPL_ENDOFNAMES; //366
 class RPL_MOTD; //372
 class RPL_MOTDSTART; //375
 class RPL_ENDOFMOTD; //376
+class RPL_YOUREOPER; //381
 
 class ERR_UNKNOWNERROR; //400
 class ERR_NOSUCHNICK; //401
@@ -123,6 +124,7 @@ class Commands {
 		std::shared_ptr<RPL_MOTD>				rplMotd;
 		std::shared_ptr<RPL_MOTDSTART>			rplMotdStart;
 		std::shared_ptr<RPL_ENDOFMOTD>			rplEndOfMotd;
+		std::shared_ptr<RPL_YOUREOPER>			rplYouReOper;
 
 		std::shared_ptr<ERR_UNKNOWNERROR>		errUnknownError;
 		std::shared_ptr<ERR_NOSUCHNICK>			errNoSuchNick;
@@ -194,6 +196,7 @@ class Commands {
 # include "RPL_MOTD.hpp"
 # include "RPL_MOTDSTART.hpp"
 # include "RPL_ENDOFMOTD.hpp"
+# include "RPL_YOUREOPER.hpp"
 
 # include "ERR_UNKNOWNERROR.hpp"
 # include "ERR_NOSUCHNICK.hpp"

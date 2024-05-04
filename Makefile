@@ -44,6 +44,7 @@ SRC     = 	main.cpp \
 			./commands/RPL_MOTD.cpp \
 			./commands/RPL_MOTDSTART.cpp \
 			./commands/RPL_ENDOFMOTD.cpp \
+			./commands/RPL_YOUREOPER.cpp \
 			./commands/ERR_UNKNOWNERROR.cpp \
 			./commands/ERR_NOSUCHNICK.cpp \
 			./commands/ERR_NOSUCHCHANNEL.cpp \

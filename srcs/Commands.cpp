@@ -37,6 +37,7 @@ Commands::Commands(Server *s) {
 	rplMotd = std::shared_ptr<RPL_MOTD>(new RPL_MOTD());
 	rplMotdStart = std::shared_ptr<RPL_MOTDSTART>(new RPL_MOTDSTART());
 	rplEndOfMotd = std::shared_ptr<RPL_ENDOFMOTD>(new RPL_ENDOFMOTD());
+	rplYouReOper = std::shared_ptr<RPL_YOUREOPER>(new RPL_YOUREOPER());
 
 	errUnknownError = std::shared_ptr<ERR_UNKNOWNERROR>(new ERR_UNKNOWNERROR());
 	errNoSuchNick = std::shared_ptr<ERR_NOSUCHNICK>(new ERR_NOSUCHNICK());
