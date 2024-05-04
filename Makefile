@@ -67,6 +67,7 @@ SRC     = 	main.cpp \
 			./commands/ERR_BADCHANNELKEY.cpp \
 			./commands/ERR_BADCHANMASK.cpp \
 			./commands/ERR_CHANOPRIVSNEEDED.cpp \
+			./commands/ERR_NOOPERHOST.cpp \
 			./commands/ERR_UMODEUNKNOWNFLAG.cpp \
 			./commands/ERR_USERSDONTMATCH.cpp \
 			./commands/ERR_INVALIDKEY.cpp \

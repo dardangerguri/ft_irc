@@ -66,6 +66,7 @@ class ERR_INVITEONLYCHAN; //473
 class ERR_BADCHANNELKEY; //475
 class ERR_BADCHANMASK; //476
 class ERR_CHANOPRIVSNEEDED; //482
+class ERR_NOOPERHOST; //491
 class ERR_UMODEUNKNOWNFLAG; //501
 class ERR_USERSDONTMATCH; //502
 class ERR_INVALIDKEY; //525
@@ -146,6 +147,7 @@ class Commands {
 		std::shared_ptr<ERR_BADCHANNELKEY>		errBadChannelKey;
 		std::shared_ptr<ERR_BADCHANMASK>		errBadChanMask;
 		std::shared_ptr<ERR_CHANOPRIVSNEEDED>	errChanOPrivsNeeded;
+		std::shared_ptr<ERR_NOOPERHOST>			errNoOperHost;
 		std::shared_ptr<ERR_UMODEUNKNOWNFLAG>	errUModeUnknownFlag;
 		std::shared_ptr<ERR_USERSDONTMATCH>		errUsersDontMatch;
 		std::shared_ptr<ERR_INVALIDKEY>			errInvalidKey;
@@ -216,6 +218,7 @@ class Commands {
 # include "ERR_BADCHANNELKEY.hpp"
 # include "ERR_BADCHANMASK.hpp"
 # include "ERR_CHANOPRIVSNEEDED.hpp"
+# include "ERR_NOOPERHOST.hpp"
 # include "ERR_UMODEUNKNOWNFLAG.hpp"
 # include "ERR_USERSDONTMATCH.hpp"
 # include "ERR_INVALIDKEY.hpp"
