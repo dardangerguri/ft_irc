@@ -151,6 +151,7 @@ bool Client::joinChannel(Channel *channel) {
 			return (false);
 		}
 	}
+	invitedChannels.erase(channel->getName());
 	return (true);
 }
 
