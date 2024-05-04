@@ -51,6 +51,7 @@ class ERR_INVITEONLYCHAN; //473
 class ERR_BADCHANNELKEY; //475
 class ERR_BADCHANMASK; //476
 class ERR_CHANOPRIVSNEEDED; //482
+class ERR_INVALIDKEY; //525
 
 class Commands {
 	public:
@@ -109,6 +110,7 @@ class Commands {
 		std::shared_ptr<ERR_BADCHANNELKEY>		errBadChannelKey;
 		std::shared_ptr<ERR_BADCHANMASK>		errBadChanMask;
 		std::shared_ptr<ERR_CHANOPRIVSNEEDED>	errChanOPrivsNeeded;
+		std::shared_ptr<ERR_INVALIDKEY>			errInvalidKey;
 
 	private:
 		Commands();
@@ -161,5 +163,6 @@ class Commands {
 # include "ERR_BADCHANNELKEY.hpp"
 # include "ERR_BADCHANMASK.hpp"
 # include "ERR_CHANOPRIVSNEEDED.hpp"
+# include "ERR_INVALIDKEY.hpp"
 
 #endif

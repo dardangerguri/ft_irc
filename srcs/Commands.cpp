@@ -46,6 +46,7 @@ Commands::Commands(Server *s) {
 	errBadChannelKey = std::shared_ptr<ERR_BADCHANNELKEY>(new ERR_BADCHANNELKEY());
 	errBadChanMask = std::shared_ptr<ERR_BADCHANMASK>(new ERR_BADCHANMASK());
 	errChanOPrivsNeeded = std::shared_ptr<ERR_CHANOPRIVSNEEDED>(new ERR_CHANOPRIVSNEEDED());
+	errInvalidKey = std::shared_ptr<ERR_INVALIDKEY>(new ERR_INVALIDKEY());
 
 	try {
 		commandList["INVITE"] = this->invite;
