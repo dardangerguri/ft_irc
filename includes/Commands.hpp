@@ -10,6 +10,7 @@
 
 class INVITE;
 class NICK;
+class PART;
 class PASS;
 class PING;
 class PONG;
@@ -69,6 +70,7 @@ class Commands {
 
 		std::shared_ptr<INVITE>					invite;
 		std::shared_ptr<NICK>					nick;
+		std::shared_ptr<PART>					part;
 		std::shared_ptr<PASS>					pass;
 		std::shared_ptr<PING>					ping;
 		std::shared_ptr<PONG>					pong;
@@ -122,6 +124,7 @@ class Commands {
 
 # include "INVITE.hpp"
 # include "NICK.hpp"
+# include "PART.hpp"
 # include "PASS.hpp"
 # include "PING.hpp"
 # include "PONG.hpp"

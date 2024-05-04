@@ -5,6 +5,7 @@ Commands::Commands(Server *s) {
 
 	invite = std::shared_ptr<INVITE>(new INVITE(this));
 	nick = std::shared_ptr<NICK>(new NICK(this));
+	part = std::shared_ptr<PART>(new PART(this));
 	pass = std::shared_ptr<PASS>(new PASS(this));
 	ping = std::shared_ptr<PING>(new PING(this));
 	pong = std::shared_ptr<PONG>(new PONG(this));
@@ -51,6 +52,7 @@ Commands::Commands(Server *s) {
 	try {
 		commandList["INVITE"] = this->invite;
 		commandList["NICK"] = this->nick;
+		commandList["PART"] = this->part;
 		commandList["PASS"] = this->pass;
 		commandList["PING"] = this->ping;
 		commandList["PONG"] = this->pong;

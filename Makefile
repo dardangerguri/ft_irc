@@ -13,6 +13,7 @@ SRC     = 	main.cpp \
 			./commands/ACommand.cpp \
 			./commands/INVITE.cpp \
 			./commands/NICK.cpp \
+			./commands/PART.cpp \
 			./commands/PASS.cpp \
 			./commands/PING.cpp \
 			./commands/PONG.cpp \
