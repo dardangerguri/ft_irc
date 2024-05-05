@@ -61,7 +61,7 @@ unsigned int Server::getClientCount() {
 	return (clients.size());
 }
 
-bool Server::addChannel(std::string channelName) {
+Channel *Server::addChannel(std::string channelName) {
 	Channel *newChannel;
 
 	try {
@@ -69,14 +69,14 @@ bool Server::addChannel(std::string channelName) {
 			newChannel = new Channel(channelName);
 		}
 		catch (...) {
-			return (false);
+			return (nullptr);
 		}
 		channels.insert({channelName, newChannel});
-		return (true);
+		return (newChannel);
 	}
 	catch (...) {
 		delete newChannel;
-		return (false);
+		return (nullptr);
 	}
 }
 
