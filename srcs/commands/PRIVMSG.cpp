@@ -14,7 +14,10 @@ PRIVMSG &PRIVMSG::operator = (PRIVMSG const &copy) {
 }
 
 void PRIVMSG::handleCommand(std::string message, Client *source) {
-	std::vector<std::string> parameters;
+	std::vector<std::string>	parameters;
+	std::vector<std::string>	target;
+	unsigned int				targetCount;
+
 	if (!message.empty()) {
 		try {
 			parameters = parseMessage(message);
@@ -27,27 +30,40 @@ void PRIVMSG::handleCommand(std::string message, Client *source) {
 	}
 
 	if (parameters.size() == 2) {
-		if (parameters[0][0] == '#') {
-			Channel *targetChannel = commands->server->getChannel(parameters[0]);
-			if (targetChannel) {
-				if (parameters[1][0] != ':')
-					commands->sendCommand(commands->errNoTextToSend->arranger(source), source);
-				else
-					commands->sendCommand(arranger(targetChannel, parameters[1]), source, targetChannel, source);
-			}
-			else
-				commands->sendCommand(commands->errNoSuchNick->arranger(parameters[0], source), source);
+		try {
+			target = splitComma(parameters[0]);
 		}
-		else {
-			Client *targetClient = commands->server->getClient(parameters[0]);
-			if (targetClient) {
-				if (parameters[1][0] != ':')
-					commands->sendCommand(commands->errNoTextToSend->arranger(source), source);
+		catch (...) {
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding the parameter to the list has failed", source), source);
+			return ;
+		}
+
+		targetCount = target.size();
+
+		for (unsigned int i = 0; i < targetCount; i++) {
+			if (target[i][0] == '#') {
+				Channel *targetChannel = commands->server->getChannel(target[i]);
+				if (targetChannel) {
+					if (parameters[1][0] != ':')
+						commands->sendCommand(commands->errNoTextToSend->arranger(source), source);
+					else
+						commands->sendCommand(arranger(targetChannel, parameters[1]), source, targetChannel, source);
+				}
 				else
-					commands->sendCommand(arranger(targetClient, parameters[1]), source, targetClient);
+					commands->sendCommand(commands->errNoSuchNick->arranger(target[i], source), source);
 			}
-			else
-				commands->sendCommand(commands->errNoSuchNick->arranger(parameters[0], source), source);
+			else {
+				Client *targetClient = commands->server->getClient(target[i]);
+				if (targetClient) {
+					if (parameters[1][0] != ':')
+						commands->sendCommand(commands->errNoTextToSend->arranger(source), source);
+					else
+						commands->sendCommand(arranger(targetClient, parameters[1]), source, targetClient);
+				}
+				else
+					commands->sendCommand(commands->errNoSuchNick->arranger(target[i], source), source);
+			}
 		}
 	}
 	else if (parameters.empty() || parameters[0][0] == ':')
