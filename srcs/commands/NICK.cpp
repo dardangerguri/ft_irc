@@ -34,6 +34,10 @@ void NICK::handleCommand(std::string message, Client *source) {
 			commands->sendCommand(commands->errNicknameInUse->arranger(parameters[0], source), source);
 		else {
 			if (source->getValidPass()) {
+				commands->sendCommand(arranger(parameters[0]), source, source);
+				for (std::pair<std::string, Channel *> chanPair : source->getJoinedChannels()) {
+					commands->sendCommand(arranger(parameters[0]), source, chanPair.second, source);
+				}
 				source->setNickname(parameters[0]);
 				if (source->tryToRegister())
 					commands->registrationReply(source);

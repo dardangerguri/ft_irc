@@ -127,7 +127,6 @@ std::unordered_map<std::string, Channel *> Client::getJoinedChannels(void) {
 
 void Client::setNickname(std::string newNickname) {
 	this->nickname = newNickname;
-	//FIXME inform other clients about the change
 }
 
 void Client::setUsername(std::string newUsername) {
