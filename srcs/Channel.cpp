@@ -129,6 +129,8 @@ bool Channel::userJoin(Client *user) {
 			return (false);
 		}
 	}
+	if (users.size() == 1 && operators.empty())
+		userMakeOperator(user);
 	return (true);
 }
 
