@@ -26,6 +26,7 @@ Commands::Commands(Server *s) {
 	rplTopicWhoTime = std::shared_ptr<RPL_TOPICWHOTIME>(new RPL_TOPICWHOTIME());
 	rplInviting = std::shared_ptr<RPL_INVITING>(new RPL_INVITING());
 	rplNamReply = std::shared_ptr<RPL_NAMREPLY>(new RPL_NAMREPLY());
+	rplEndOfNames = std::shared_ptr<RPL_ENDOFNAMES>(new RPL_ENDOFNAMES());
 
 	errUnknownError = std::shared_ptr<ERR_UNKNOWNERROR>(new ERR_UNKNOWNERROR());
 	errNoSuchNick = std::shared_ptr<ERR_NOSUCHNICK>(new ERR_NOSUCHNICK());
