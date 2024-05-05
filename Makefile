@@ -18,6 +18,7 @@ SRC     = 	main.cpp \
 			./commands/MOTD.cpp \
 			./commands/NAMES.cpp \
 			./commands/NICK.cpp \
+			./commands/OPER.cpp \
 			./commands/PART.cpp \
 			./commands/PASS.cpp \
 			./commands/PING.cpp \
