@@ -141,6 +141,8 @@ void Channel::userLeave(Client *user) {
 	if (user) {
 		users.erase(user);
 		userRemoveOperator(user);
+		if (user->inChannel(this))
+			user->leaveChannel(this);
 	}
 }
 
