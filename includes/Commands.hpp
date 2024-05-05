@@ -69,6 +69,8 @@ class Commands {
 		void		sendCommand(std::string message, Channel *target);
 		void		sendCommand(std::string message, Client *source, Channel *target);
 		void		registrationReply(Client *target);
+		void		namesReply(Client *source, Channel *channel);
+
 
 		std::shared_ptr<INVITE>					invite;
 		std::shared_ptr<NICK>					nick;

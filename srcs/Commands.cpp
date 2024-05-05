@@ -135,6 +135,13 @@ void Commands::registrationReply(Client *target) {
 	sendCommand(rplUModeIs->arranger(target), target);
 }
 
+void Commands::namesReply(Client *source, Channel *channel) {
+	for (Client *user : channel->getUserList()) {
+		sendCommand(rplNamReply->arranger(source, channel, user), source);
+	}
+	sendCommand(rplEndOfNames->arranger(source, channel), source);
+}
+
 std::shared_ptr<ACommand> Commands::getCommandFromList(std::string command) {
 	if (commandList.find(command) != commandList.end())
 		return (commandList[command]);
