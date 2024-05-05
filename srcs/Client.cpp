@@ -85,6 +85,10 @@ bool Client::tryToRegister(void) {
 	return (false);
 }
 
+char *Client::getIp(void) {
+	return (ip);
+}
+
 int Client::getSocketFd(void) {
 	return (this->socketFd);
 }
@@ -120,6 +124,10 @@ bool Client::getValidPass(void) {
 
 std::unordered_map<std::string, Channel *> Client::getJoinedChannels(void) {
 	return (joinedChannels);
+}
+
+void Client::setIp(char *newIp) {
+	ip = newIp;
 }
 
 void Client::setNickname(std::string newNickname) {

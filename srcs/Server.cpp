@@ -200,9 +200,11 @@ void Server::handleNewConnection() {
 		delete newClient;
 		return ;
 	}
+	// Save client IP
+	newClient->setIp(inet_ntoa(reinterpret_cast<const struct sockaddr_in*>(&clientAddress)->sin_addr));
 
 	// Print the new client connection
-	std::cout << GREEN << "New client connected: " << clientSocket << RESET << std::endl;
+	std::cout << GREEN << "New client connected: " << clientSocket  << " from " << newClient->getIp() << RESET << std::endl;
 }
 
 void Server::handleClientData(size_t pollFdIndex) {

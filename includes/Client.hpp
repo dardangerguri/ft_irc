@@ -24,6 +24,7 @@ class Client {
 		bool 										hasMode(char mode);
 		bool 										tryToRegister(void);
 
+		char										*getIp(void);
 		int 										getSocketFd(void);
 		std::string									getMsgFromBuffer(void);
 		std::string									getNickname(void);
@@ -32,6 +33,7 @@ class Client {
 		bool 										getValidPass(void);
 		std::unordered_map<std::string, Channel *>	getJoinedChannels(void);
 
+		void										setIp(char *newIp);
 		void										setNickname(std::string newNickname);
 		void										setUsername(std::string newUsername);
 		void										setRealname(std::string newRealname);
@@ -49,6 +51,7 @@ class Client {
 		Client(Client const &copy);
 		Client &operator=(Client const &copy);
 
+		char										*ip;
 		int 										socketFd;
 		std::string									msgBuffer;
 		std::string									nickname;

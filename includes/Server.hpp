@@ -15,6 +15,7 @@
 # include <poll.h>
 # include <algorithm>
 # include <unordered_map>
+# include <arpa/inet.h>
 
 class Commands;
 
