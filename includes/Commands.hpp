@@ -18,6 +18,7 @@ class PASS;
 class PING;
 class PONG;
 class PRIVMSG;
+class QUIT;
 class TOPIC;
 class USER;
 
@@ -87,6 +88,7 @@ class Commands {
 		std::shared_ptr<PING>					ping;
 		std::shared_ptr<PONG>					pong;
 		std::shared_ptr<PRIVMSG>				privMsg;
+		std::shared_ptr<QUIT>					quit;
 		std::shared_ptr<TOPIC>					topic;
 		std::shared_ptr<USER>					user;
 
@@ -146,6 +148,7 @@ class Commands {
 # include "PING.hpp"
 # include "PONG.hpp"
 # include "PRIVMSG.hpp"
+# include "QUIT.hpp"
 # include "TOPIC.hpp"
 # include "USER.hpp"
 
