@@ -15,8 +15,16 @@ INVITE &INVITE::operator = (INVITE const &copy) {
 
 void INVITE::handleCommand(std::string message, Client *source) {
 	std::vector<std::string> parameters;
-	if (!message.empty())
-		parameters = parseMessage(message, source);
+	if (!message.empty()) {
+		try {
+			parameters = parseMessage(message);
+		}
+		catch (...) {
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding parameters to the list has failed", source), source);
+			return ;
+		}
+	}
 
 	if (parameters.size() >= 2) {
 		Channel *targetChannel = commands->server->getChannel(parameters[1]);

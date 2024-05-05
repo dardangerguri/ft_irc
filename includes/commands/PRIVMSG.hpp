@@ -18,7 +18,7 @@ class PRIVMSG : public ACommand {
 		PRIVMSG(void);
 		PRIVMSG(PRIVMSG const &copy);
 
-		std::vector<std::string>	parseMessage(std::string message, Client *source);
+		std::vector<std::string>	parseMessage(std::string message);
 };
 
 #endif

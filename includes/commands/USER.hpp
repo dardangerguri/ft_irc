@@ -18,7 +18,7 @@ class USER : public ACommand {
 		USER(USER const &copy);
 
 		bool						validateParameters(std::vector<std::string> & parameters);
-		std::vector<std::string>	parseMessage(std::string message, Client *source);
+		std::vector<std::string>	parseMessage(std::string message);
 };
 
 #endif

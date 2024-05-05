@@ -15,8 +15,16 @@ PART &PART::operator = (PART const &copy) {
 
 void PART::handleCommand(std::string message, Client *source) {
 	std::vector<std::string> parameters;
-	if (!message.empty())
-		parameters = parseMessage(message, source);
+	if (!message.empty()) {
+		try {
+			parameters = parseMessage(message);
+		}
+		catch (...) {
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding parameters to the list has failed", source), source);
+			return ;
+		}
+	}
 
 	if (parameters.empty())
 		commands->sendCommand(commands->errNeedMoreParams->arranger(this->command, source), source);
@@ -58,31 +66,19 @@ std::string PART::arranger(Channel *channel, std::string reason) {
 		return (command + " " + channel->getName() + " :" + reason);
 }
 
-std::vector<std::string> PART::parseMessage(std::string message, Client *source) {
+std::vector<std::string> PART::parseMessage(std::string message) {
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
 	std::string					word;
 	std::string					restOfMessage;
 
 	ss >> word;
-	try {
-		parameters.push_back(word);
-	}
-	catch (...) {
-		commands->sendCommand(commands->errUnknownError->arranger \
-		(this->command, "Adding the parameter to the list has failed", source), source);
-	}
+	parameters.push_back(word);
 
 	std::getline(ss, restOfMessage);
 	size_t pos = restOfMessage.find_first_not_of(' ');
 	if (pos != std::string::npos) {
-		try {
 			parameters.push_back(restOfMessage.substr(pos));
-		}
-		catch (...) {
-			commands->sendCommand(commands->errUnknownError->arranger \
-			(this->command, "Adding the parameter to the list has failed", source), source);
-		}
 	}
 	return (parameters);
 }

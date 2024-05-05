@@ -17,7 +17,7 @@ class PART : public ACommand {
 		PART(void);
 		PART(PART const &copy);
 
-		std::vector<std::string>	parseMessage(std::string message, Client *source);
+		std::vector<std::string>	parseMessage(std::string message);
 };
 
 #endif

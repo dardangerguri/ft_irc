@@ -16,8 +16,16 @@ USER &USER::operator = (USER const &copy) {
 
 void USER::handleCommand(std::string message, Client *source) {
 	std::vector<std::string> parameters;
-	if (!message.empty())
-		parameters = parseMessage(message, source);
+	if (!message.empty()) {
+		try {
+			parameters = parseMessage(message);
+		}
+		catch (...) {
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding parameters to the list has failed", source), source);
+			return ;
+		}
+	}
 
 	if (parameters.size() == 4 && validateParameters(parameters)) {
 		if (source->hasMode('r'))
@@ -56,7 +64,7 @@ bool USER::validateParameters(std::vector<std::string> & parameters) {
 	return true;
 }
 
-std::vector<std::string> USER::parseMessage(std::string message, Client *source) {
+std::vector<std::string> USER::parseMessage(std::string message) {
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
 	std::string					word;
@@ -64,26 +72,13 @@ std::vector<std::string> USER::parseMessage(std::string message, Client *source)
 
 	int	i = 0;
 	while (i++ < 3 && ss >> word) {
-		try {
-			parameters.push_back(word);
-		}
-		catch (...) {
-			commands->sendCommand(commands->errUnknownError->arranger \
-			(this->command, "Adding the parameter to the list has failed", source), source);
-		}
+		parameters.push_back(word);
 	}
-
 
 	std::getline(ss, restOfMessage);
 	size_t pos = restOfMessage.find_first_not_of(' ');
 	if (pos != std::string::npos) {
-		try {
-			parameters.push_back(restOfMessage.substr(pos));
-		}
-		catch (...) {
-			commands->sendCommand(commands->errUnknownError->arranger \
-			(this->command, "Adding the parameter to the list has failed", source), source);
-		}
+		parameters.push_back(restOfMessage.substr(pos));
 	}
 	return (parameters);
 }

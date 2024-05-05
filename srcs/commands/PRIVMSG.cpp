@@ -15,8 +15,16 @@ PRIVMSG &PRIVMSG::operator = (PRIVMSG const &copy) {
 
 void PRIVMSG::handleCommand(std::string message, Client *source) {
 	std::vector<std::string> parameters;
-	if (!message.empty())
-		parameters = parseMessage(message, source);
+	if (!message.empty()) {
+		try {
+			parameters = parseMessage(message);
+		}
+		catch (...) {
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding parameters to the list has failed", source), source);
+			return ;
+		}
+	}
 
 	if (parameters.size() == 2) {
 		if (parameters[0][0] == '#') {
@@ -56,7 +64,7 @@ std::string PRIVMSG::arranger(Channel *target, std::string message) {
 	return (this->command + " " + target->getName() + " " + message);
 }
 
-std::vector<std::string> PRIVMSG::parseMessage(std::string message, Client *source) {
+std::vector<std::string> PRIVMSG::parseMessage(std::string message) {
 
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
@@ -64,25 +72,12 @@ std::vector<std::string> PRIVMSG::parseMessage(std::string message, Client *sour
 	std::string					restOfMessage;
 
 	ss >> word;
-	try {
-		parameters.push_back(word);
-	}
-	catch (...) {
-		commands->sendCommand(commands->errUnknownError->arranger \
-		(this->command, "Adding the parameter to the list has failed", source), source);
-	}
-
+	parameters.push_back(word);
 
 	std::getline(ss, restOfMessage);
 	size_t pos = restOfMessage.find_first_not_of(' ');
 	if (pos != std::string::npos) {
-		try {
-			parameters.push_back(restOfMessage.substr(pos));
-		}
-		catch (...) {
-			commands->sendCommand(commands->errUnknownError->arranger \
-			(this->command, "Adding the parameter to the list has failed", source), source);
-		}
+		parameters.push_back(restOfMessage.substr(pos));
 	}
 	return (parameters);
 }

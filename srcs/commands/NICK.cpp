@@ -16,8 +16,16 @@ NICK &NICK::operator = (NICK const &copy) {
 
 void NICK::handleCommand(std::string message, Client *source) {
 	std::vector<std::string> parameters;
-	if (!message.empty())
-		parameters = parseMessage(message, source);
+	if (!message.empty()) {
+		try {
+			parameters = parseMessage(message);
+		}
+		catch (...) {
+			commands->sendCommand(commands->errUnknownError->arranger \
+			(this->command, "Adding parameters to the list has failed", source), source);
+			return ;
+		}
+	}
 
 	if (parameters.empty())
 		commands->sendCommand(commands->errNoNicknameGiven->arranger(source), source);
