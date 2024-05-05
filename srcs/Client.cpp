@@ -6,11 +6,7 @@ Client::Client(int socketFd) {
 	this->socketFd = socketFd;
 }
 
-Client::~Client() {
-	for (std::pair<std::string, Channel *> chan : joinedChannels) {
-		chan.second->userLeave(this);
-	}
-}
+Client::~Client() {}
 
 void Client::addBufferToMsgBuffer(std::string buffer) {
 	// FIXME: Maybe better handling for overflow???
