@@ -59,6 +59,7 @@ SRC     = 	main.cpp \
 			./commands/ERR_ALREADYREGISTERED.cpp \
 			./commands/ERR_PASSWDMISMATCH.cpp \
 			./commands/ERR_CHANNELISFULL.cpp \
+			./commands/ERR_UNKNOWNMODE.cpp \
 			./commands/ERR_INVITEONLYCHAN.cpp \
 			./commands/ERR_BADCHANNELKEY.cpp \
 			./commands/ERR_BADCHANMASK.cpp \

@@ -58,6 +58,7 @@ class ERR_NEEDMOREPARAMS; //461
 class ERR_ALREADYREGISTERED; //462
 class ERR_PASSWDMISMATCH; //464
 class ERR_CHANNELISFULL; //471
+class ERR_UNKNOWNMODE; //472
 class ERR_INVITEONLYCHAN; //473
 class ERR_BADCHANNELKEY; //475
 class ERR_BADCHANMASK; //476
@@ -132,6 +133,7 @@ class Commands {
 		std::shared_ptr<ERR_ALREADYREGISTERED>	errAlreadyRegistered;
 		std::shared_ptr<ERR_PASSWDMISMATCH>		errPasswMismatch;
 		std::shared_ptr<ERR_CHANNELISFULL>		errChannelIsFull;
+		std::shared_ptr<ERR_UNKNOWNMODE>		errUnknownMode;
 		std::shared_ptr<ERR_INVITEONLYCHAN>		errInviteOnlyChan;
 		std::shared_ptr<ERR_BADCHANNELKEY>		errBadChannelKey;
 		std::shared_ptr<ERR_BADCHANMASK>		errBadChanMask;
@@ -196,6 +198,7 @@ class Commands {
 # include "ERR_ALREADYREGISTERED.hpp"
 # include "ERR_PASSWDMISMATCH.hpp"
 # include "ERR_CHANNELISFULL.hpp"
+# include "ERR_UNKNOWNMODE.hpp"
 # include "ERR_INVITEONLYCHAN.hpp"
 # include "ERR_BADCHANNELKEY.hpp"
 # include "ERR_BADCHANMASK.hpp"
