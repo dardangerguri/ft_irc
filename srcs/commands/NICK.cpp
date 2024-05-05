@@ -46,8 +46,8 @@ void NICK::handleCommand(std::string message, Client *source) {
 		commands->sendCommand(commands->errErroneusNickname->arranger(parameters[0], source), source);
 }
 
-std::string NICK::arranger() {
-	return (this->command);
+std::string NICK::arranger(std::string newNickname) {
+	return (this->command + " " + newNickname);
 }
 
 bool NICK::validateNickname(std::string &input) {

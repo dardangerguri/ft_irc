@@ -11,7 +11,7 @@ class NICK : public ACommand {
 		NICK &operator=(NICK const &copy);
 
 		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(void);
+		std::string	arranger(std::string newNickname);
 
 	private:
 		NICK(void);
