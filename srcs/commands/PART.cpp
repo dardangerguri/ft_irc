@@ -54,6 +54,8 @@ void PART::handleCommand(std::string message, Client *source) {
 			else {
 				commands->sendCommand(arranger(channel, reason), source, channel);
 				channel->userLeave(source);
+				if (channel->getUserCount() == 0)
+					commands->server->delChannel(channel);
 			}
 		}
 	}
