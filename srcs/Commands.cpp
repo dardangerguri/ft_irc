@@ -103,6 +103,24 @@ void Commands::sendCommand(std::string message, Client *source, Channel *target)
 	sendCommand(":" + source->getNickname() + " " + message, target);
 }
 
+void Commands::sendCommand(std::string message, Channel *target, Client *exclude) {
+	//Debug
+	std::cerr << BLUE "Sending to" RESET + target->getName() + BLUE " excluding user " RESET + target->getName() + BLUE ": " RESET + message << std::endl;
+
+	message += "\r\n";
+	for (Client *user : target->getUserList()) {
+		if (user == exclude)
+			continue ;
+		if (send(user->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+			std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
+		}
+	}
+}
+
+void Commands::sendCommand(std::string message, Client *source, Channel *target, Client *exclude) {
+	sendCommand(":" + source->getNickname() + " " + message, target, exclude);
+}
+
 //FIXME: check ISupport values
 void Commands::registrationReply(Client *target) {
 	sendCommand(rplWelcome->arranger(target), target);

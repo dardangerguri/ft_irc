@@ -69,6 +69,8 @@ class Commands {
 		void		sendCommand(std::string message, Client *source, Client *target);
 		void		sendCommand(std::string message, Channel *target);
 		void		sendCommand(std::string message, Client *source, Channel *target);
+		void		sendCommand(std::string message, Channel *target, Client *exclude);
+		void		sendCommand(std::string message, Client *source, Channel *target, Client *exclude);
 		void		registrationReply(Client *target);
 		void		namesReply(Client *source, Channel *channel);
 
