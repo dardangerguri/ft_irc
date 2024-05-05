@@ -63,6 +63,9 @@ void JOIN::handleCommand(std::string message, Client *source) {
 					continue ;
 				}
 			}
+			else if (channel->userIsJoined()) {
+				continue ;
+			}
 
 			if (channel->hasMode('i') && !source->isInvitedToChannel(channel)) {
 				commands->sendCommand(commands->errInviteOnlyChan->arranger(source, channel), source);
