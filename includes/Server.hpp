@@ -28,7 +28,7 @@ class Server {
 		bool			nickExists(std::string input);
 		unsigned int	getClientCount();
 		Channel			*addChannel(std::string channelName);
-		bool			delChannel(std::string channelName);
+		void			delChannel(Channel *channel);
 		Channel			*getChannel(std::string channelName);
 		Client			*getClient(std::string nickname);
 

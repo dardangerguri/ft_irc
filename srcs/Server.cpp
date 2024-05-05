@@ -80,16 +80,15 @@ Channel *Server::addChannel(std::string channelName) {
 	}
 }
 
-bool Server::delChannel(std::string channelName) {
+void Server::delChannel(Channel *channel) {
 	std::unordered_map<std::string, Channel *>::iterator chanIter;
 
-	chanIter = channels.find(channelName);
-	if (chanIter != channels.end()) {
-		delete (chanIter->second);
-		channels.erase(chanIter);
-		return (true);
+	if (channel) {
+		chanIter = channels.find(channel->getName());
+		if (chanIter != channels.end())
+			channels.erase(chanIter);
+		delete channel;
 	}
-	return (false);
 }
 
 Channel *Server::getChannel(std::string channelName) {
