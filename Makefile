@@ -32,6 +32,7 @@ SRC     = 	main.cpp \
 			./commands/RPL_TOPIC.cpp \
 			./commands/RPL_TOPICWHOTIME.cpp \
 			./commands/RPL_INVITING.cpp \
+			./commands/RPL_NAMREPLY.cpp \
 			./commands/ERR_UNKNOWNERROR.cpp \
 			./commands/ERR_NOSUCHNICK.cpp \
 			./commands/ERR_NOSUCHCHANNEL.cpp \

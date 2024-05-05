@@ -30,6 +30,7 @@ class RPL_NOTOPIC; //331
 class RPL_TOPIC; //332
 class RPL_TOPICWHOTIME; //333
 class RPL_INVITING; //341
+class RPL_NAMREPLY; //353
 
 class ERR_UNKNOWNERROR; //400
 class ERR_NOSUCHNICK; //401
@@ -90,6 +91,7 @@ class Commands {
 		std::shared_ptr<RPL_TOPIC>				rplTopic;
 		std::shared_ptr<RPL_TOPICWHOTIME>		rplTopicWhoTime;	
 		std::shared_ptr<RPL_INVITING>			rplInviting;
+		std::shared_ptr<RPL_NAMREPLY>			rplNamReply;
 
 		std::shared_ptr<ERR_UNKNOWNERROR>		errUnknownError;
 		std::shared_ptr<ERR_NOSUCHNICK>			errNoSuchNick;
@@ -144,6 +146,7 @@ class Commands {
 # include "RPL_TOPIC.hpp"
 # include "RPL_TOPICWHOTIME.hpp"
 # include "RPL_INVITING.hpp"
+# include "RPL_NAMREPLY.hpp"
 
 # include "ERR_UNKNOWNERROR.hpp"
 # include "ERR_NOSUCHNICK.hpp"
