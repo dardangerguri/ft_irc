@@ -59,6 +59,7 @@ Commands::Commands(Server *s) {
 	errBadChannelKey = std::shared_ptr<ERR_BADCHANNELKEY>(new ERR_BADCHANNELKEY());
 	errBadChanMask = std::shared_ptr<ERR_BADCHANMASK>(new ERR_BADCHANMASK());
 	errChanOPrivsNeeded = std::shared_ptr<ERR_CHANOPRIVSNEEDED>(new ERR_CHANOPRIVSNEEDED());
+	errUModeUnknownFlag = std::shared_ptr<ERR_UMODEUNKNOWNFLAG>(new ERR_UMODEUNKNOWNFLAG());
 	errUsersDontMatch = std::shared_ptr<ERR_USERSDONTMATCH>(new ERR_USERSDONTMATCH());
 	errInvalidKey = std::shared_ptr<ERR_INVALIDKEY>(new ERR_INVALIDKEY());
 
