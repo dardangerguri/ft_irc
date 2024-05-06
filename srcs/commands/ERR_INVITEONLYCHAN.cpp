@@ -13,5 +13,13 @@ ERR_INVITEONLYCHAN &ERR_INVITEONLYCHAN::operator = (ERR_INVITEONLYCHAN const &co
 }
 
 std::string ERR_INVITEONLYCHAN::arranger(Client *source, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + channel->getName() + " :Cannot join channel (+i)");
+	std::string	nickname;
+	std::string	channelName;
+
+	if (source)
+		nickname = source->getNickname();
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + nickname + " " + channelName + " :Cannot join channel (+i)");
 }

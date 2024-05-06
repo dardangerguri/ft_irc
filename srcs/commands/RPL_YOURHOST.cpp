@@ -13,6 +13,10 @@ RPL_YOURHOST &RPL_YOURHOST::operator = (RPL_YOURHOST const &copy) {
 }
 
 std::string RPL_YOURHOST::arranger(Client *source) {
-	return (command + " " + source->getNickname() + \
-	" :Your host is ft_irc, running version 1.69");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " :Your host is ft_irc, running version 1.69");
 }

@@ -14,11 +14,20 @@ RPL_NAMREPLY &RPL_NAMREPLY::operator = (RPL_NAMREPLY const &copy) {
 
 // Only send one user at the time, so we don't have to worry about message getting too long
 std::string RPL_NAMREPLY::arranger(Client *source, Channel *channel, Client *user) {
-	std::string userPrefix;
+	std::string	nickname;
+	std::string	channelName;
+	std::string	userNickname;
+	std::string	userPrefix;
 
-	if (channel->userIsOperator(user))
-		userPrefix = "@";
+	if (source)
+		nickname = source->getNickname();
+	if (channel)
+		channelName = channel->getName();
+	if (user) {
+		userNickname = user->getNickname();
+		if (channel->userIsOperator(user))
+			userPrefix = "@";
+	}
 
-	return (command + " " + source->getNickname() + " = " + channel->getName() + " :" \
-	+ userPrefix + user->getNickname());
+	return (command + " " + nickname+ " = " + channelName + " :" + userPrefix + userNickname);
 }

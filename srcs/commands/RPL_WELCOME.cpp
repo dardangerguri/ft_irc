@@ -13,6 +13,10 @@ RPL_WELCOME &RPL_WELCOME::operator = (RPL_WELCOME const &copy) {
 }
 
 std::string RPL_WELCOME::arranger(Client *source) {
-	return (command + " " + source->getNickname() + \
-	" :Welcome to the IRC BOYS Network, " + source->getNickname());
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " :Welcome to the IRC BOYS Network, " + nickname + "!");
 }

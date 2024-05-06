@@ -13,6 +13,10 @@ RPL_CREATED &RPL_CREATED::operator = (RPL_CREATED const &copy) {
 }
 
 std::string RPL_CREATED::arranger(Client *source) {
-	return (command + " " + source->getNickname() + \
-	" :This server was created 6 million years ago");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " :This server was created 6 million years ago");
 }

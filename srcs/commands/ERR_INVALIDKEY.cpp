@@ -13,5 +13,13 @@ ERR_INVALIDKEY &ERR_INVALIDKEY::operator = (ERR_INVALIDKEY const &copy) {
 }
 
 std::string ERR_INVALIDKEY::arranger(Client *source, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + channel->getName() + " :Key is not well-formed");
+	std::string	nickname;
+	std::string	channelName;
+
+	if (source)
+		nickname = source->getNickname();
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + nickname + " " + channelName + " :Key is not well-formed");
 }

@@ -13,6 +13,15 @@ RPL_TOPIC &RPL_TOPIC::operator = (RPL_TOPIC const &copy) {
 }
 
 std::string RPL_TOPIC::arranger(Client *source, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + channel->getName() + " :" \
-	+ channel->getTopic());
+	std::string	nickname;
+	std::string	channelName;
+	std::string	topic;
+
+	if (source)
+		nickname = source->getNickname();
+	if (channel) {
+		channelName = channel->getName();
+		topic = channel->getTopic();
+	}
+	return (command + " " + nickname + " " + channelName + " :" + topic);
 }

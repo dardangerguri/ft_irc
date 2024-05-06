@@ -13,13 +13,23 @@ RPL_TOPICWHOTIME &RPL_TOPICWHOTIME::operator = (RPL_TOPICWHOTIME const &copy) {
 }
 
 std::string RPL_TOPICWHOTIME::arranger(Client *source, Channel *channel) {
-	std::string topicTime;
-	try {
-		topicTime = std::to_string(channel->getTopicTime());
+	std::string	nickname;
+	std::string	channelName;
+	std::string	topicAuthor;
+	std::string	topicTime;
+
+	if (source)
+		nickname = source->getNickname();
+	if (channel) {
+		channelName = channel->getName();
+		topicAuthor = channel->getTopicAuthor();
+		try {
+			topicTime = std::to_string(channel->getTopicTime());
+		}
+		catch (...) {
+			topicTime = "0";
+		}
 	}
-	catch (...) {
-		topicTime = "0";
-	}
-	return (command + " " + source->getNickname() + " " + channel->getName() \
-	+ " " + channel->getTopicAuthor() + " " + topicTime);
+
+	return (command + " " + nickname + " " + channelName + " " + topicAuthor + " " + topicTime);
 }

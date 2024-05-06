@@ -13,5 +13,13 @@ ERR_CHANOPRIVSNEEDED &ERR_CHANOPRIVSNEEDED::operator = (ERR_CHANOPRIVSNEEDED con
 }
 
 std::string ERR_CHANOPRIVSNEEDED::arranger(Client *source, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + channel->getName() + " :You're not channel operator");
+	std::string	nickname;
+	std::string	channelName;
+
+	if (source)
+		nickname = source->getNickname();
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + nickname + " " + channelName + " :You're not channel operator");
 }

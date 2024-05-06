@@ -13,5 +13,10 @@ ERR_PASSWDMISMATCH &ERR_PASSWDMISMATCH::operator = (ERR_PASSWDMISMATCH const &co
 }
 
 std::string ERR_PASSWDMISMATCH::arranger(Client *source) {
-	return (command + " " + source->getNickname() + " :Password incorrect");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " :Password incorrect");
 }

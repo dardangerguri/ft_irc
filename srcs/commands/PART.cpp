@@ -60,10 +60,15 @@ void PART::handleCommand(std::string message, Client *source) {
 }
 
 std::string PART::arranger(Channel *channel, std::string reason) {
+	std::string	channelName;
+
+	if (channel)
+		channelName = channel->getName();
+
 	if (reason.empty())
-		return (command + " " + channel->getName());
+		return (command + " " + channelName);
 	else
-		return (command + " " + channel->getName() + " :" + reason);
+		return (command + " " + channelName + " :" + reason);
 }
 
 std::vector<std::string> PART::parseMessage(std::string message) {

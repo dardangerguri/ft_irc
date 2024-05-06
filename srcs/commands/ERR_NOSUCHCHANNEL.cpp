@@ -13,5 +13,10 @@ ERR_NOSUCHCHANNEL &ERR_NOSUCHCHANNEL::operator = (ERR_NOSUCHCHANNEL const &copy)
 }
 
 std::string ERR_NOSUCHCHANNEL::arranger(std::string channel, Client *source) {
-	return (command + " " + source->getNickname() + " " + channel + " :No such channel");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " " + channel + " :No such channel");
 }

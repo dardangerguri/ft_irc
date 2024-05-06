@@ -13,5 +13,10 @@ ERR_UNKNOWNERROR &ERR_UNKNOWNERROR::operator = (ERR_UNKNOWNERROR const &copy) {
 }
 
 std::string ERR_UNKNOWNERROR::arranger(std::string sourceCommand, std::string info, Client *source) {
-	return (command + " " + source->getNickname() + " " + sourceCommand + " :" + info);
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " " + sourceCommand + " :" + info);
 }

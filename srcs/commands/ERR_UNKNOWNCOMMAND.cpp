@@ -13,6 +13,10 @@ ERR_UNKNOWNCOMMAND &ERR_UNKNOWNCOMMAND::operator = (ERR_UNKNOWNCOMMAND const &co
 }
 
 std::string ERR_UNKNOWNCOMMAND::arranger(std::string sourceCommand, Client *source) {
-	return (command + " " + source->getNickname() \
-	+ " " + sourceCommand + " :Unknown command");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " " + sourceCommand + " :Unknown command");
 }

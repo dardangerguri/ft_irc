@@ -13,7 +13,15 @@ RPL_ENDOFNAMES &RPL_ENDOFNAMES::operator = (RPL_ENDOFNAMES const &copy) {
 }
 
 std::string RPL_ENDOFNAMES::arranger(Client *source, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + channel->getName() + " :End of /NAMES list");
+	std::string	nickname;
+	std::string	channelName;
+
+	if (source)
+		nickname = source->getNickname();
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + nickname + " " + channelName+ " :End of /NAMES list");
 }
 
 std::string RPL_ENDOFNAMES::arranger(Client *source, std::string channelName) {

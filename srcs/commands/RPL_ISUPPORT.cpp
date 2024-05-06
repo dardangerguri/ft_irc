@@ -13,6 +13,10 @@ RPL_ISUPPORT &RPL_ISUPPORT::operator = (RPL_ISUPPORT const &copy) {
 }
 
 std::string RPL_ISUPPORT::arranger(Client *source, std::string token) {
-	return (command + " " + source->getNickname() + " " + token + \
-	" :are supported by this server");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " " + token + " :are supported by this server");
 }

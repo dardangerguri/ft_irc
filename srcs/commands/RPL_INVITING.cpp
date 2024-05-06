@@ -13,5 +13,16 @@ RPL_INVITING &RPL_INVITING::operator = (RPL_INVITING const &copy) {
 }
 
 std::string RPL_INVITING::arranger(Client *source, Client *target, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + target->getNickname() + " " + channel->getName());
+	std::string	nickname;
+	std::string targetNickname;
+	std::string	channelName;
+
+	if (source)
+		nickname = source->getNickname();
+	if (target)
+		targetNickname = target->getNickname();
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + nickname + " " + targetNickname + " " + channelName);
 }

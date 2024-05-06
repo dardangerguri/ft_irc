@@ -57,11 +57,21 @@ void PRIVMSG::handleCommand(std::string message, Client *source) {
 }
 
 std::string PRIVMSG::arranger(Client *target, std::string message) {
-	return (this->command + " " + target->getNickname() + " " + message);
+	std::string	targetNickname;
+
+	if (target)
+		targetNickname = target->getNickname();
+
+	return (this->command + " " + targetNickname + " " + message);
 }
 
 std::string PRIVMSG::arranger(Channel *target, std::string message) {
-	return (this->command + " " + target->getName() + " " + message);
+	std::string	targetChannelName;
+
+	if (target)
+		targetChannelName = target->getName();
+
+	return (this->command + " " + targetChannelName + " " + message);
 }
 
 std::vector<std::string> PRIVMSG::parseMessage(std::string message) {

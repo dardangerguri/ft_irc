@@ -14,6 +14,11 @@ RPL_LUSERCLIENT &RPL_LUSERCLIENT::operator = (RPL_LUSERCLIENT const &copy) {
 }
 
 std::string RPL_LUSERCLIENT::arranger(Client *source) {
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
 	std::string clientCount;
 	try {
 		clientCount = std::to_string(commands->server->getClientCount());
@@ -21,6 +26,5 @@ std::string RPL_LUSERCLIENT::arranger(Client *source) {
 	catch (...) {
 		clientCount = "0";
 	}
-	return (command + " " + source->getNickname() + \
-	" :There are " + clientCount + " users and 0 invisible on 0 servers");
+	return (command + " " + nickname + " :There are " + clientCount + " users and 0 invisible on 0 servers");
 }

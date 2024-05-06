@@ -108,5 +108,10 @@ void JOIN::handleCommand(std::string message, Client *source) {
 }
 
 std::string JOIN::arranger(Channel *channel) {
-	return (command + " " + channel->getName());
+	std::string	channelName;
+
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + channelName);
 }

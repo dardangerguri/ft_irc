@@ -13,5 +13,10 @@ ERR_NORECIPIENT &ERR_NORECIPIENT::operator = (ERR_NORECIPIENT const &copy) {
 }
 
 std::string ERR_NORECIPIENT::arranger(std::string sourceCommand, Client *source) {
-	return (command + " " + source->getNickname() + " :No recipient given (" + sourceCommand + ")");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " :No recipient given (" + sourceCommand + ")");
 }

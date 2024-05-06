@@ -13,5 +13,13 @@ ERR_NOTONCHANNEL &ERR_NOTONCHANNEL::operator = (ERR_NOTONCHANNEL const &copy) {
 }
 
 std::string ERR_NOTONCHANNEL::arranger(Client *source, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + channel->getName() + " :You're not on that channel");
+	std::string	nickname;
+	std::string	channelName;
+
+	if (source)
+		nickname = source->getNickname();
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + nickname + " " + channelName + " :You're not on that channel");
 }

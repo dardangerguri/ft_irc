@@ -12,6 +12,11 @@ ERR_ERRONEUSNICKNAME &ERR_ERRONEUSNICKNAME::operator = (ERR_ERRONEUSNICKNAME con
 	return (*this);
 }
 
-std::string ERR_ERRONEUSNICKNAME::arranger(std::string sourceNickname, Client *source) {
-	return (command + " " + source->getNickname() + " " + sourceNickname + " :Erroneus nickname");
+std::string ERR_ERRONEUSNICKNAME::arranger(std::string erroneousNickname, Client *source) {
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " " + erroneousNickname + " :Erroneus nickname");
 }

@@ -12,6 +12,11 @@ ERR_NICKNAMEINUSE &ERR_NICKNAMEINUSE::operator = (ERR_NICKNAMEINUSE const &copy)
 	return (*this);
 }
 
-std::string ERR_NICKNAMEINUSE::arranger(std::string sourceNickname, Client *source) {
-	return (command + " " + source->getNickname() + " " + sourceNickname + " :Nickname is already in use");
+std::string ERR_NICKNAMEINUSE::arranger(std::string nicknameInUse, Client *source) {
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " " + nicknameInUse + " :Nickname is already in use");
 }

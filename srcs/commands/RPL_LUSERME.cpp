@@ -14,6 +14,11 @@ RPL_LUSERME &RPL_LUSERME::operator = (RPL_LUSERME const &copy) {
 }
 
 std::string RPL_LUSERME::arranger(Client *source) {
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
 	std::string clientCount;
 	try {
 		clientCount = std::to_string(commands->server->getClientCount());
@@ -21,6 +26,5 @@ std::string RPL_LUSERME::arranger(Client *source) {
 	catch (...) {
 		clientCount = "0";
 	}
-	return (command + " " + source->getNickname() + \
-	" :I have " + clientCount + " clients and 0 servers");
+	return (command + " " + nickname + " :I have " + clientCount + " clients and 0 servers");
 }

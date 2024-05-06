@@ -13,6 +13,16 @@ ERR_USERONCHANNEL &ERR_USERONCHANNEL::operator = (ERR_USERONCHANNEL const &copy)
 }
 
 std::string ERR_USERONCHANNEL::arranger(Client *source, Client *target, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + target->getNickname() + " " + channel->getName() + \
-	" :is already on channel");
+	std::string	nickname;
+	std::string	targetNickname;
+	std::string	channelName;
+
+	if (source)
+		nickname = source->getNickname();
+	if (target)
+		targetNickname = target->getNickname();
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + nickname + " " + targetNickname + " " + channelName + " :is already on channel");
 }

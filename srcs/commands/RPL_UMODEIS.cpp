@@ -14,10 +14,16 @@ RPL_UMODEIS &RPL_UMODEIS::operator = (RPL_UMODEIS const &copy) {
 
 std::string RPL_UMODEIS::arranger(Client *source) {
 	std::unordered_set<char> supportedModes = {'o', 'r', 'i', 'O', 'w'};
-	std::string modes = "";
-	for (char mode : supportedModes) {
-		if (source->hasMode(mode))
-			modes += mode;
+	std::string modes;
+	std::string	nickname;
+
+	if (source) {
+		nickname = source->getNickname();
+		for (char mode : supportedModes) {
+			if (source->hasMode(mode))
+				modes += mode;
+		}
 	}
-	return (command + " " + source->getNickname() + " " + modes);
+
+	return (command + " " + nickname + " " + modes);
 }

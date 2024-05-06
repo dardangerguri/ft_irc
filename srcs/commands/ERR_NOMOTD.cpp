@@ -13,5 +13,10 @@ ERR_NOMOTD &ERR_NOMOTD::operator = (ERR_NOMOTD const &copy) {
 }
 
 std::string ERR_NOMOTD::arranger(Client *source) {
-	return (command + " " + source->getNickname() + " :MOTD File is missing");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " :MOTD File is missing");
 }

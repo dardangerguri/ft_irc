@@ -13,5 +13,10 @@ ERR_NOTREGISTERED &ERR_NOTREGISTERED::operator = (ERR_NOTREGISTERED const &copy)
 }
 
 std::string ERR_NOTREGISTERED::arranger(Client *source) {
-	return (command + " " + source->getNickname() + " :You have not registered");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " :You have not registered");
 }

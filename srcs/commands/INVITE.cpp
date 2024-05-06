@@ -59,5 +59,13 @@ void INVITE::handleCommand(std::string message, Client *source) {
 }
 
 std::string INVITE::arranger(Client *targetClient, Channel *targetChannel) {
-	return (this->command + " " + targetClient->getNickname() + " " + targetChannel->getName());
+	std::string	targetNickname;
+	std::string	targetChannelName;
+
+	if (targetClient)
+		targetNickname = targetClient->getNickname();
+	if (targetChannel)
+		targetChannelName = targetChannel->getName();
+
+	return (this->command + " " + targetNickname + " " + targetChannelName);
 }

@@ -13,5 +13,10 @@ ERR_NEEDMOREPARAMS &ERR_NEEDMOREPARAMS::operator = (ERR_NEEDMOREPARAMS const &co
 }
 
 std::string ERR_NEEDMOREPARAMS::arranger(std::string sourceCommand, Client *source) {
-	return (command + " " + source->getNickname() + " " + sourceCommand + " :Not enough parameters");
+	std::string	nickname;
+
+	if (source)
+		nickname = source->getNickname();
+
+	return (command + " " + nickname + " " + sourceCommand + " :Not enough parameters");
 }

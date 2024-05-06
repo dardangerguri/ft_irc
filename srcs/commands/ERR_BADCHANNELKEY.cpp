@@ -13,5 +13,13 @@ ERR_BADCHANNELKEY &ERR_BADCHANNELKEY::operator = (ERR_BADCHANNELKEY const &copy)
 }
 
 std::string ERR_BADCHANNELKEY::arranger(Client *source, Channel *channel) {
-	return (command + " " + source->getNickname() + " " + channel->getName() + " :Cannot join channel (+k)");
+	std::string	nickname;
+	std::string	channelName;
+
+	if (source)
+		nickname = source->getNickname();
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + nickname + " " + channelName + " :Cannot join channel (+k)");
 }

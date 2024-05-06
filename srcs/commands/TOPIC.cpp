@@ -72,7 +72,12 @@ void TOPIC::handleCommand(std::string message, Client *source) {
 }
 
 std::string TOPIC::arranger(Channel *channel, std::string topic) {
-	return (command + " " + channel->getName() + " :" + topic);
+	std::string	channelName;
+
+	if (channel)
+		channelName = channel->getName();
+
+	return (command + " " + channelName + " :" + topic);
 }
 
 std::time_t	TOPIC::getCurrTime(void) {
