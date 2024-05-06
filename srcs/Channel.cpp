@@ -34,6 +34,10 @@ std::unordered_set<Client *> Channel::getUserList() {
 	return (users);
 }
 
+std::string Channel::getPassword() {
+	return (password);
+}
+
 void Channel::setTopic(std::string newTopic) {
 	topic = newTopic;
 }
@@ -49,6 +53,10 @@ void Channel::setTopicTime(std::time_t time) {
 
 void Channel::setUserLimit(unsigned int newLimit) {
 	userLimit = newLimit;
+}
+
+void Channel::setPassword(std::string newPassword) {
+	password = newPassword;
 }
 
 bool Channel::checkPassword(std::string input) {

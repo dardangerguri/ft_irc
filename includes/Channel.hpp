@@ -18,11 +18,13 @@ class Channel {
 		unsigned int					getUserLimit(void);
 		unsigned int					getUserCount(void);
 		std::unordered_set<Client *>	getUserList(void);
+		std::string						getPassword(void);
 
 		void							setTopic(std::string newTopic);
 		void							setTopicAuthor(Client *user);
 		void							setTopicTime(std::time_t time);
 		void							setUserLimit(unsigned int newLimit);
+		void							setPassword(std::string newPassword);
 
 		bool							checkPassword(std::string input);
 		bool							validatePassword(std::string password);
