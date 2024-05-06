@@ -80,12 +80,14 @@ Commands::~Commands() {
 }
 
 void Commands::sendCommand(std::string message, Client *target) {
-	//Debug
-	std::cerr << BLUE "Sending: " RESET +  message << std::endl;
+	if (target) {
+		//Debug
+		std::cerr << BLUE "Sending: " RESET +  message << std::endl;
 
-	message += "\r\n";
-    if (send(target->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
-		std::cerr << RED << "Error: Sending messages failed!" << RESET << std::endl;
+		message += "\r\n";
+		if (send(target->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+			std::cerr << RED << "Error: Sending messages failed!" << RESET << std::endl;
+		}
 	}
 }
 
@@ -94,13 +96,15 @@ void Commands::sendCommand(std::string message, Client *source, Client *target) 
 }
 
 void Commands::sendCommand(std::string message, Channel *target) {
-	//Debug
-	std::cerr << BLUE "Sending to " RESET + target->getName() + BLUE ": " RESET + message << std::endl;
+	if (target) {
+		//Debug
+		std::cerr << BLUE "Sending to " RESET + target->getName() + BLUE ": " RESET + message << std::endl;
 
-	message += "\r\n";
-	for (Client *user : target->getUserList()) {
-		if (send(user->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
-			std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
+		message += "\r\n";
+		for (Client *user : target->getUserList()) {
+			if (send(user->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+				std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
+			}
 		}
 	}
 }
@@ -110,15 +114,17 @@ void Commands::sendCommand(std::string message, Client *source, Channel *target)
 }
 
 void Commands::sendCommand(std::string message, Channel *target, Client *exclude) {
-	//Debug
-	std::cerr << BLUE "Sending to " RESET + target->getName() + BLUE " excluding user " RESET + exclude->getNickname() + BLUE ": " RESET + message << std::endl;
+	if (target && exclude) {
+		//Debug
+		std::cerr << BLUE "Sending to " RESET + target->getName() + BLUE " excluding user " RESET + exclude->getNickname() + BLUE ": " RESET + message << std::endl;
 
-	message += "\r\n";
-	for (Client *user : target->getUserList()) {
-		if (user == exclude)
-			continue ;
-		if (send(user->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
-			std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
+		message += "\r\n";
+		for (Client *user : target->getUserList()) {
+			if (user == exclude)
+				continue ;
+			if (send(user->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+				std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
+			}
 		}
 	}
 }
@@ -129,43 +135,47 @@ void Commands::sendCommand(std::string message, Client *source, Channel *target,
 
 //FIXME: check ISupport values
 void Commands::registrationReply(Client *target) {
-	sendCommand(rplWelcome->arranger(target), target);
-	sendCommand(rplYourHost->arranger(target), target);
-	sendCommand(rplCreated->arranger(target), target);
-	sendCommand(rplMyInfo->arranger(target), target);
-	sendCommand(rplISupport->arranger(target, "AWAYLEN=200"), target);
-	sendCommand(rplISupport->arranger(target, "CASEMAPPING=rfc7613"), target);
-	sendCommand(rplISupport->arranger(target, "CHANLIMIT=#:"), target);
-	sendCommand(rplISupport->arranger(target, "CHANMODES=,k,l,it"), target);
-	sendCommand(rplISupport->arranger(target, "CHANNELLEN=32"), target);
-	sendCommand(rplISupport->arranger(target, "CHANTYPES=#"), target);
-	sendCommand(rplISupport->arranger(target, "ELIST="), target);
-	sendCommand(rplISupport->arranger(target, "EXCEPTS"), target);
-	sendCommand(rplISupport->arranger(target, "EXTBAN="), target);
-	sendCommand(rplISupport->arranger(target, "HOSTLEN=64"), target);
-	sendCommand(rplISupport->arranger(target, "INVEX"), target);
-	sendCommand(rplISupport->arranger(target, "KICKLEN=255"), target);
-	sendCommand(rplISupport->arranger(target, "MAXLIST=beI:25"), target);
-	sendCommand(rplISupport->arranger(target, "MAXTARGETS=1"), target);
-	sendCommand(rplISupport->arranger(target, "MODES=12"), target);
-	sendCommand(rplISupport->arranger(target, "NETWORK=IRC\x20\\BOYS\x20Network"), target);
-	sendCommand(rplISupport->arranger(target, "NICKLEN=12"), target);
-	sendCommand(rplISupport->arranger(target, "PREFIX=(o)@"), target);
-	sendCommand(rplISupport->arranger(target, "SILENCE"), target);
-	sendCommand(rplISupport->arranger(target, "STATUSMSG=@"), target);
-	sendCommand(rplISupport->arranger(target, "TOPICLEN=307"), target);
-	sendCommand(rplISupport->arranger(target, "USERLEN=12"), target);
-	sendCommand(rplLUserClient->arranger(target), target);
-	sendCommand(rplLUserMe->arranger(target), target);
-	sendCommand(errNoMotd->arranger(target), target);
-	sendCommand(rplUModeIs->arranger(target), target);
+	if (target) {
+		sendCommand(rplWelcome->arranger(target), target);
+		sendCommand(rplYourHost->arranger(target), target);
+		sendCommand(rplCreated->arranger(target), target);
+		sendCommand(rplMyInfo->arranger(target), target);
+		sendCommand(rplISupport->arranger(target, "AWAYLEN=200"), target);
+		sendCommand(rplISupport->arranger(target, "CASEMAPPING=rfc7613"), target);
+		sendCommand(rplISupport->arranger(target, "CHANLIMIT=#:"), target);
+		sendCommand(rplISupport->arranger(target, "CHANMODES=,k,l,it"), target);
+		sendCommand(rplISupport->arranger(target, "CHANNELLEN=32"), target);
+		sendCommand(rplISupport->arranger(target, "CHANTYPES=#"), target);
+		sendCommand(rplISupport->arranger(target, "ELIST="), target);
+		sendCommand(rplISupport->arranger(target, "EXCEPTS"), target);
+		sendCommand(rplISupport->arranger(target, "EXTBAN="), target);
+		sendCommand(rplISupport->arranger(target, "HOSTLEN=64"), target);
+		sendCommand(rplISupport->arranger(target, "INVEX"), target);
+		sendCommand(rplISupport->arranger(target, "KICKLEN=255"), target);
+		sendCommand(rplISupport->arranger(target, "MAXLIST=beI:25"), target);
+		sendCommand(rplISupport->arranger(target, "MAXTARGETS=1"), target);
+		sendCommand(rplISupport->arranger(target, "MODES=12"), target);
+		sendCommand(rplISupport->arranger(target, "NETWORK=IRC\x20\\BOYS\x20Network"), target);
+		sendCommand(rplISupport->arranger(target, "NICKLEN=12"), target);
+		sendCommand(rplISupport->arranger(target, "PREFIX=(o)@"), target);
+		sendCommand(rplISupport->arranger(target, "SILENCE"), target);
+		sendCommand(rplISupport->arranger(target, "STATUSMSG=@"), target);
+		sendCommand(rplISupport->arranger(target, "TOPICLEN=307"), target);
+		sendCommand(rplISupport->arranger(target, "USERLEN=12"), target);
+		sendCommand(rplLUserClient->arranger(target), target);
+		sendCommand(rplLUserMe->arranger(target), target);
+		sendCommand(errNoMotd->arranger(target), target);
+		sendCommand(rplUModeIs->arranger(target), target);
+	}
 }
 
 void Commands::namesReply(Client *source, Channel *channel) {
-	for (Client *user : channel->getUserList()) {
-		sendCommand(rplNamReply->arranger(source, channel, user), source);
+	if (source && channel) {
+		for (Client *user : channel->getUserList()) {
+			sendCommand(rplNamReply->arranger(source, channel, user), source);
+		}
+		sendCommand(rplEndOfNames->arranger(source, channel), source);
 	}
-	sendCommand(rplEndOfNames->arranger(source, channel), source);
 }
 
 std::shared_ptr<ACommand> Commands::getCommandFromList(std::string command) {
