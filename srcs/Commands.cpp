@@ -6,6 +6,7 @@ Commands::Commands(Server *s) {
 	error =  std::shared_ptr<ERROR>(new ERROR(this));
 	invite = std::shared_ptr<INVITE>(new INVITE(this));
 	join = std::shared_ptr<JOIN>(new JOIN(this));
+	mode = std::shared_ptr<MODE>(new MODE(this));
 	motd = std::shared_ptr<MOTD>(new MOTD(this));
 	names = std::shared_ptr<NAMES>(new NAMES(this));
 	nick = std::shared_ptr<NICK>(new NICK(this));
@@ -68,6 +69,7 @@ Commands::Commands(Server *s) {
 		commandList["ERROR"] = this->error;
 		commandList["INVITE"] = this->invite;
 		commandList["JOIN"] = this->join;
+		commandList["MODE"] = this->mode;
 		commandList["MOTD"] = this->motd;
 		commandList["NAMES"] = this->names;
 		commandList["NICK"] = this->nick;

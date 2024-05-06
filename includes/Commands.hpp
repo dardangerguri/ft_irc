@@ -11,6 +11,7 @@
 class ERROR;
 class INVITE;
 class JOIN;
+class MODE;
 class MOTD;
 class NAMES;
 class NICK;
@@ -90,6 +91,7 @@ class Commands {
 		std::shared_ptr<ERROR>					error;
 		std::shared_ptr<INVITE>					invite;
 		std::shared_ptr<JOIN>					join;
+		std::shared_ptr<MODE>					mode;
 		std::shared_ptr<MOTD>					motd;
 		std::shared_ptr<NAMES>					names;
 		std::shared_ptr<NICK>					nick;
@@ -159,6 +161,7 @@ class Commands {
 # include "ERROR.hpp"
 # include "INVITE.hpp"
 # include "JOIN.hpp"
+# include "MODE.hpp"
 # include "MOTD.hpp"
 # include "NAMES.hpp"
 # include "NICK.hpp"
