@@ -209,6 +209,9 @@ void Server::handleNewConnection() {
 void Server::handleClientData(size_t pollFdIndex) {
 	// get client from the list of clients based on the pollFdIndex
 	Client *client = getClientBySocketFd(pfds[pollFdIndex].fd);
+	if (!client)
+		return ;
+
 	// Receive data from the client
 	char buffer[512] = { 0 };
 	int nbytes = recv(pfds[pollFdIndex].fd, buffer, sizeof(buffer) - 1, 0);
