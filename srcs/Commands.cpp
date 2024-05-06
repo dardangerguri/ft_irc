@@ -26,6 +26,7 @@ Commands::Commands(Server *s) {
 	rplUModeIs = std::shared_ptr<RPL_UMODEIS>(new RPL_UMODEIS());
 	rplLUserClient = std::shared_ptr<RPL_LUSERCLIENT>(new RPL_LUSERCLIENT(this));
 	rplLUserMe = std::shared_ptr<RPL_LUSERME>(new RPL_LUSERME(this));
+	rplChannelModeIs = std::shared_ptr<RPL_CHANNELMODEIS>(new RPL_CHANNELMODEIS());
 	rplNoTopic = std::shared_ptr<RPL_NOTOPIC>(new RPL_NOTOPIC());
 	rplTopic = std::shared_ptr<RPL_TOPIC>(new RPL_TOPIC());
 	rplTopicWhoTime = std::shared_ptr<RPL_TOPICWHOTIME>(new RPL_TOPICWHOTIME());

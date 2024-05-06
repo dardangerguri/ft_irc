@@ -34,6 +34,7 @@ SRC     = 	main.cpp \
 			./commands/RPL_LUSERCLIENT.cpp \
 			./commands/RPL_LUSERME.cpp \
 			./commands/RPL_NOTOPIC.cpp \
+			./commands/RPL_CHANNELMODEIS.cpp \
 			./commands/RPL_TOPIC.cpp \
 			./commands/RPL_TOPICWHOTIME.cpp \
 			./commands/RPL_INVITING.cpp \

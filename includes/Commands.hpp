@@ -31,6 +31,7 @@ class RPL_ISUPPORT; //005
 class RPL_UMODEIS; //221
 class RPL_LUSERCLIENT; //251
 class RPL_LUSERME; //255
+class RPL_CHANNELMODEIS; //324
 class RPL_NOTOPIC; //331
 class RPL_TOPIC; //332
 class RPL_TOPICWHOTIME; //333
@@ -109,6 +110,7 @@ class Commands {
 		std::shared_ptr<RPL_UMODEIS>			rplUModeIs;
 		std::shared_ptr<RPL_LUSERCLIENT>		rplLUserClient;
 		std::shared_ptr<RPL_LUSERME>			rplLUserMe;
+		std::shared_ptr<RPL_CHANNELMODEIS>		rplChannelModeIs;
 		std::shared_ptr<RPL_NOTOPIC>			rplNoTopic;
 		std::shared_ptr<RPL_TOPIC>				rplTopic;
 		std::shared_ptr<RPL_TOPICWHOTIME>		rplTopicWhoTime;
@@ -178,6 +180,7 @@ class Commands {
 # include "RPL_LUSERCLIENT.hpp"
 # include "RPL_LUSERME.hpp"
 # include "RPL_NOTOPIC.hpp"
+# include "RPL_CHANNELMODEIS.hpp"
 # include "RPL_TOPIC.hpp"
 # include "RPL_TOPICWHOTIME.hpp"
 # include "RPL_INVITING.hpp"
