@@ -142,6 +142,8 @@ void Client::setValidPass(void) {
 }
 
 bool Client::joinChannel(Channel *channel) {
+	if (!channel)
+		return (false);
 	try {
 		joinedChannels.insert({channel->getName(), channel});
 	}
@@ -159,12 +161,16 @@ bool Client::joinChannel(Channel *channel) {
 }
 
 void Client::leaveChannel(Channel *channel) {
-	joinedChannels.erase(channel->getName());
-	if (channel->userIsJoined(this))
-		channel->userLeave(this);
+	if (channel) {
+		joinedChannels.erase(channel->getName());
+		if (channel->userIsJoined(this))
+			channel->userLeave(this);
+	}
 }
 
 bool Client::inviteToChannel(Channel *channel) {
+	if (!channel)
+		return (false);
 	try {
 		invitedChannels.insert({channel->getName(), channel});
 	}
@@ -175,17 +181,22 @@ bool Client::inviteToChannel(Channel *channel) {
 }
 
 void Client::removeInviteToChannel(Channel *channel) {
-	invitedChannels.erase(channel->getName());
+	if (channel)
+		invitedChannels.erase(channel->getName());
 }
 
 
 bool Client::inChannel(Channel *channel) {
+	if (!channel)
+		return (false);
 	if (joinedChannels.find(channel->getName()) != joinedChannels.end())
 		return (true);
 	return (false);
 }
 
 bool Client::isInvitedToChannel(Channel *channel) {
+	if (!channel)
+		return (false);
 	if (invitedChannels.find(channel->getName()) != invitedChannels.end())
 		return (true);
 	return (false);
