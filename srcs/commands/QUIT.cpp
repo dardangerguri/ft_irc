@@ -19,6 +19,8 @@ void QUIT::handleCommand(std::string message, Client *source) {
 	for (std::pair<std::string, Channel *> chanPair : source->getJoinedChannels()) {
 		commands->sendCommand(arranger("Quit: " + message), source, chanPair.second);
 		chanPair.second->userLeave(source);
+		if (chanPair.second->getUserCount() == 0)
+			commands->server->delChannel(chanPair.second);
 	}
 	commands->sendCommand(commands->error->arranger("Connection closed: Lost connection to client"), source);
 }
