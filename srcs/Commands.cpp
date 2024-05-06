@@ -3,6 +3,7 @@
 Commands::Commands(Server *s) {
 	server = s;
 
+	error =  std::shared_ptr<ERROR>(new ERROR(this));
 	invite = std::shared_ptr<INVITE>(new INVITE(this));
 	join = std::shared_ptr<JOIN>(new JOIN(this));
 	names = std::shared_ptr<NAMES>(new NAMES(this));
@@ -54,6 +55,7 @@ Commands::Commands(Server *s) {
 	errInvalidKey = std::shared_ptr<ERR_INVALIDKEY>(new ERR_INVALIDKEY());
 
 	try {
+		commandList["ERROR"] = this->error;
 		commandList["INVITE"] = this->invite;
 		commandList["JOIN"] = this->join;
 		commandList["NAMES"] = this->names;

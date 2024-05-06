@@ -11,6 +11,7 @@ SRC     = 	main.cpp \
 			Channel.cpp \
 			Commands.cpp \
 			./commands/ACommand.cpp \
+			./commands/ERROR.cpp \
 			./commands/INVITE.cpp \
 			./commands/JOIN.cpp \
 			./commands/NAMES.cpp \

@@ -8,6 +8,7 @@
 # include <unordered_map>
 # include <memory>
 
+class ERROR;
 class INVITE;
 class JOIN;
 class NAMES;
@@ -76,6 +77,7 @@ class Commands {
 		void		namesReply(Client *source, Channel *channel);
 
 
+		std::shared_ptr<ERROR>					error;
 		std::shared_ptr<INVITE>					invite;
 		std::shared_ptr<JOIN>					join;
 		std::shared_ptr<NAMES>					names;
@@ -134,6 +136,7 @@ class Commands {
 		std::unordered_map<std::string, std::shared_ptr<ACommand>>	commandList;
 };
 
+# include "ERROR.hpp"
 # include "INVITE.hpp"
 # include "JOIN.hpp"
 # include "NAMES.hpp"
