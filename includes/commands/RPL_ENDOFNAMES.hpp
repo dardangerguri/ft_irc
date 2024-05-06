@@ -11,6 +11,7 @@ class RPL_ENDOFNAMES : public ACommand {
 		RPL_ENDOFNAMES &operator=(RPL_ENDOFNAMES const &copy);
 
 		std::string	arranger(Client *source, Channel *channel);
+		std::string	arranger(Client *source, std::string channelName);
 
 	private:
 		RPL_ENDOFNAMES(RPL_ENDOFNAMES const &copy);
