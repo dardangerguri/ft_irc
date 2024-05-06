@@ -239,7 +239,7 @@ void Server::parseMsg(std::string message, Client *client) {
 	//Debug
 	std::cerr << RED "Received: " RESET +  message << std::endl;
 
-	if (message.empty())
+	if (message.empty() || !client)
 		return ;
 
 	// make sure we only have ASCII SPACEs and no other whitespace
