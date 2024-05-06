@@ -39,7 +39,8 @@ void Channel::setTopic(std::string newTopic) {
 }
 
 void Channel::setTopicAuthor(Client *user) {
-	topicAuthor = user->getNickname();
+	if (user)
+		topicAuthor = user->getNickname();
 }
 
 void Channel::setTopicTime(std::time_t time) {
@@ -117,6 +118,8 @@ bool Channel::hasMode(char mode) {
 }
 
 bool Channel::userJoin(Client *user) {
+	if (!user)
+		return (false);
 	try {
 		users.insert(user);
 	}
@@ -135,23 +138,27 @@ bool Channel::userJoin(Client *user) {
 }
 
 void Channel::userLeave(Client *user) {
-	users.erase(user);
-	userRemoveOperator(user);
+	if (user) {
+		users.erase(user);
+		userRemoveOperator(user);
+	}
 }
 
 bool Channel::userIsJoined(Client *user) {
-	if (users.find(user) != users.end())
+	if (user && users.find(user) != users.end())
 		return (true);
 	return (false);
 }
 
 bool Channel::userIsOperator(Client *user) {
-	if (operators.find(user) != operators.end())
+	if (user && operators.find(user) != operators.end())
 		return (true);
 	return (false);
 }
 
 bool Channel::userMakeOperator(Client *user) {
+	if (!user)
+		return (false);
 	try {
 		operators.insert(user);
 	}
@@ -162,5 +169,6 @@ bool Channel::userMakeOperator(Client *user) {
 }
 
 void Channel::userRemoveOperator(Client *user) {
-	operators.erase(user);
+	if (user)
+		operators.erase(user);
 }
