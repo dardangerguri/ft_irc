@@ -215,6 +215,12 @@ void Server::handleClientData(size_t pollFdIndex) {
 	if (nbytes <= 0) {
 		// Print the client disconnection
 		std::cout << RED << "Client disconnected: " << pfds[pollFdIndex].fd << RESET << std::endl;
+
+		for (std::pair<std::string, Channel *> chanPair : client->getJoinedChannels()) {
+			commands->sendCommand(commands->quit->arranger("disconnected"), client, chanPair.second, client);
+			chanPair.second->userLeave(client);
+		}
+
 		close(pfds[pollFdIndex].fd);
 		pfds.erase(pfds.begin() + pollFdIndex);
 
