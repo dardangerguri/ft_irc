@@ -11,6 +11,7 @@
 class ERROR;
 class INVITE;
 class JOIN;
+class MOTD;
 class NAMES;
 class NICK;
 class PART;
@@ -84,6 +85,7 @@ class Commands {
 		std::shared_ptr<ERROR>					error;
 		std::shared_ptr<INVITE>					invite;
 		std::shared_ptr<JOIN>					join;
+		std::shared_ptr<MOTD>					motd;
 		std::shared_ptr<NAMES>					names;
 		std::shared_ptr<NICK>					nick;
 		std::shared_ptr<PART>					part;
@@ -105,7 +107,7 @@ class Commands {
 		std::shared_ptr<RPL_LUSERME>			rplLUserMe;
 		std::shared_ptr<RPL_NOTOPIC>			rplNoTopic;
 		std::shared_ptr<RPL_TOPIC>				rplTopic;
-		std::shared_ptr<RPL_TOPICWHOTIME>		rplTopicWhoTime;	
+		std::shared_ptr<RPL_TOPICWHOTIME>		rplTopicWhoTime;
 		std::shared_ptr<RPL_INVITING>			rplInviting;
 		std::shared_ptr<RPL_NAMREPLY>			rplNamReply;
 		std::shared_ptr<RPL_ENDOFNAMES>			rplEndOfNames;
@@ -147,6 +149,7 @@ class Commands {
 # include "ERROR.hpp"
 # include "INVITE.hpp"
 # include "JOIN.hpp"
+# include "MOTD.hpp"
 # include "NAMES.hpp"
 # include "NICK.hpp"
 # include "PART.hpp"
