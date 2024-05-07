@@ -39,6 +39,7 @@ SRC     = 	main.cpp \
 			./commands/RPL_NAMREPLY.cpp \
 			./commands/RPL_ENDOFNAMES.cpp \
 			./commands/RPL_MOTDSTART.cpp \
+			./commands/RPL_ENDOFMOTD.cpp \
 			./commands/ERR_UNKNOWNERROR.cpp \
 			./commands/ERR_NOSUCHNICK.cpp \
 			./commands/ERR_NOSUCHCHANNEL.cpp \
