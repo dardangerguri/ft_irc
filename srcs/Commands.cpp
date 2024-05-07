@@ -31,6 +31,7 @@ Commands::Commands(Server *s) {
 	rplInviting = std::shared_ptr<RPL_INVITING>(new RPL_INVITING());
 	rplNamReply = std::shared_ptr<RPL_NAMREPLY>(new RPL_NAMREPLY());
 	rplEndOfNames = std::shared_ptr<RPL_ENDOFNAMES>(new RPL_ENDOFNAMES());
+	rplMotd = std::shared_ptr<RPL_MOTD>(new RPL_MOTD());
 	rplMotdStart = std::shared_ptr<RPL_MOTDSTART>(new RPL_MOTDSTART());
 	rplEndOfMotd = std::shared_ptr<RPL_ENDOFMOTD>(new RPL_ENDOFMOTD());
 

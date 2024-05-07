@@ -36,6 +36,7 @@ class RPL_TOPICWHOTIME; //333
 class RPL_INVITING; //341
 class RPL_NAMREPLY; //353
 class RPL_ENDOFNAMES; //366
+class RPL_MOTD; //372
 class RPL_MOTDSTART; //375
 class RPL_ENDOFMOTD; //376
 
@@ -108,6 +109,7 @@ class Commands {
 		std::shared_ptr<RPL_INVITING>			rplInviting;
 		std::shared_ptr<RPL_NAMREPLY>			rplNamReply;
 		std::shared_ptr<RPL_ENDOFNAMES>			rplEndOfNames;
+		std::shared_ptr<RPL_MOTD>				rplMotd;
 		std::shared_ptr<RPL_MOTDSTART>			rplMotdStart;
 		std::shared_ptr<RPL_ENDOFMOTD>			rplEndOfMotd;
 
@@ -170,6 +172,7 @@ class Commands {
 # include "RPL_INVITING.hpp"
 # include "RPL_NAMREPLY.hpp"
 # include "RPL_ENDOFNAMES.hpp"
+# include "RPL_MOTD.hpp"
 # include "RPL_MOTDSTART.hpp"
 # include "RPL_ENDOFMOTD.hpp"
 

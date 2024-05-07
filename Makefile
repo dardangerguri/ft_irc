@@ -38,6 +38,7 @@ SRC     = 	main.cpp \
 			./commands/RPL_INVITING.cpp \
 			./commands/RPL_NAMREPLY.cpp \
 			./commands/RPL_ENDOFNAMES.cpp \
+			./commands/RPL_MOTD.cpp \
 			./commands/RPL_MOTDSTART.cpp \
 			./commands/RPL_ENDOFMOTD.cpp \
 			./commands/ERR_UNKNOWNERROR.cpp \
