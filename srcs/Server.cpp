@@ -268,6 +268,9 @@ void Server::parseMsg(std::string message, Client *client) {
 	else
 		restOfMessage = "";
 
+	for (size_t i = 0; i < command.size(); i++)
+		command[i] = std::toupper(command[i]);
+
 	std::shared_ptr<ACommand> commandPtr = commands->getCommandFromList(command);
 	if (commandPtr) {
 		if (commandPtr->getRequireRegistration() && !client->hasMode('r'))
