@@ -14,6 +14,7 @@ SRC     = 	main.cpp \
 			./commands/ERROR.cpp \
 			./commands/INVITE.cpp \
 			./commands/JOIN.cpp \
+			./commands/KICK.cpp \
 			./commands/MODE.cpp \
 			./commands/MOTD.cpp \
 			./commands/NAMES.cpp \
