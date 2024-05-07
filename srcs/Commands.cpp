@@ -169,7 +169,7 @@ void Commands::registrationReply(Client *target) {
 		sendCommand(rplISupport->arranger(target, "USERLEN=12"), target);
 		sendCommand(rplLUserClient->arranger(target), target);
 		sendCommand(rplLUserMe->arranger(target), target);
-		sendCommand(errNoMotd->arranger(target), target);
+		motd->handleCommand("", target);
 		sendCommand(rplUModeIs->arranger(target), target);
 	}
 }
