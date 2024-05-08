@@ -13,7 +13,7 @@ PRIVMSG &PRIVMSG::operator = (PRIVMSG const &copy) {
 	return (*this);
 }
 
-void PRIVMSG::handleCommand(std::string message, Client *source) {
+void PRIVMSG::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string>	parameters;
 	std::vector<std::string>	target;
 	unsigned int				targetCount;
@@ -72,7 +72,7 @@ void PRIVMSG::handleCommand(std::string message, Client *source) {
 		commands->sendCommand(commands->errNoTextToSend->arranger(source), source);
 }
 
-std::string PRIVMSG::arranger(Client *target, std::string message) {
+std::string PRIVMSG::arranger(Client *target, std::string const message) const {
 	std::string	targetNickname;
 
 	if (target)
@@ -81,7 +81,7 @@ std::string PRIVMSG::arranger(Client *target, std::string message) {
 	return (this->command + " " + targetNickname + " " + message);
 }
 
-std::string PRIVMSG::arranger(Channel *target, std::string message) {
+std::string PRIVMSG::arranger(Channel *target, std::string const message) const {
 	std::string	targetChannelName;
 
 	if (target)
@@ -90,7 +90,7 @@ std::string PRIVMSG::arranger(Channel *target, std::string message) {
 	return (this->command + " " + targetChannelName + " " + message);
 }
 
-std::vector<std::string> PRIVMSG::parseMessage(std::string message) {
+std::vector<std::string> PRIVMSG::parseMessage(std::string const message) const {
 
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
