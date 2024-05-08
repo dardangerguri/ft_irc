@@ -16,35 +16,35 @@ class Client {
 		Client(int const socketFd);
 		~Client(void);
 
-		void 										addBufferToMsgBuffer(std::string const buffer);
-		bool 										msgCompleted(void) const;
-		bool 										isAllowedUserMode(char const mode) const;
-		bool 										addMode(char const mode);
-		bool 										delMode(char const mode);
-		bool 										hasMode(char const mode) const;
-		bool 										tryToRegister(void);
+		void 												addBufferToMsgBuffer(std::string const buffer);
+		bool 												msgCompleted(void) const;
+		bool 												isAllowedUserMode(char const mode) const;
+		bool 												addMode(char const mode);
+		bool 												delMode(char const mode);
+		bool 												hasMode(char const mode) const;
+		bool 												tryToRegister(void);
 
-		char										*getIp(void);
-		int 										getSocketFd(void) const;
-		std::string									getMsgFromBuffer(void);
-		std::string									getNickname(void) const;
-		std::string									getUsername(void) const;
-		std::string									getRealname(void) const;
-		bool 										getValidPass(void) const;
-		std::unordered_map<std::string, Channel *>	getJoinedChannels(void) const;
+		char const											*getIp(void);
+		int			 										getSocketFd(void) const;
+		std::string const									getMsgFromBuffer(void);
+		std::string const									getNickname(void) const;
+		std::string const									getUsername(void) const;
+		std::string const									getRealname(void) const;
+		bool 												getValidPass(void) const;
+		std::unordered_map<std::string, Channel *> const	getJoinedChannels(void) const;
 
-		void										setIp(char *newIp);
-		void										setNickname(std::string const newNickname);
-		void										setUsername(std::string const newUsername);
-		void										setRealname(std::string const newRealname);
-		void										setValidPass(void);
+		void												setIp(char *newIp);
+		void												setNickname(std::string const newNickname);
+		void												setUsername(std::string const newUsername);
+		void												setRealname(std::string const newRealname);
+		void												setValidPass(void);
 
-		bool										joinChannel(Channel *channel);
-		void										leaveChannel(Channel *channel);
-		bool										inviteToChannel(Channel *channel);
-		void										removeInviteToChannel(Channel *channel);
-		bool										inChannel(Channel *channel) const;
-		bool										isInvitedToChannel(Channel *channel) const;
+		bool												joinChannel(Channel *channel);
+		void												leaveChannel(Channel *channel);
+		bool												inviteToChannel(Channel *channel);
+		void												removeInviteToChannel(Channel *channel);
+		bool												inChannel(Channel *channel) const;
+		bool												isInvitedToChannel(Channel *channel) const;
 
 	private:
 		Client(void);

@@ -10,7 +10,7 @@ class ERR_USERONCHANNEL : public ACommand {
 
 		ERR_USERONCHANNEL &operator=(ERR_USERONCHANNEL const &copy);
 
-		std::string	arranger(Client *source, Client *target, Channel *channel) const;
+		std::string const	arranger(Client *source, Client *target, Channel *channel) const;
 
 	private:
 		ERR_USERONCHANNEL(ERR_USERONCHANNEL const &copy);

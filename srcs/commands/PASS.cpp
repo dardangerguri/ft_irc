@@ -40,6 +40,6 @@ void PASS::handleCommand(std::string const message, Client *source) {
 		commands->sendCommand(commands->errPasswMismatch->arranger(source), source);
 }
 
-std::string PASS::arranger() const {
+std::string const PASS::arranger() const {
 	return (this->command);
 }

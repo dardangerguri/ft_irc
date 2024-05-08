@@ -62,7 +62,7 @@ void PART::handleCommand(std::string const message, Client *source) {
 	}
 }
 
-std::string PART::arranger(Channel *channel, std::string const reason) const {
+std::string const PART::arranger(Channel *channel, std::string const reason) const {
 	std::string	channelName;
 
 	if (channel)

@@ -12,7 +12,8 @@ RPL_MYINFO &RPL_MYINFO::operator = (RPL_MYINFO const &copy) {
 	return (*this);
 }
 
-std::string RPL_MYINFO::arranger(Client *source) const {
+//FIXME: <available user modes> <available channel modes> [<channel modes with a parameter>]
+std::string const RPL_MYINFO::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

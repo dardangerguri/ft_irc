@@ -12,7 +12,7 @@ RPL_TOPIC &RPL_TOPIC::operator = (RPL_TOPIC const &copy) {
 	return (*this);
 }
 
-std::string RPL_TOPIC::arranger(Client *source, Channel *channel) const {
+std::string const RPL_TOPIC::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 	std::string	topic;

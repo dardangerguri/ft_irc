@@ -12,6 +12,6 @@ ERR_BADCHANMASK &ERR_BADCHANMASK::operator = (ERR_BADCHANMASK const &copy) {
 	return (*this);
 }
 
-std::string ERR_BADCHANMASK::arranger(std::string const channel) const {
+std::string const ERR_BADCHANMASK::arranger(std::string const channel) const {
 	return (command + " " + channel + " :Bad Channel Mask");
 }

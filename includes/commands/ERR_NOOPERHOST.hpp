@@ -10,7 +10,7 @@ class ERR_NOOPERHOST : public ACommand {
 
 		ERR_NOOPERHOST &operator=(ERR_NOOPERHOST const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		ERR_NOOPERHOST(ERR_NOOPERHOST const &copy);

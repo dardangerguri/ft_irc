@@ -10,8 +10,8 @@ class PASS : public ACommand {
 
 		PASS &operator=(PASS const &copy);
 
-		void		handleCommand(std::string const message, Client *source);
-		std::string	arranger(void) const;
+		void				handleCommand(std::string const message, Client *source);
+		std::string const	arranger(void) const;
 
 	private:
 		PASS(void);

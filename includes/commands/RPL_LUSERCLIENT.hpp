@@ -10,7 +10,7 @@ class RPL_LUSERCLIENT : public ACommand {
 
 		RPL_LUSERCLIENT &operator=(RPL_LUSERCLIENT const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		RPL_LUSERCLIENT(void);

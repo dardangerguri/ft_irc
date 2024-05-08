@@ -10,7 +10,7 @@ class ERR_NOTEXTTOSEND : public ACommand {
 
 		ERR_NOTEXTTOSEND &operator=(ERR_NOTEXTTOSEND const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		ERR_NOTEXTTOSEND(ERR_NOTEXTTOSEND const &copy);

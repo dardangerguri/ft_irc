@@ -71,7 +71,7 @@ void TOPIC::handleCommand(std::string const message, Client *source) {
 	}
 }
 
-std::string TOPIC::arranger(Channel *channel, std::string const topic) const {
+std::string const TOPIC::arranger(Channel *channel, std::string const topic) const {
 	std::string	channelName;
 
 	if (channel)

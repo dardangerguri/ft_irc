@@ -72,7 +72,7 @@ void PRIVMSG::handleCommand(std::string const message, Client *source) {
 		commands->sendCommand(commands->errNoTextToSend->arranger(source), source);
 }
 
-std::string PRIVMSG::arranger(Client *target, std::string const message) const {
+std::string const PRIVMSG::arranger(Client *target, std::string const message) const {
 	std::string	targetNickname;
 
 	if (target)
@@ -81,7 +81,7 @@ std::string PRIVMSG::arranger(Client *target, std::string const message) const {
 	return (this->command + " " + targetNickname + " " + message);
 }
 
-std::string PRIVMSG::arranger(Channel *target, std::string const message) const {
+std::string const PRIVMSG::arranger(Channel *target, std::string const message) const {
 	std::string	targetChannelName;
 
 	if (target)

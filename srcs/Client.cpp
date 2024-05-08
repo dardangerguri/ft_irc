@@ -81,7 +81,7 @@ bool Client::tryToRegister(void) {
 	return (false);
 }
 
-char *Client::getIp(void) {
+char const *Client::getIp(void) {
 	return (ip);
 }
 
@@ -89,7 +89,7 @@ int Client::getSocketFd(void) const {
 	return (this->socketFd);
 }
 
-std::string Client::getMsgFromBuffer(void) {
+std::string const Client::getMsgFromBuffer(void) {
 	std::string message;
 
 	size_t pos = this->msgBuffer.find("\r\n");
@@ -108,15 +108,15 @@ std::string Client::getMsgFromBuffer(void) {
 	return (message);
 }
 
-std::string Client::getNickname(void) const {
+std::string const Client::getNickname(void) const {
 	return (nickname);
 }
 
-std::string Client::getUsername(void) const {
+std::string const Client::getUsername(void) const {
 	return (username);
 }
 
-std::string Client::getRealname(void) const {
+std::string const Client::getRealname(void) const {
 	return (realname);
 }
 
@@ -124,7 +124,7 @@ bool Client::getValidPass(void) const {
 	return (validPass);
 }
 
-std::unordered_map<std::string, Channel *> Client::getJoinedChannels(void) const {
+std::unordered_map<std::string, Channel *> const Client::getJoinedChannels(void) const {
 	return (joinedChannels);
 }
 

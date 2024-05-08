@@ -36,6 +36,6 @@ void MOTD::handleCommand(std::string const message, Client *source) {
 	}
 }
 
-std::string MOTD::arranger() const {
+std::string const MOTD::arranger() const {
 	return (this->command);
 }

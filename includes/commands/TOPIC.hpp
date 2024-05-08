@@ -11,8 +11,8 @@ class TOPIC : public ACommand {
 
 		TOPIC &operator=(TOPIC const &copy);
 
-		void		handleCommand(std::string const message, Client *source);
-		std::string	arranger(Channel *channel, std::string const topic) const;
+		void				handleCommand(std::string const message, Client *source);
+		std::string const	arranger(Channel *channel, std::string const topic) const;
 
 	private:
 		TOPIC(void);

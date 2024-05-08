@@ -10,7 +10,7 @@ class RPL_ISUPPORT : public ACommand {
 
 		RPL_ISUPPORT &operator=(RPL_ISUPPORT const &copy);
 
-		std::string	arranger(Client *source, std::string const token) const;
+		std::string const	arranger(Client *source, std::string const token) const;
 
 	private:
 		RPL_ISUPPORT(RPL_ISUPPORT const &copy);

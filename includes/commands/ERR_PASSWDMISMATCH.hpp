@@ -10,7 +10,7 @@ class ERR_PASSWDMISMATCH : public ACommand {
 
 		ERR_PASSWDMISMATCH &operator=(ERR_PASSWDMISMATCH const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		ERR_PASSWDMISMATCH(ERR_PASSWDMISMATCH const &copy);

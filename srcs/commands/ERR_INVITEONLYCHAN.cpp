@@ -12,7 +12,7 @@ ERR_INVITEONLYCHAN &ERR_INVITEONLYCHAN::operator = (ERR_INVITEONLYCHAN const &co
 	return (*this);
 }
 
-std::string ERR_INVITEONLYCHAN::arranger(Client *source, Channel *channel) const {
+std::string const ERR_INVITEONLYCHAN::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 

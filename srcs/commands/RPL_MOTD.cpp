@@ -12,7 +12,7 @@ RPL_MOTD &RPL_MOTD::operator = (RPL_MOTD const &copy) {
 	return (*this);
 }
 
-std::string RPL_MOTD::arranger(Client *source, std::string const motdLine) const {
+std::string const RPL_MOTD::arranger(Client *source, std::string const motdLine) const {
 	std::string	nickname;
 
 	if (source)

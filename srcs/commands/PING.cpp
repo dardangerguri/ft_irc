@@ -34,6 +34,6 @@ void PING::handleCommand(std::string const message, Client *source) {
 }
 
 // FIXME: temporary solution (need unique token?)
-std::string PING::arranger() const {
+std::string const PING::arranger() const {
 	return (this->command + " noot noot");
 }

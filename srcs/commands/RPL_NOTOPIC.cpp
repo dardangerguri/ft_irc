@@ -12,7 +12,7 @@ RPL_NOTOPIC &RPL_NOTOPIC::operator = (RPL_NOTOPIC const &copy) {
 	return (*this);
 }
 
-std::string RPL_NOTOPIC::arranger(Client *source, Channel *channel) const {
+std::string const RPL_NOTOPIC::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 

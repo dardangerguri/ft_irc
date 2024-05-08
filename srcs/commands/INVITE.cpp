@@ -58,7 +58,7 @@ void INVITE::handleCommand(std::string const message, Client *source) {
 		commands->sendCommand(commands->errNeedMoreParams->arranger(this->command, source), source);
 }
 
-std::string INVITE::arranger(Client *targetClient, Channel *targetChannel) const {
+std::string const INVITE::arranger(Client *targetClient, Channel *targetChannel) const {
 	std::string	targetNickname;
 	std::string	targetChannelName;
 

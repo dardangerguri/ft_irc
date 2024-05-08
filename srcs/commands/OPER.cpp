@@ -42,6 +42,6 @@ void OPER::handleCommand(std::string const message, Client *source) {
 	}
 }
 
-std::string OPER::arranger() const {
+std::string const OPER::arranger() const {
 	return (this->command);
 }

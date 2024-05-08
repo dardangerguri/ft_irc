@@ -12,7 +12,7 @@ ERR_ALREADYREGISTERED &ERR_ALREADYREGISTERED::operator = (ERR_ALREADYREGISTERED 
 	return (*this);
 }
 
-std::string ERR_ALREADYREGISTERED::arranger(Client *source) const {
+std::string const ERR_ALREADYREGISTERED::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

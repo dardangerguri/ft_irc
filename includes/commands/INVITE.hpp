@@ -10,8 +10,8 @@ class INVITE : public ACommand {
 
 		INVITE &operator=(INVITE const &copy);
 
-		void		handleCommand(std::string const message, Client *source);
-		std::string	arranger(Client *targetClient, Channel *targetChannel) const;
+		void				handleCommand(std::string const message, Client *source);
+		std::string const	arranger(Client *targetClient, Channel *targetChannel) const;
 
 	private:
 		INVITE(void);

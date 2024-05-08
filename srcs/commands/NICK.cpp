@@ -50,7 +50,7 @@ void NICK::handleCommand(std::string const message, Client *source) {
 		commands->sendCommand(commands->errErroneusNickname->arranger(parameters[0], source), source);
 }
 
-std::string NICK::arranger(std::string const newNickname) const {
+std::string const NICK::arranger(std::string const newNickname) const {
 	return (this->command + " " + newNickname);
 }
 

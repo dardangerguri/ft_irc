@@ -261,7 +261,7 @@ void MODE::handleTopicMode(bool const setFlag, Channel *targetChannel) {
 		targetChannel->delMode('t');
 }
 
-std::string MODE::parseModeMessage(std::string modeString, std::vector<std::string> const modeParameters) {
+std::string const MODE::parseModeMessage(std::string modeString, std::vector<std::string> const modeParameters) {
 	if (modeString[0] && modeString[0] != '+' && modeString[0] != '-')
 		modeString = "+" + modeString;
 
@@ -292,7 +292,7 @@ std::string MODE::parseModeMessage(std::string modeString, std::vector<std::stri
 	return (modeString);
 }
 
-std::string MODE::arranger(std::string const message, Channel *targetChannel) const {
+std::string const MODE::arranger(std::string const message, Channel *targetChannel) const {
 	std::string	targetChannelName;
 
 	if (targetChannel)
@@ -301,7 +301,7 @@ std::string MODE::arranger(std::string const message, Channel *targetChannel) co
 	return (command + " " + targetChannelName + " " + message);
 }
 
-std::string MODE::arranger(std::string const message, Client *targetClient) const {
+std::string const MODE::arranger(std::string const message, Client *targetClient) const {
 	std::string	targetClientNickname;
 
 	if (targetClient)

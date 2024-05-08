@@ -10,7 +10,7 @@ class RPL_LUSERME : public ACommand {
 
 		RPL_LUSERME &operator=(RPL_LUSERME const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		RPL_LUSERME(void);

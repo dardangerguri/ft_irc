@@ -10,7 +10,7 @@ class ERR_UNKNOWNERROR : public ACommand {
 
 		ERR_UNKNOWNERROR &operator=(ERR_UNKNOWNERROR const &copy);
 
-		std::string	arranger(std::string const sourceCommand, std::string const info, Client *source) const;
+		std::string const	arranger(std::string const sourceCommand, std::string const info, Client *source) const;
 
 	private:
 		ERR_UNKNOWNERROR(ERR_UNKNOWNERROR const &copy);

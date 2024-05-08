@@ -10,7 +10,7 @@ class ERR_BADCHANMASK : public ACommand {
 
 		ERR_BADCHANMASK &operator=(ERR_BADCHANMASK const &copy);
 
-		std::string	arranger(std::string const channel) const;
+		std::string const	arranger(std::string const channel) const;
 
 	private:
 		ERR_BADCHANMASK(ERR_BADCHANMASK const &copy);

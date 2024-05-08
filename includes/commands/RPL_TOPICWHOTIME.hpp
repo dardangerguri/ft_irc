@@ -10,7 +10,7 @@ class RPL_TOPICWHOTIME : public ACommand {
 
 		RPL_TOPICWHOTIME &operator=(RPL_TOPICWHOTIME const &copy);
 
-		std::string	arranger(Client *source, Channel *channel) const;
+		std::string const	arranger(Client *source, Channel *channel) const;
 
 	private:
 		RPL_TOPICWHOTIME(RPL_TOPICWHOTIME const &copy);

@@ -12,7 +12,7 @@ ERR_UMODEUNKNOWNFLAG &ERR_UMODEUNKNOWNFLAG::operator = (ERR_UMODEUNKNOWNFLAG con
 	return (*this);
 }
 
-std::string ERR_UMODEUNKNOWNFLAG::arranger(Client *source) const {
+std::string const ERR_UMODEUNKNOWNFLAG::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

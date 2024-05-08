@@ -10,7 +10,7 @@ class ERR_BADCHANNELKEY : public ACommand {
 
 		ERR_BADCHANNELKEY &operator=(ERR_BADCHANNELKEY const &copy);
 
-		std::string	arranger(Client *source, Channel *channel) const;
+		std::string const	arranger(Client *source, Channel *channel) const;
 
 	private:
 		ERR_BADCHANNELKEY(ERR_BADCHANNELKEY const &copy);

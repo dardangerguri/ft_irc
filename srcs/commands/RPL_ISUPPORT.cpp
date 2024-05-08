@@ -12,7 +12,7 @@ RPL_ISUPPORT &RPL_ISUPPORT::operator = (RPL_ISUPPORT const &copy) {
 	return (*this);
 }
 
-std::string RPL_ISUPPORT::arranger(Client *source, std::string const token) const {
+std::string const RPL_ISUPPORT::arranger(Client *source, std::string const token) const {
 	std::string	nickname;
 
 	if (source)

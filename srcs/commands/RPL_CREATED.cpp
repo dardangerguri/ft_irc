@@ -12,7 +12,7 @@ RPL_CREATED &RPL_CREATED::operator = (RPL_CREATED const &copy) {
 	return (*this);
 }
 
-std::string RPL_CREATED::arranger(Client *source) const {
+std::string const RPL_CREATED::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

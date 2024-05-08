@@ -12,7 +12,7 @@ ERR_NOOPERHOST &ERR_NOOPERHOST::operator = (ERR_NOOPERHOST const &copy) {
 	return (*this);
 }
 
-std::string ERR_NOOPERHOST::arranger(Client *source) const {
+std::string const ERR_NOOPERHOST::arranger(Client *source) const {
 	std::string nickname;
 
 	if (source)

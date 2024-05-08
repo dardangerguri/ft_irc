@@ -10,8 +10,8 @@ class USER : public ACommand {
 
 		USER &operator=(USER const &copy);
 
-		void		handleCommand(std::string const message, Client *source);
-		std::string	arranger(void) const;
+		void				handleCommand(std::string const message, Client *source);
+		std::string const	arranger(void) const;
 
 	private:
 		USER(void);

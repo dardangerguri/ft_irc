@@ -12,7 +12,7 @@ RPL_INVITING &RPL_INVITING::operator = (RPL_INVITING const &copy) {
 	return (*this);
 }
 
-std::string RPL_INVITING::arranger(Client *source, Client *target, Channel *channel) const {
+std::string const RPL_INVITING::arranger(Client *source, Client *target, Channel *channel) const {
 	std::string	nickname;
 	std::string targetNickname;
 	std::string	channelName;

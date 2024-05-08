@@ -10,8 +10,8 @@ class KICK : public ACommand {
 
 		KICK &operator=(KICK const &copy);
 
-		void		handleCommand(std::string const message, Client *source);
-		std::string	arranger(Channel *channel, Client *removedUser, std::string const reason) const;
+		void				handleCommand(std::string const message, Client *source);
+		std::string const	arranger(Channel *channel, Client *removedUser, std::string const reason) const;
 
 	private:
 		KICK(void);

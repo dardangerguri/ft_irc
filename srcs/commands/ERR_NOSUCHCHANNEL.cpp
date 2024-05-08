@@ -12,7 +12,7 @@ ERR_NOSUCHCHANNEL &ERR_NOSUCHCHANNEL::operator = (ERR_NOSUCHCHANNEL const &copy)
 	return (*this);
 }
 
-std::string ERR_NOSUCHCHANNEL::arranger(std::string const channel, Client *source) const {
+std::string const ERR_NOSUCHCHANNEL::arranger(std::string const channel, Client *source) const {
 	std::string	nickname;
 
 	if (source)

@@ -18,6 +18,6 @@ void ERROR::handleCommand(std::string const message, Client *source) {
 	(void)source;
 }
 
-std::string ERROR::arranger(std::string message) const {
+std::string const ERROR::arranger(std::string message) const {
 	return (this->command + " :" + message);
 }

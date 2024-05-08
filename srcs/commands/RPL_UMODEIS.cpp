@@ -12,7 +12,7 @@ RPL_UMODEIS &RPL_UMODEIS::operator = (RPL_UMODEIS const &copy) {
 	return (*this);
 }
 
-std::string RPL_UMODEIS::arranger(Client *source) const {
+std::string const RPL_UMODEIS::arranger(Client *source) const {
 	const std::unordered_set<char>	supportedModes = {'o', 'r', 'i', 'O', 'w'};
 	std::string 					modes;
 	std::string						nickname;

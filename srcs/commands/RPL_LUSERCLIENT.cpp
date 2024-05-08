@@ -13,7 +13,7 @@ RPL_LUSERCLIENT &RPL_LUSERCLIENT::operator = (RPL_LUSERCLIENT const &copy) {
 	return (*this);
 }
 
-std::string RPL_LUSERCLIENT::arranger(Client *source) const {
+std::string const RPL_LUSERCLIENT::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

@@ -12,7 +12,7 @@ ERR_NORECIPIENT &ERR_NORECIPIENT::operator = (ERR_NORECIPIENT const &copy) {
 	return (*this);
 }
 
-std::string ERR_NORECIPIENT::arranger(std::string const sourceCommand, Client *source) const {
+std::string const ERR_NORECIPIENT::arranger(std::string const sourceCommand, Client *source) const {
 	std::string	nickname;
 
 	if (source)

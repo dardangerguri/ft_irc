@@ -12,7 +12,7 @@ ERR_UNKNOWNMODE &ERR_UNKNOWNMODE::operator = (ERR_UNKNOWNMODE const &copy) {
 	return (*this);
 }
 
-std::string ERR_UNKNOWNMODE::arranger(char const mode, Client *source) const {
+std::string const ERR_UNKNOWNMODE::arranger(char const mode, Client *source) const {
 	std::string	nickname;
 
 	if (source)

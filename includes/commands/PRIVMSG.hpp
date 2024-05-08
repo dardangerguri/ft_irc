@@ -10,9 +10,9 @@ class PRIVMSG : public ACommand {
 
 		PRIVMSG &operator=(PRIVMSG const &copy);
 
-		void		handleCommand(std::string const message, Client *source);
-		std::string	arranger(Client *target, std::string const message) const;
-		std::string	arranger(Channel *target, std::string const message) const;
+		void				handleCommand(std::string const message, Client *source);
+		std::string const	arranger(Client *target, std::string const message) const;
+		std::string const	arranger(Channel *target, std::string const message) const;
 
 	private:
 		PRIVMSG(void);

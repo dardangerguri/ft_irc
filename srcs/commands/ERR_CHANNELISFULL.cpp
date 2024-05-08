@@ -12,7 +12,7 @@ ERR_CHANNELISFULL &ERR_CHANNELISFULL::operator = (ERR_CHANNELISFULL const &copy)
 	return (*this);
 }
 
-std::string ERR_CHANNELISFULL::arranger(Client *source, Channel *channel) const {
+std::string const ERR_CHANNELISFULL::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 

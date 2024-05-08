@@ -10,7 +10,7 @@ class ERR_NOMOTD : public ACommand {
 
 		ERR_NOMOTD &operator=(ERR_NOMOTD const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		ERR_NOMOTD(ERR_NOMOTD const &copy);

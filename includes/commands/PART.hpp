@@ -10,8 +10,8 @@ class PART : public ACommand {
 
 		PART &operator=(PART const &copy);
 
-		void		handleCommand(std::string const message, Client *source);
-		std::string	arranger(Channel *channel, std::string const reason) const;
+		void				handleCommand(std::string const message, Client *source);
+		std::string const	arranger(Channel *channel, std::string const reason) const;
 
 	private:
 		PART(void);

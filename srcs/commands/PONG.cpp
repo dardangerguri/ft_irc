@@ -18,6 +18,6 @@ void PONG::handleCommand(std::string const message, Client *source) {
 	(void)source;
 }
 
-std::string PONG::arranger(std::vector<std::string> const parameters) const {
+std::string const PONG::arranger(std::vector<std::string> const parameters) const {
 	return (this->command + " 127.0.0.1 " + parameters[0]);
 }

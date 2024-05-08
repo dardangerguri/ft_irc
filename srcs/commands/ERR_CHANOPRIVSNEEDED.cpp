@@ -12,7 +12,7 @@ ERR_CHANOPRIVSNEEDED &ERR_CHANOPRIVSNEEDED::operator = (ERR_CHANOPRIVSNEEDED con
 	return (*this);
 }
 
-std::string ERR_CHANOPRIVSNEEDED::arranger(Client *source, Channel *channel) const {
+std::string const ERR_CHANOPRIVSNEEDED::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 

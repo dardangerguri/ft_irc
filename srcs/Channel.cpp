@@ -6,15 +6,15 @@ Channel::Channel(std::string const name) : name(name) {
 Channel::~Channel() {
 }
 
-std::string Channel::getName() const {
+std::string const Channel::getName() const {
 	return (name);
 }
 
-std::string Channel::getTopic() const {
+std::string const Channel::getTopic() const {
 	return (topic);
 }
 
-std::string Channel::getTopicAuthor(void) const {
+std::string const Channel::getTopicAuthor(void) const {
 	return (topicAuthor);
 }
 
@@ -30,11 +30,11 @@ unsigned int Channel::getUserCount() const {
 	return (users.size());
 }
 
-std::unordered_set<Client *> Channel::getUserList() const {
+std::unordered_set<Client *> const Channel::getUserList() const {
 	return (users);
 }
 
-std::string Channel::getPassword() const {
+std::string const Channel::getPassword() const {
 	return (password);
 }
 

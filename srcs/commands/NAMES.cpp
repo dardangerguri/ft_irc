@@ -52,6 +52,6 @@ void NAMES::handleCommand(std::string const message, Client *source) {
 	}
 }
 
-std::string NAMES::arranger(Channel *targetChannel) const {
+std::string const NAMES::arranger(Channel *targetChannel) const {
 	return (this->command + " " + targetChannel->getName());
 }

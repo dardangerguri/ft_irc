@@ -110,7 +110,7 @@ void JOIN::handleCommand(std::string const message, Client *source) {
 	}
 }
 
-std::string JOIN::arranger(Channel *channel) const {
+std::string const JOIN::arranger(Channel *channel) const {
 	std::string	channelName;
 
 	if (channel)

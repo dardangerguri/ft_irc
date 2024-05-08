@@ -10,14 +10,14 @@ class NICK : public ACommand {
 
 		NICK &operator=(NICK const &copy);
 
-		void		handleCommand(std::string const message, Client *source);
-		std::string	arranger(std::string const newNickname) const;
+		void				handleCommand(std::string const message, Client *source);
+		std::string const	arranger(std::string const newNickname) const;
 
 	private:
 		NICK(void);
 		NICK(NICK const &copy);
 
-		bool	validateNickname(std::string &input);
+		bool				validateNickname(std::string &input);
 };
 
 #endif

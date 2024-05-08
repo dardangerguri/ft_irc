@@ -11,33 +11,33 @@ class Channel {
 		Channel(std::string const name);
 		~Channel(void);
 
-		std::string						getName(void) const;
-		std::string						getTopic(void) const;
-		std::string						getTopicAuthor(void) const;
-		std::time_t						getTopicTime(void) const;
-		unsigned int					getUserLimit(void) const;
-		unsigned int					getUserCount(void) const;
-		std::unordered_set<Client *>	getUserList(void) const;
-		std::string						getPassword(void) const;
+		std::string const					getName(void) const;
+		std::string const					getTopic(void) const;
+		std::string const					getTopicAuthor(void) const;
+		std::time_t							getTopicTime(void) const;
+		unsigned int						getUserLimit(void) const;
+		unsigned int						getUserCount(void) const;
+		std::unordered_set<Client *> const	getUserList(void) const;
+		std::string const					getPassword(void) const;
 
-		void							setTopic(std::string const newTopic);
-		void							setTopicAuthor(Client *user);
-		void							setTopicTime(std::time_t const time);
-		void							setUserLimit(unsigned int const newLimit);
-		void							setPassword(std::string const newPassword);
+		void								setTopic(std::string const newTopic);
+		void								setTopicAuthor(Client *user);
+		void								setTopicTime(std::time_t const time);
+		void								setUserLimit(unsigned int const newLimit);
+		void								setPassword(std::string const newPassword);
 
-		bool							checkPassword(std::string const input) const;
-		bool							validatePassword(std::string const password) const;
-		bool							isAllowedChannelMode(char const mode) const;
-		bool							addMode(char const mode);
-		bool							delMode(char const mode);
-		bool							hasMode(char const mode) const;
-		bool							userJoin(Client *user);
-		void							userLeave(Client *user);
-		bool							userIsJoined(Client *user) const;
-		bool							userIsOperator(Client *user) const;
-		bool							userMakeOperator(Client *user);
-		void							userRemoveOperator(Client *user);
+		bool								checkPassword(std::string const input) const;
+		bool								validatePassword(std::string const password) const;
+		bool								isAllowedChannelMode(char const mode) const;
+		bool								addMode(char const mode);
+		bool								delMode(char const mode);
+		bool								hasMode(char const mode) const;
+		bool								userJoin(Client *user);
+		void								userLeave(Client *user);
+		bool								userIsJoined(Client *user) const;
+		bool								userIsOperator(Client *user) const;
+		bool								userMakeOperator(Client *user);
+		void								userRemoveOperator(Client *user);
 
 	private:
 		Channel(void);

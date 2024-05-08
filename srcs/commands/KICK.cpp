@@ -72,7 +72,7 @@ void KICK::handleCommand(std::string const message, Client *source) {
 	}
 }
 
-std::string KICK::arranger(Channel *channel, Client *removedUser, std::string const reason) const {
+std::string const KICK::arranger(Channel *channel, Client *removedUser, std::string const reason) const {
 	std::string channelName;
 	std::string removedUserName;
 

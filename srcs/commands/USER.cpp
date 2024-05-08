@@ -45,7 +45,7 @@ void USER::handleCommand(std::string const message, Client *source) {
 		commands->sendCommand(commands->errNeedMoreParams->arranger(this->command, source), source);
 }
 
-std::string USER::arranger() const {
+std::string const USER::arranger() const {
 	return (this->command);
 }
 

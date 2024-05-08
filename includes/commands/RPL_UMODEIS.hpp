@@ -10,7 +10,7 @@ class RPL_UMODEIS : public ACommand {
 
 		RPL_UMODEIS &operator=(RPL_UMODEIS const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		RPL_UMODEIS(RPL_UMODEIS const &copy);

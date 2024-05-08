@@ -12,7 +12,7 @@ ERR_UNKNOWNERROR &ERR_UNKNOWNERROR::operator = (ERR_UNKNOWNERROR const &copy) {
 	return (*this);
 }
 
-std::string ERR_UNKNOWNERROR::arranger(std::string const sourceCommand, std::string const info, Client *source) const {
+std::string const ERR_UNKNOWNERROR::arranger(std::string const sourceCommand, std::string const info, Client *source) const {
 	std::string	nickname;
 
 	if (source)

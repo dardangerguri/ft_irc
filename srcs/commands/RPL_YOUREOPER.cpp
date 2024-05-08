@@ -12,7 +12,7 @@ RPL_YOUREOPER &RPL_YOUREOPER::operator = (RPL_YOUREOPER const &copy) {
 	return (*this);
 }
 
-std::string RPL_YOUREOPER::arranger(Client *source) const {
+std::string const RPL_YOUREOPER::arranger(Client *source) const {
 	std::string nickname;
 
 	if (source)

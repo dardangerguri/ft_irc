@@ -10,7 +10,7 @@ class ERR_ALREADYREGISTERED : public ACommand {
 
 		ERR_ALREADYREGISTERED &operator=(ERR_ALREADYREGISTERED const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		ERR_ALREADYREGISTERED(ERR_ALREADYREGISTERED const &copy);

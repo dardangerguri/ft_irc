@@ -10,8 +10,8 @@ class QUIT : public ACommand {
 
 		QUIT &operator=(QUIT const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(std::string const message) const;
+		void				handleCommand(std::string message, Client *source);
+		std::string const	arranger(std::string const message) const;
 
 	private:
 		QUIT(void);

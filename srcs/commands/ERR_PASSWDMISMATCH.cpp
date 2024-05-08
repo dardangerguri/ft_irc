@@ -12,7 +12,7 @@ ERR_PASSWDMISMATCH &ERR_PASSWDMISMATCH::operator = (ERR_PASSWDMISMATCH const &co
 	return (*this);
 }
 
-std::string ERR_PASSWDMISMATCH::arranger(Client *source) const {
+std::string const ERR_PASSWDMISMATCH::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

@@ -10,7 +10,7 @@ class RPL_MOTDSTART : public ACommand {
 
 		RPL_MOTDSTART &operator=(RPL_MOTDSTART const &copy);
 
-		std::string	arranger(Client *source) const;
+		std::string const	arranger(Client *source) const;
 
 	private:
 		RPL_MOTDSTART(RPL_MOTDSTART const &copy);
