@@ -13,7 +13,7 @@ JOIN &JOIN::operator = (JOIN const &copy) {
 	return (*this);
 }
 
-void JOIN::handleCommand(std::string message, Client *source) {
+void JOIN::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string>	parameters;
 
 	if (!message.empty()) {
@@ -107,7 +107,7 @@ void JOIN::handleCommand(std::string message, Client *source) {
 	}
 }
 
-std::string JOIN::arranger(Channel *channel) {
+std::string JOIN::arranger(Channel *channel) const {
 	std::string	channelName;
 
 	if (channel)

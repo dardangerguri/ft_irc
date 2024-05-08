@@ -10,8 +10,8 @@ class JOIN : public ACommand {
 
 		JOIN &operator=(JOIN const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(Channel *channel);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(Channel *channel) const;
 
 	private:
 		JOIN(void);
