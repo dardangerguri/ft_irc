@@ -13,7 +13,7 @@ INVITE &INVITE::operator = (INVITE const &copy) {
 	return (*this);
 }
 
-void INVITE::handleCommand(std::string message, Client *source) {
+void INVITE::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 	if (!message.empty()) {
 		try {
@@ -58,7 +58,7 @@ void INVITE::handleCommand(std::string message, Client *source) {
 		commands->sendCommand(commands->errNeedMoreParams->arranger(this->command, source), source);
 }
 
-std::string INVITE::arranger(Client *targetClient, Channel *targetChannel) {
+std::string INVITE::arranger(Client *targetClient, Channel *targetChannel) const {
 	std::string	targetNickname;
 	std::string	targetChannelName;
 
