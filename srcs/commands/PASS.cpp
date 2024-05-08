@@ -14,7 +14,7 @@ PASS &PASS::operator = (PASS const &copy) {
 	return (*this);
 }
 
-void PASS::handleCommand(std::string message, Client *source) {
+void PASS::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 	if (!message.empty()) {
 		try {
@@ -40,6 +40,6 @@ void PASS::handleCommand(std::string message, Client *source) {
 		commands->sendCommand(commands->errPasswMismatch->arranger(source), source);
 }
 
-std::string PASS::arranger() {
+std::string PASS::arranger() const {
 	return (this->command);
 }
