@@ -10,8 +10,8 @@ class NICK : public ACommand {
 
 		NICK &operator=(NICK const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(std::string newNickname);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(std::string const newNickname) const;
 
 	private:
 		NICK(void);

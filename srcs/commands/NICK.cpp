@@ -14,7 +14,7 @@ NICK &NICK::operator = (NICK const &copy) {
 	return (*this);
 }
 
-void NICK::handleCommand(std::string message, Client *source) {
+void NICK::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 	if (!message.empty()) {
 		try {
@@ -50,14 +50,14 @@ void NICK::handleCommand(std::string message, Client *source) {
 		commands->sendCommand(commands->errErroneusNickname->arranger(parameters[0], source), source);
 }
 
-std::string NICK::arranger(std::string newNickname) {
+std::string NICK::arranger(std::string const newNickname) const {
 	return (this->command + " " + newNickname);
 }
 
 bool NICK::validateNickname(std::string &input) {
-	size_t 		maxNickLen = 12;
-	size_t		i = 0;
-	std::string	characters = "[]{}\\|_";
+	size_t				i = 0;
+	const size_t 		maxNickLen = 12;
+	const std::string	characters = "[]{}\\|_";
 
 	while (std::isalnum(input[i]) || characters.find(input[i]) != std::string::npos) {
 		i++;
