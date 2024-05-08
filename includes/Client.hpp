@@ -13,38 +13,38 @@ class Channel;
 
 class Client {
 	public:
-		Client(int socketFd);
+		Client(int const socketFd);
 		~Client(void);
 
-		void 										addBufferToMsgBuffer(std::string buffer);
-		bool 										msgCompleted(void);
-		bool 										isAllowedUserMode(char mode);
-		bool 										addMode(char mode);
-		bool 										delMode(char mode);
-		bool 										hasMode(char mode);
+		void 										addBufferToMsgBuffer(std::string const buffer);
+		bool 										msgCompleted(void) const;
+		bool 										isAllowedUserMode(char const mode) const;
+		bool 										addMode(char const mode);
+		bool 										delMode(char const mode);
+		bool 										hasMode(char const mode) const;
 		bool 										tryToRegister(void);
 
 		char										*getIp(void);
-		int 										getSocketFd(void);
+		int 										getSocketFd(void) const;
 		std::string									getMsgFromBuffer(void);
-		std::string									getNickname(void);
-		std::string									getUsername(void);
-		std::string									getRealname(void);
-		bool 										getValidPass(void);
-		std::unordered_map<std::string, Channel *>	getJoinedChannels(void);
+		std::string									getNickname(void) const;
+		std::string									getUsername(void) const;
+		std::string									getRealname(void) const;
+		bool 										getValidPass(void) const;
+		std::unordered_map<std::string, Channel *>	getJoinedChannels(void) const;
 
 		void										setIp(char *newIp);
-		void										setNickname(std::string newNickname);
-		void										setUsername(std::string newUsername);
-		void										setRealname(std::string newRealname);
+		void										setNickname(std::string const newNickname);
+		void										setUsername(std::string const newUsername);
+		void										setRealname(std::string const newRealname);
 		void										setValidPass(void);
 
 		bool										joinChannel(Channel *channel);
 		void										leaveChannel(Channel *channel);
 		bool										inviteToChannel(Channel *channel);
 		void										removeInviteToChannel(Channel *channel);
-		bool										inChannel(Channel *channel);
-		bool										isInvitedToChannel(Channel *channel);
+		bool										inChannel(Channel *channel) const;
+		bool										isInvitedToChannel(Channel *channel) const;
 
 	private:
 		Client(void);
@@ -52,7 +52,7 @@ class Client {
 		Client &operator=(Client const &copy);
 
 		char										*ip;
-		int 										socketFd;
+		const int									socketFd;
 		std::string									msgBuffer;
 		std::string									nickname;
 		std::string									username;

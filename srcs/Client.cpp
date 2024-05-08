@@ -2,14 +2,13 @@
 
 // FIXME catch all exceptions here!!!!!!!!!!
 
-Client::Client(int socketFd) {
-	this->socketFd = socketFd;
+Client::Client(int const socketFd) : socketFd(socketFd) {
 	this->nickname = "*";
 }
 
 Client::~Client() {}
 
-void Client::addBufferToMsgBuffer(std::string buffer) {
+void Client::addBufferToMsgBuffer(std::string const buffer) {
 	// FIXME: Maybe better handling for overflow???
 	// if the message becomes longer than MSG_BUFFER_SIZE
 	if (this->msgBuffer.length() + buffer.length() > MSG_BUFFER_SIZE) {
@@ -29,13 +28,13 @@ void Client::addBufferToMsgBuffer(std::string buffer) {
 		this->msgBuffer += buffer;
 }
 
-bool Client::msgCompleted(void) {
+bool Client::msgCompleted(void) const {
 	if (this->msgBuffer.find("\r\n") != std::string::npos)
 		return (true);
 	return (false);
 }
 
-bool Client::isAllowedUserMode(char mode) {
+bool Client::isAllowedUserMode(char const mode) const {
 	// Modes supported by this server:
 	// +o : oper user mode
 	// +r : registered user mode
@@ -50,7 +49,7 @@ bool Client::isAllowedUserMode(char mode) {
 	return (false);
 }
 
-bool Client::addMode(char mode) {
+bool Client::addMode(char const mode) {
 	if (!isAllowedUserMode(mode))
 		return (false);
 	try {
@@ -62,14 +61,14 @@ bool Client::addMode(char mode) {
 	}
 }
 
-bool Client::delMode(char mode) {
+bool Client::delMode(char const mode) {
 	if (!isAllowedUserMode(mode))
 		return (false);
 	userMode.erase(mode);
 	return (true);
 }
 
-bool Client::hasMode(char mode) {
+bool Client::hasMode(char const mode) const {
 	if (userMode.find(mode) != userMode.end())
 		return (true);
 	return (false);
@@ -89,7 +88,7 @@ char *Client::getIp(void) {
 	return (ip);
 }
 
-int Client::getSocketFd(void) {
+int Client::getSocketFd(void) const {
 	return (this->socketFd);
 }
 
@@ -106,23 +105,23 @@ std::string Client::getMsgFromBuffer(void) {
 	return (message);
 }
 
-std::string Client::getNickname(void) {
+std::string Client::getNickname(void) const {
 	return (nickname);
 }
 
-std::string Client::getUsername(void) {
+std::string Client::getUsername(void) const {
 	return (username);
 }
 
-std::string Client::getRealname(void) {
+std::string Client::getRealname(void) const {
 	return (realname);
 }
 
-bool Client::getValidPass(void) {
+bool Client::getValidPass(void) const {
 	return (validPass);
 }
 
-std::unordered_map<std::string, Channel *> Client::getJoinedChannels(void) {
+std::unordered_map<std::string, Channel *> Client::getJoinedChannels(void) const {
 	return (joinedChannels);
 }
 
@@ -130,15 +129,15 @@ void Client::setIp(char *newIp) {
 	ip = newIp;
 }
 
-void Client::setNickname(std::string newNickname) {
+void Client::setNickname(std::string const newNickname) {
 	this->nickname = newNickname;
 }
 
-void Client::setUsername(std::string newUsername) {
+void Client::setUsername(std::string const newUsername) {
 	this->username = newUsername;
 }
 
-void Client::setRealname(std::string newRealname) {
+void Client::setRealname(std::string const newRealname) {
 	this->realname = newRealname;
 }
 
@@ -191,7 +190,7 @@ void Client::removeInviteToChannel(Channel *channel) {
 }
 
 
-bool Client::inChannel(Channel *channel) {
+bool Client::inChannel(Channel *channel) const {
 	if (!channel)
 		return (false);
 	if (joinedChannels.find(channel->getName()) != joinedChannels.end())
@@ -199,7 +198,7 @@ bool Client::inChannel(Channel *channel) {
 	return (false);
 }
 
-bool Client::isInvitedToChannel(Channel *channel) {
+bool Client::isInvitedToChannel(Channel *channel) const {
 	if (!channel)
 		return (false);
 	if (invitedChannels.find(channel->getName()) != invitedChannels.end())
