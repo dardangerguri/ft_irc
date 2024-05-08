@@ -10,8 +10,8 @@ class OPER : public ACommand {
 
 		OPER &operator=(OPER const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(void);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(void) const;
 
 	private:
 		OPER(void);

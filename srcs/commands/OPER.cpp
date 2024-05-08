@@ -13,7 +13,7 @@ OPER &OPER::operator = (OPER const &copy) {
 	return (*this);
 }
 
-void OPER::handleCommand(std::string message, Client *source) {
+void OPER::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string>	parameters;
 
 	if (!message.empty()) {
@@ -42,6 +42,6 @@ void OPER::handleCommand(std::string message, Client *source) {
 	}
 }
 
-std::string OPER::arranger() {
+std::string OPER::arranger() const {
 	return (this->command);
 }
