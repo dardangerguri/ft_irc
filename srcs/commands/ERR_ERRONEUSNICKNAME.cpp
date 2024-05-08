@@ -12,7 +12,7 @@ ERR_ERRONEUSNICKNAME &ERR_ERRONEUSNICKNAME::operator = (ERR_ERRONEUSNICKNAME con
 	return (*this);
 }
 
-std::string ERR_ERRONEUSNICKNAME::arranger(std::string erroneousNickname, Client *source) {
+std::string ERR_ERRONEUSNICKNAME::arranger(std::string const erroneousNickname, Client *source) const {
 	std::string	nickname;
 
 	if (source)

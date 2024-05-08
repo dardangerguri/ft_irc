@@ -12,7 +12,7 @@ ERR_NONICKNAMEGIVEN &ERR_NONICKNAMEGIVEN::operator = (ERR_NONICKNAMEGIVEN const 
 	return (*this);
 }
 
-std::string ERR_NONICKNAMEGIVEN::arranger(Client *source) {
+std::string ERR_NONICKNAMEGIVEN::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

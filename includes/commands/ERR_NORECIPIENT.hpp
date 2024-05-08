@@ -10,7 +10,7 @@ class ERR_NORECIPIENT : public ACommand {
 
 		ERR_NORECIPIENT &operator=(ERR_NORECIPIENT const &copy);
 
-		std::string	arranger(std::string sourceCommand, Client *source);
+		std::string	arranger(std::string const sourceCommand, Client *source) const;
 
 	private:
 		ERR_NORECIPIENT(ERR_NORECIPIENT const &copy);

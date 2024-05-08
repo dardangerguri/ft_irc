@@ -12,7 +12,7 @@ ERR_USERONCHANNEL &ERR_USERONCHANNEL::operator = (ERR_USERONCHANNEL const &copy)
 	return (*this);
 }
 
-std::string ERR_USERONCHANNEL::arranger(Client *source, Client *target, Channel *channel) {
+std::string ERR_USERONCHANNEL::arranger(Client *source, Client *target, Channel *channel) const {
 	std::string	nickname;
 	std::string	targetNickname;
 	std::string	channelName;

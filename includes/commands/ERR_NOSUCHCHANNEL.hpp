@@ -10,7 +10,7 @@ class ERR_NOSUCHCHANNEL : public ACommand {
 
 		ERR_NOSUCHCHANNEL &operator=(ERR_NOSUCHCHANNEL const &copy);
 
-		std::string	arranger(std::string channel, Client *source);
+		std::string	arranger(std::string const channel, Client *source) const;
 
 	private:
 		ERR_NOSUCHCHANNEL(ERR_NOSUCHCHANNEL const &copy);

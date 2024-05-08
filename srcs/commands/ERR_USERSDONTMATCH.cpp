@@ -12,7 +12,7 @@ ERR_USERSDONTMATCH &ERR_USERSDONTMATCH::operator = (ERR_USERSDONTMATCH const &co
 	return (*this);
 }
 
-std::string ERR_USERSDONTMATCH::arranger(Client *source) {
+std::string ERR_USERSDONTMATCH::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

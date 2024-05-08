@@ -10,7 +10,7 @@ class ERR_USERSDONTMATCH : public ACommand {
 
 		ERR_USERSDONTMATCH &operator=(ERR_USERSDONTMATCH const &copy);
 
-		std::string	arranger(Client *source);
+		std::string	arranger(Client *source) const;
 
 	private:
 		ERR_USERSDONTMATCH(ERR_USERSDONTMATCH const &copy);

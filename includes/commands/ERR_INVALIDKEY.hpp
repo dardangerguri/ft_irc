@@ -10,7 +10,7 @@ class ERR_INVALIDKEY : public ACommand {
 
 		ERR_INVALIDKEY &operator=(ERR_INVALIDKEY const &copy);
 
-		std::string	arranger(Client *source, Channel *channel);
+		std::string	arranger(Client *source, Channel *channel) const;
 
 	private:
 		ERR_INVALIDKEY(ERR_INVALIDKEY const &copy);

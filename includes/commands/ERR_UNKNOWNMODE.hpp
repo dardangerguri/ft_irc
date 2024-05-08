@@ -10,7 +10,7 @@ class ERR_UNKNOWNMODE : public ACommand {
 
 		ERR_UNKNOWNMODE &operator=(ERR_UNKNOWNMODE const &copy);
 
-		std::string	arranger(char mode, Client *source);
+		std::string	arranger(char const mode, Client *source) const;
 
 	private:
 		ERR_UNKNOWNMODE(ERR_UNKNOWNMODE const &copy);

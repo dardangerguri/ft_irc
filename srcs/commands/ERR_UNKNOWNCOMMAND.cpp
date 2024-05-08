@@ -12,7 +12,7 @@ ERR_UNKNOWNCOMMAND &ERR_UNKNOWNCOMMAND::operator = (ERR_UNKNOWNCOMMAND const &co
 	return (*this);
 }
 
-std::string ERR_UNKNOWNCOMMAND::arranger(std::string sourceCommand, Client *source) {
+std::string ERR_UNKNOWNCOMMAND::arranger(std::string const sourceCommand, Client *source) const {
 	std::string	nickname;
 
 	if (source)

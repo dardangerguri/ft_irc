@@ -12,7 +12,7 @@ ERR_BADCHANNELKEY &ERR_BADCHANNELKEY::operator = (ERR_BADCHANNELKEY const &copy)
 	return (*this);
 }
 
-std::string ERR_BADCHANNELKEY::arranger(Client *source, Channel *channel) {
+std::string ERR_BADCHANNELKEY::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 

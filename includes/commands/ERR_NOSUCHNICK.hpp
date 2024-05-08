@@ -10,7 +10,7 @@ class ERR_NOSUCHNICK : public ACommand {
 
 		ERR_NOSUCHNICK &operator=(ERR_NOSUCHNICK const &copy);
 
-		std::string	arranger(std::string notFoundNickname, Client *source);
+		std::string	arranger(std::string const notFoundNickname, Client *source) const;
 
 	private:
 		ERR_NOSUCHNICK(ERR_NOSUCHNICK const &copy);

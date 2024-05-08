@@ -12,10 +12,11 @@ ERR_NOOPERHOST &ERR_NOOPERHOST::operator = (ERR_NOOPERHOST const &copy) {
 	return (*this);
 }
 
-std::string ERR_NOOPERHOST::arranger(Client *source) {
+std::string ERR_NOOPERHOST::arranger(Client *source) const {
 	std::string nickname;
 
 	if (source)
 		nickname = source->getNickname();
+
 	return (command + " " + nickname + " :No O-lines for your host");
 }

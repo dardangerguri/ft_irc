@@ -10,7 +10,7 @@ class ERR_NOTREGISTERED : public ACommand {
 
 		ERR_NOTREGISTERED &operator=(ERR_NOTREGISTERED const &copy);
 
-		std::string	arranger(Client *source);
+		std::string	arranger(Client *source) const;
 
 	private:
 		ERR_NOTREGISTERED(ERR_NOTREGISTERED const &copy);

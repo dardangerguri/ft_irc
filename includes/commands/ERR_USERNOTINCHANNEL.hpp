@@ -10,7 +10,7 @@ class ERR_USERNOTINCHANNEL : public ACommand {
 
 		ERR_USERNOTINCHANNEL &operator=(ERR_USERNOTINCHANNEL const &copy);
 
-		std::string	arranger(std::string nickname, Client *source, Channel *channel);
+		std::string	arranger(std::string const nickname, Client *source, Channel *channel) const;
 
 	private:
 		ERR_USERNOTINCHANNEL(ERR_USERNOTINCHANNEL const &copy);

@@ -10,7 +10,7 @@ class ERR_UMODEUNKNOWNFLAG : public ACommand {
 
 		ERR_UMODEUNKNOWNFLAG &operator=(ERR_UMODEUNKNOWNFLAG const &copy);
 
-		std::string	arranger(Client *source);
+		std::string	arranger(Client *source) const;
 
 	private:
 		ERR_UMODEUNKNOWNFLAG(ERR_UMODEUNKNOWNFLAG const &copy);

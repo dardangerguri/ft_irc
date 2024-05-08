@@ -10,7 +10,7 @@ class ERR_ERRONEUSNICKNAME : public ACommand {
 
 		ERR_ERRONEUSNICKNAME &operator=(ERR_ERRONEUSNICKNAME const &copy);
 
-		std::string	arranger(std::string erroneousNickname, Client *source);
+		std::string	arranger(std::string const erroneousNickname, Client *source) const;
 
 	private:
 		ERR_ERRONEUSNICKNAME(ERR_ERRONEUSNICKNAME const &copy);

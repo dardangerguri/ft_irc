@@ -12,7 +12,7 @@ ERR_NICKNAMEINUSE &ERR_NICKNAMEINUSE::operator = (ERR_NICKNAMEINUSE const &copy)
 	return (*this);
 }
 
-std::string ERR_NICKNAMEINUSE::arranger(std::string nicknameInUse, Client *source) {
+std::string ERR_NICKNAMEINUSE::arranger(std::string const nicknameInUse, Client *source) const {
 	std::string	nickname;
 
 	if (source)

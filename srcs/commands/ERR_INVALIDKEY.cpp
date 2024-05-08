@@ -12,7 +12,7 @@ ERR_INVALIDKEY &ERR_INVALIDKEY::operator = (ERR_INVALIDKEY const &copy) {
 	return (*this);
 }
 
-std::string ERR_INVALIDKEY::arranger(Client *source, Channel *channel) {
+std::string ERR_INVALIDKEY::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 

@@ -10,7 +10,7 @@ class ERR_INVITEONLYCHAN : public ACommand {
 
 		ERR_INVITEONLYCHAN &operator=(ERR_INVITEONLYCHAN const &copy);
 
-		std::string	arranger(Client *source, Channel *channel);
+		std::string	arranger(Client *source, Channel *channel) const;
 
 	private:
 		ERR_INVITEONLYCHAN(ERR_INVITEONLYCHAN const &copy);

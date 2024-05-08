@@ -12,7 +12,7 @@ ERR_NOTONCHANNEL &ERR_NOTONCHANNEL::operator = (ERR_NOTONCHANNEL const &copy) {
 	return (*this);
 }
 
-std::string ERR_NOTONCHANNEL::arranger(Client *source, Channel *channel) {
+std::string ERR_NOTONCHANNEL::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 

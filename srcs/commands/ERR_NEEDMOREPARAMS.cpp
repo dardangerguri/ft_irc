@@ -12,7 +12,7 @@ ERR_NEEDMOREPARAMS &ERR_NEEDMOREPARAMS::operator = (ERR_NEEDMOREPARAMS const &co
 	return (*this);
 }
 
-std::string ERR_NEEDMOREPARAMS::arranger(std::string sourceCommand, Client *source) {
+std::string ERR_NEEDMOREPARAMS::arranger(std::string const sourceCommand, Client *source) const {
 	std::string	nickname;
 
 	if (source)

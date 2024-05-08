@@ -12,7 +12,7 @@ ERR_NOTREGISTERED &ERR_NOTREGISTERED::operator = (ERR_NOTREGISTERED const &copy)
 	return (*this);
 }
 
-std::string ERR_NOTREGISTERED::arranger(Client *source) {
+std::string ERR_NOTREGISTERED::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

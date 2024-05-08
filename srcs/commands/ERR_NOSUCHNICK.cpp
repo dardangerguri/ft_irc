@@ -12,7 +12,7 @@ ERR_NOSUCHNICK &ERR_NOSUCHNICK::operator = (ERR_NOSUCHNICK const &copy) {
 	return (*this);
 }
 
-std::string ERR_NOSUCHNICK::arranger(std::string notFoundNickname, Client *source) {
+std::string ERR_NOSUCHNICK::arranger(std::string const notFoundNickname, Client *source) const {
 	std::string	nickname;
 
 	if (source)

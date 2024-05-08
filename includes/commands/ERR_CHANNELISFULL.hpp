@@ -10,7 +10,7 @@ class ERR_CHANNELISFULL : public ACommand {
 
 		ERR_CHANNELISFULL &operator=(ERR_CHANNELISFULL const &copy);
 
-		std::string	arranger(Client *source, Channel *channel);
+		std::string	arranger(Client *source, Channel *channel) const;
 
 	private:
 		ERR_CHANNELISFULL(ERR_CHANNELISFULL const &copy);

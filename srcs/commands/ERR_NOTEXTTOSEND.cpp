@@ -12,7 +12,7 @@ ERR_NOTEXTTOSEND &ERR_NOTEXTTOSEND::operator = (ERR_NOTEXTTOSEND const &copy) {
 	return (*this);
 }
 
-std::string ERR_NOTEXTTOSEND::arranger(Client *source) {
+std::string ERR_NOTEXTTOSEND::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)
