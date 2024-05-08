@@ -8,34 +8,34 @@
 
 class Channel {
 	public:
-		Channel(std::string name);
+		Channel(std::string const name);
 		~Channel(void);
 
-		std::string						getName(void);
-		std::string						getTopic(void);
-		std::string						getTopicAuthor(void);
-		std::time_t						getTopicTime(void);
-		unsigned int					getUserLimit(void);
-		unsigned int					getUserCount(void);
-		std::unordered_set<Client *>	getUserList(void);
-		std::string						getPassword(void);
+		std::string						getName(void) const;
+		std::string						getTopic(void) const;
+		std::string						getTopicAuthor(void) const;
+		std::time_t						getTopicTime(void) const;
+		unsigned int					getUserLimit(void) const;
+		unsigned int					getUserCount(void) const;
+		std::unordered_set<Client *>	getUserList(void) const;
+		std::string						getPassword(void) const;
 
-		void							setTopic(std::string newTopic);
+		void							setTopic(std::string const newTopic);
 		void							setTopicAuthor(Client *user);
-		void							setTopicTime(std::time_t time);
-		void							setUserLimit(unsigned int newLimit);
-		void							setPassword(std::string newPassword);
+		void							setTopicTime(std::time_t const time);
+		void							setUserLimit(unsigned int const newLimit);
+		void							setPassword(std::string const newPassword);
 
-		bool							checkPassword(std::string input);
-		bool							validatePassword(std::string password);
-		bool							isAllowedChannelMode(char mode);
-		bool							addMode(char mode);
-		bool							delMode(char mode);
-		bool							hasMode(char mode);
+		bool							checkPassword(std::string const input) const;
+		bool							validatePassword(std::string const password) const;
+		bool							isAllowedChannelMode(char const mode) const;
+		bool							addMode(char const mode);
+		bool							delMode(char const mode);
+		bool							hasMode(char const mode) const;
 		bool							userJoin(Client *user);
 		void							userLeave(Client *user);
-		bool							userIsJoined(Client *user);
-		bool							userIsOperator(Client *user);
+		bool							userIsJoined(Client *user) const;
+		bool							userIsOperator(Client *user) const;
 		bool							userMakeOperator(Client *user);
 		void							userRemoveOperator(Client *user);
 
@@ -44,7 +44,7 @@ class Channel {
 		Channel(Channel const &copy);
 		Channel &operator=(Channel const &copy);
 
-		std::string						name;
+		const std::string				name;
 		std::string						topic;
 		std::string						topicAuthor;
 		std::time_t						topicTime;

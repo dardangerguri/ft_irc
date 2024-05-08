@@ -1,44 +1,44 @@
 #include "Channel.hpp"
 
-Channel::Channel(std::string name) : name(name) {
+Channel::Channel(std::string const name) : name(name) {
 }
 
 Channel::~Channel() {
 }
 
-std::string Channel::getName() {
+std::string Channel::getName() const {
 	return (name);
 }
 
-std::string Channel::getTopic() {
+std::string Channel::getTopic() const {
 	return (topic);
 }
 
-std::string Channel::getTopicAuthor(void) {
+std::string Channel::getTopicAuthor(void) const {
 	return (topicAuthor);
 }
 
-std::time_t Channel::getTopicTime(void) {
+std::time_t Channel::getTopicTime(void) const {
 	return (topicTime);
 }
 
-unsigned int Channel::getUserLimit() {
+unsigned int Channel::getUserLimit() const {
 	return (userLimit);
 }
 
-unsigned int Channel::getUserCount() {
+unsigned int Channel::getUserCount() const {
 	return (users.size());
 }
 
-std::unordered_set<Client *> Channel::getUserList() {
+std::unordered_set<Client *> Channel::getUserList() const {
 	return (users);
 }
 
-std::string Channel::getPassword() {
+std::string Channel::getPassword() const {
 	return (password);
 }
 
-void Channel::setTopic(std::string newTopic) {
+void Channel::setTopic(std::string const newTopic) {
 	topic = newTopic;
 }
 
@@ -47,26 +47,26 @@ void Channel::setTopicAuthor(Client *user) {
 		topicAuthor = user->getNickname();
 }
 
-void Channel::setTopicTime(std::time_t time) {
+void Channel::setTopicTime(std::time_t const time) {
 	topicTime = time;
 }
 
-void Channel::setUserLimit(unsigned int newLimit) {
+void Channel::setUserLimit(unsigned int const newLimit) {
 	userLimit = newLimit;
 }
 
-void Channel::setPassword(std::string newPassword) {
+void Channel::setPassword(std::string const newPassword) {
 	password = newPassword;
 }
 
-bool Channel::checkPassword(std::string input) {
+bool Channel::checkPassword(std::string const input) const {
 	// FIXME if client provides invalid password send back ERR_BADCHANNELKEY
 	if (input == password)
 		return (true);
 	return (false);
 }
 
-bool Channel::validatePassword(std::string password) {
+bool Channel::validatePassword(std::string const password) const {
 	// FIXME if validation fails, send ERR_INVALIDMODEPARAM or ERR_INVALIDKEY to client
 	if (password.empty())
 		return (false);
@@ -75,7 +75,7 @@ bool Channel::validatePassword(std::string password) {
 	return (true);
 }
 
-bool Channel::isAllowedChannelMode(char mode) {
+bool Channel::isAllowedChannelMode(char const mode) const {
 	// Channel modes supported by this server:
 	// i : Set/remove Invite-only channel
 	// t : Set/remove the restrictions of the TOPIC command to channel operators
@@ -100,7 +100,7 @@ bool Channel::isAllowedChannelMode(char mode) {
 	return (false);
 }
 
-bool Channel::addMode(char mode) {
+bool Channel::addMode(char const mode) {
 	if (!isAllowedChannelMode(mode))
 		return (false);
 	try {
@@ -112,14 +112,14 @@ bool Channel::addMode(char mode) {
 	}
 }
 
-bool Channel::delMode(char mode) {
+bool Channel::delMode(char const mode) {
 	if (!isAllowedChannelMode(mode))
 		return (false);
 	channelMode.erase(mode);
 	return (true);
 }
 
-bool Channel::hasMode(char mode) {
+bool Channel::hasMode(char const mode) const {
 	if (channelMode.find(mode) != channelMode.end())
 		return (true);
 	return (false);
@@ -154,13 +154,13 @@ void Channel::userLeave(Client *user) {
 	}
 }
 
-bool Channel::userIsJoined(Client *user) {
+bool Channel::userIsJoined(Client *user) const {
 	if (user && users.find(user) != users.end())
 		return (true);
 	return (false);
 }
 
-bool Channel::userIsOperator(Client *user) {
+bool Channel::userIsOperator(Client *user) const {
 	if (user && operators.find(user) != operators.end())
 		return (true);
 	return (false);
