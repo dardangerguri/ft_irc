@@ -10,15 +10,15 @@ class USER : public ACommand {
 
 		USER &operator=(USER const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(void);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(void) const;
 
 	private:
 		USER(void);
 		USER(USER const &copy);
 
-		bool						validateParameters(std::vector<std::string> & parameters);
-		std::vector<std::string>	parseMessage(std::string message);
+		bool						validateParameters(std::vector<std::string> & parameters) const;
+		std::vector<std::string>	parseMessage(std::string const message) const;
 };
 
 #endif

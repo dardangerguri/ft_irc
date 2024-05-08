@@ -14,7 +14,7 @@ USER &USER::operator = (USER const &copy) {
 	return (*this);
 }
 
-void USER::handleCommand(std::string message, Client *source) {
+void USER::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 	if (!message.empty()) {
 		try {
@@ -45,12 +45,12 @@ void USER::handleCommand(std::string message, Client *source) {
 		commands->sendCommand(commands->errNeedMoreParams->arranger(this->command, source), source);
 }
 
-std::string USER::arranger() {
+std::string USER::arranger() const {
 	return (this->command);
 }
 
-bool USER::validateParameters(std::vector<std::string> & parameters) {
-	size_t maxUserLen = 12;
+bool USER::validateParameters(std::vector<std::string> & parameters) const {
+	const size_t maxUserLen = 12;
 
 	if (parameters[0].size() > maxUserLen)
 		parameters[0].resize(maxUserLen);
@@ -64,7 +64,7 @@ bool USER::validateParameters(std::vector<std::string> & parameters) {
 	return true;
 }
 
-std::vector<std::string> USER::parseMessage(std::string message) {
+std::vector<std::string> USER::parseMessage(std::string const message) const {
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
 	std::string					word;
