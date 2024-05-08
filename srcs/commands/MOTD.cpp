@@ -24,11 +24,16 @@ void MOTD::handleCommand(std::string message, Client *source) {
 	"                                    "
 	};
 
-	commands->sendCommand(commands->rplMotdStart->arranger(source), source);
-	for (std::string line : motd) {
-		commands->sendCommand(commands->rplMotd->arranger(source, line), source);
+	if (motd.empty())
+		commands->sendCommand(commands->errNoMotd->arranger(source), source);
+
+	else {
+		commands->sendCommand(commands->rplMotdStart->arranger(source), source);
+		for (std::string line : motd) {
+			commands->sendCommand(commands->rplMotd->arranger(source, line), source);
+		}
+		commands->sendCommand(commands->rplEndOfMotd->arranger(source), source);
 	}
-	commands->sendCommand(commands->rplEndOfMotd->arranger(source), source);
 }
 
 std::string MOTD::arranger() {
