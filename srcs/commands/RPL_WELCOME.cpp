@@ -12,7 +12,7 @@ RPL_WELCOME &RPL_WELCOME::operator = (RPL_WELCOME const &copy) {
 	return (*this);
 }
 
-std::string RPL_WELCOME::arranger(Client *source) {
+std::string RPL_WELCOME::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

@@ -12,7 +12,7 @@ RPL_TOPICWHOTIME &RPL_TOPICWHOTIME::operator = (RPL_TOPICWHOTIME const &copy) {
 	return (*this);
 }
 
-std::string RPL_TOPICWHOTIME::arranger(Client *source, Channel *channel) {
+std::string RPL_TOPICWHOTIME::arranger(Client *source, Channel *channel) const {
 	std::string	nickname;
 	std::string	channelName;
 	std::string	topicAuthor;

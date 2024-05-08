@@ -12,7 +12,7 @@ RPL_ENDOFMOTD &RPL_ENDOFMOTD::operator = (RPL_ENDOFMOTD const &copy) {
 	return (*this);
 }
 
-std::string RPL_ENDOFMOTD::arranger(Client *source) {
+std::string RPL_ENDOFMOTD::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

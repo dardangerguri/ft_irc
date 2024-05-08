@@ -10,7 +10,7 @@ class RPL_NOTOPIC : public ACommand {
 
 		RPL_NOTOPIC &operator=(RPL_NOTOPIC const &copy);
 
-		std::string	arranger(Client *source, Channel *channel);
+		std::string	arranger(Client *source, Channel *channel) const;
 
 	private:
 		RPL_NOTOPIC(RPL_NOTOPIC const &copy);

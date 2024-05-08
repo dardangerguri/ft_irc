@@ -10,7 +10,7 @@ class RPL_WELCOME : public ACommand {
 
 		RPL_WELCOME &operator=(RPL_WELCOME const &copy);
 
-		std::string	arranger(Client *source);
+		std::string	arranger(Client *source) const;
 
 	private:
 		RPL_WELCOME(RPL_WELCOME const &copy);

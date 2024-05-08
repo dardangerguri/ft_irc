@@ -10,7 +10,7 @@ class RPL_CREATED : public ACommand {
 
 		RPL_CREATED &operator=(RPL_CREATED const &copy);
 
-		std::string	arranger(Client *source);
+		std::string	arranger(Client *source) const;
 
 	private:
 		RPL_CREATED(RPL_CREATED const &copy);

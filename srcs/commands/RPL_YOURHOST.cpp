@@ -12,7 +12,7 @@ RPL_YOURHOST &RPL_YOURHOST::operator = (RPL_YOURHOST const &copy) {
 	return (*this);
 }
 
-std::string RPL_YOURHOST::arranger(Client *source) {
+std::string RPL_YOURHOST::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

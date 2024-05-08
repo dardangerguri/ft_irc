@@ -12,10 +12,11 @@ RPL_YOUREOPER &RPL_YOUREOPER::operator = (RPL_YOUREOPER const &copy) {
 	return (*this);
 }
 
-std::string RPL_YOUREOPER::arranger(Client *source) {
+std::string RPL_YOUREOPER::arranger(Client *source) const {
 	std::string nickname;
 
 	if (source)
 		nickname = source->getNickname();
+
 	return (command + " " + nickname + " :You are now an IRC operator");
 }

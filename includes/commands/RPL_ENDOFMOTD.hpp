@@ -10,7 +10,7 @@ class RPL_ENDOFMOTD : public ACommand {
 
 		RPL_ENDOFMOTD &operator=(RPL_ENDOFMOTD const &copy);
 
-		std::string	arranger(Client *source);
+		std::string	arranger(Client *source) const;
 
 	private:
 		RPL_ENDOFMOTD(RPL_ENDOFMOTD const &copy);

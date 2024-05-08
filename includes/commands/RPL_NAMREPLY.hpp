@@ -10,7 +10,7 @@ class RPL_NAMREPLY : public ACommand {
 
 		RPL_NAMREPLY &operator=(RPL_NAMREPLY const &copy);
 
-		std::string	arranger(Client *source, Channel *channel, Client *user);
+		std::string	arranger(Client *source, Channel *channel, Client *user) const;
 
 	private:
 		RPL_NAMREPLY(RPL_NAMREPLY const &copy);

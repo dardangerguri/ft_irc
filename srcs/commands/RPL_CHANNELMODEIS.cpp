@@ -12,12 +12,12 @@ RPL_CHANNELMODEIS &RPL_CHANNELMODEIS::operator = (RPL_CHANNELMODEIS const &copy)
 	return (*this);
 }
 
-std::string RPL_CHANNELMODEIS::arranger(Client *source, Channel *channel) {
-	std::string					channelName;
-	std::string					nickname;
-	std::string					message;
-	std::unordered_set<char>	supportedModes = {'i', 't', 'l', 'k'};
-	std::vector<std::string>	modes;
+std::string RPL_CHANNELMODEIS::arranger(Client *source, Channel *channel) const {
+	const std::unordered_set<char>	supportedModes = {'i', 't', 'l', 'k'};
+	std::string						channelName;
+	std::string						nickname;
+	std::string						message;
+	std::vector<std::string>		modes;
 
 	if (source)
 		nickname = source->getNickname();

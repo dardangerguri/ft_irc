@@ -13,7 +13,7 @@ RPL_LUSERME &RPL_LUSERME::operator = (RPL_LUSERME const &copy) {
 	return (*this);
 }
 
-std::string RPL_LUSERME::arranger(Client *source) {
+std::string RPL_LUSERME::arranger(Client *source) const {
 	std::string	nickname;
 
 	if (source)

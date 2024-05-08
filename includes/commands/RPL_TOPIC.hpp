@@ -10,7 +10,7 @@ class RPL_TOPIC : public ACommand {
 
 		RPL_TOPIC &operator=(RPL_TOPIC const &copy);
 
-		std::string	arranger(Client *source, Channel *channel);
+		std::string	arranger(Client *source, Channel *channel) const;
 
 	private:
 		RPL_TOPIC(RPL_TOPIC const &copy);

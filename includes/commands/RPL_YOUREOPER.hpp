@@ -10,7 +10,7 @@ class RPL_YOUREOPER : public ACommand {
 
 		RPL_YOUREOPER &operator=(RPL_YOUREOPER const &copy);
 
-		std::string	arranger(Client *source);
+		std::string	arranger(Client *source) const;
 
 	private:
 		RPL_YOUREOPER(RPL_YOUREOPER const &copy);

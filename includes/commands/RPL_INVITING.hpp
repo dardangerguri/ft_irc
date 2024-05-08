@@ -10,7 +10,7 @@ class RPL_INVITING : public ACommand {
 
 		RPL_INVITING &operator=(RPL_INVITING const &copy);
 
-		std::string	arranger(Client *source, Client *target, Channel *channel);
+		std::string	arranger(Client *source, Client *target, Channel *channel) const;
 
 	private:
 		RPL_INVITING(RPL_INVITING const &copy);

@@ -10,7 +10,7 @@ class RPL_CHANNELMODEIS : public ACommand {
 
 		RPL_CHANNELMODEIS &operator=(RPL_CHANNELMODEIS const &copy);
 
-		std::string	arranger(Client *source, Channel *channel);
+		std::string	arranger(Client *source, Channel *channel) const;
 
 	private:
 		RPL_CHANNELMODEIS(RPL_CHANNELMODEIS const &copy);

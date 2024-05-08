@@ -13,7 +13,7 @@ RPL_NAMREPLY &RPL_NAMREPLY::operator = (RPL_NAMREPLY const &copy) {
 }
 
 // Only send one user at the time, so we don't have to worry about message getting too long
-std::string RPL_NAMREPLY::arranger(Client *source, Channel *channel, Client *user) {
+std::string RPL_NAMREPLY::arranger(Client *source, Channel *channel, Client *user) const {
 	std::string	nickname;
 	std::string	channelName;
 	std::string	userNickname;
