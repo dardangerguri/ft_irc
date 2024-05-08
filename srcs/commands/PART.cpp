@@ -13,7 +13,7 @@ PART &PART::operator = (PART const &copy) {
 	return (*this);
 }
 
-void PART::handleCommand(std::string message, Client *source) {
+void PART::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 	if (!message.empty()) {
 		try {
@@ -62,7 +62,7 @@ void PART::handleCommand(std::string message, Client *source) {
 	}
 }
 
-std::string PART::arranger(Channel *channel, std::string reason) {
+std::string PART::arranger(Channel *channel, std::string const reason) const {
 	std::string	channelName;
 
 	if (channel)
@@ -74,7 +74,7 @@ std::string PART::arranger(Channel *channel, std::string reason) {
 		return (command + " " + channelName + " :" + reason);
 }
 
-std::vector<std::string> PART::parseMessage(std::string message) {
+std::vector<std::string> PART::parseMessage(std::string const message) const {
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
 	std::string					word;

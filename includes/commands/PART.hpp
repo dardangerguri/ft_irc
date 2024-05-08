@@ -10,14 +10,14 @@ class PART : public ACommand {
 
 		PART &operator=(PART const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(Channel *channel, std::string reason);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(Channel *channel, std::string const reason) const;
 
 	private:
 		PART(void);
 		PART(PART const &copy);
 
-		std::vector<std::string>	parseMessage(std::string message);
+		std::vector<std::string>	parseMessage(std::string const message) const;
 };
 
 #endif
