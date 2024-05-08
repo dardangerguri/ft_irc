@@ -10,8 +10,8 @@ class ERROR : public ACommand {
 
 		ERROR &operator=(ERROR const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(std::string message);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(std::string const message) const;
 
 	private:
 		ERROR(void);

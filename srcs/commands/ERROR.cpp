@@ -13,11 +13,11 @@ ERROR &ERROR::operator = (ERROR const &copy) {
 	return (*this);
 }
 
-void ERROR::handleCommand(std::string message, Client *source) {
+void ERROR::handleCommand(std::string const message, Client *source) {
 	(void)message;
 	(void)source;
 }
 
-std::string ERROR::arranger(std::string message) {
+std::string ERROR::arranger(std::string message) const {
 	return (this->command + " :" + message);
 }
