@@ -109,7 +109,7 @@ void Commands::sendCommand(std::string message, Client *target) {
 	}
 }
 
-void Commands::sendCommand(std::string message, Client *source, Client *target) {
+void Commands::sendCommand(std::string const message, Client *source, Client *target) {
 	sendCommand(":" + source->getNickname() + " " + message, target);
 }
 
@@ -127,7 +127,7 @@ void Commands::sendCommand(std::string message, Channel *target) {
 	}
 }
 
-void Commands::sendCommand(std::string message, Client *source, Channel *target) {
+void Commands::sendCommand(std::string const message, Client *source, Channel *target) {
 	sendCommand(":" + source->getNickname() + " " + message, target);
 }
 
@@ -147,7 +147,7 @@ void Commands::sendCommand(std::string message, Channel *target, Client *exclude
 	}
 }
 
-void Commands::sendCommand(std::string message, Client *source, Channel *target, Client *exclude) {
+void Commands::sendCommand(std::string const message, Client *source, Channel *target, Client *exclude) {
 	sendCommand(":" + source->getNickname() + " " + message, target, exclude);
 }
 
