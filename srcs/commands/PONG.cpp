@@ -13,11 +13,11 @@ PONG &PONG::operator = (PONG const &copy) {
 	return (*this);
 }
 
-void PONG::handleCommand(std::string message, Client *source) {
+void PONG::handleCommand(std::string const message, Client *source) {
 	(void)message;
 	(void)source;
 }
 
-std::string PONG::arranger(std::vector<std::string> parameters) {
+std::string PONG::arranger(std::vector<std::string> const parameters) const {
 	return (this->command + " 127.0.0.1 " + parameters[0]);
 }

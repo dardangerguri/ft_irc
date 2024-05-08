@@ -10,8 +10,8 @@ class PONG : public ACommand {
 
 		PONG &operator=(PONG const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(std::vector<std::string> parameters);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(std::vector<std::string> const parameters) const;
 
 	private:
 		PONG(void);
