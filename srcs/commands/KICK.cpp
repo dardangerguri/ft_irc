@@ -13,7 +13,7 @@ KICK &KICK::operator = (KICK const &copy) {
 	return (*this);
 }
 
-void KICK::handleCommand(std::string message, Client *source) {
+void KICK::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 
 	if (!message.empty()) {
@@ -72,7 +72,7 @@ void KICK::handleCommand(std::string message, Client *source) {
 	}
 }
 
-std::string KICK::arranger(Channel *channel, Client *removedUser, std::string reason) {
+std::string KICK::arranger(Channel *channel, Client *removedUser, std::string const reason) const {
 	std::string channelName;
 	std::string removedUserName;
 
@@ -84,12 +84,12 @@ std::string KICK::arranger(Channel *channel, Client *removedUser, std::string re
 	return (this->command + " " + channelName + " " + removedUserName + " " + reason);
 }
 
-std::vector<std::string> KICK::parseMessage(std::string message) {
+std::vector<std::string> KICK::parseMessage(std::string const message) const {
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
 	std::string					word;
 	std::string					restOfMessage;
-	
+
 	while (ss >> word) {
 		if (word[0] == ':' && word.size() == 1)
 			break ;
@@ -102,6 +102,6 @@ std::vector<std::string> KICK::parseMessage(std::string message) {
 		else
 			parameters.push_back(word);
 	}
-	
+
 	return (parameters);
 }

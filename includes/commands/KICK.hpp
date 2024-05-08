@@ -10,14 +10,14 @@ class KICK : public ACommand {
 
 		KICK &operator=(KICK const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(Channel *channel, Client *removedUser, std::string reason);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(Channel *channel, Client *removedUser, std::string const reason) const;
 
 	private:
 		KICK(void);
 		KICK(KICK const &copy);
 
-		std::vector<std::string> parseMessage(std::string message);
+		std::vector<std::string> parseMessage(std::string const message) const;
 };
 
 #endif
