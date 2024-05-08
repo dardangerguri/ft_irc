@@ -10,8 +10,8 @@ class NAMES : public ACommand {
 
 		NAMES &operator=(NAMES const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(Channel *targetChannel);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(Channel *targetChannel) const;
 
 	private:
 		NAMES(void);

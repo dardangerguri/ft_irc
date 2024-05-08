@@ -13,7 +13,7 @@ NAMES &NAMES::operator = (NAMES const &copy) {
 	return (*this);
 }
 
-void NAMES::handleCommand(std::string message, Client *source) {
+void NAMES::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 	if (!message.empty()) {
 		try {
@@ -52,6 +52,6 @@ void NAMES::handleCommand(std::string message, Client *source) {
 	}
 }
 
-std::string NAMES::arranger(Channel *targetChannel) {
+std::string NAMES::arranger(Channel *targetChannel) const {
 	return (this->command + " " + targetChannel->getName());
 }
