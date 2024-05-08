@@ -25,6 +25,6 @@ void QUIT::handleCommand(std::string message, Client *source) {
 	commands->sendCommand(commands->error->arranger("Connection closed: Lost connection to client"), source);
 }
 
-std::string QUIT::arranger(std::string message) {
+std::string QUIT::arranger(std::string const message) const {
 	return (this->command + " :" + message);
 }
