@@ -10,6 +10,7 @@ SRC     = 	main.cpp \
 			Client.cpp \
 			Channel.cpp \
 			Commands.cpp \
+			Bot.cpp \
 			commands/ACommand.cpp \
 			commands/ERROR.cpp \
 			commands/INVITE.cpp \

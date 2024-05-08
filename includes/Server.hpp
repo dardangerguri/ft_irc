@@ -18,6 +18,7 @@
 # include <arpa/inet.h>
 
 class Commands;
+class Bot;
 
 class Server {
 	public:
@@ -45,6 +46,7 @@ class Server {
 		std::vector<Client *>						clients;
 		std::unordered_map<std::string, Channel *>	channels;
 		Commands									*commands;
+		Bot											*ircBot;
 
 		void	validatePort(char *port);
 		void	validatePassword(char *password);
@@ -56,5 +58,6 @@ class Server {
 };
 
 # include "Commands.hpp"
+# include "Bot.hpp"
 
 #endif

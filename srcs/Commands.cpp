@@ -103,7 +103,12 @@ void Commands::sendCommand(std::string message, Client *target) {
 		std::cerr << BLUE "Sending: " RESET +  message << std::endl;
 
 		message += "\r\n";
-		if (send(target->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+
+		int userFd = target->getSocketFd();
+		if (userFd== -1) {
+			reinterpret_cast<Bot *>(target)->handleBotMessage(message, target);
+		}
+		else if (send(userFd, message.c_str(), message.length(), 0) == -1) {
 			std::cerr << RED << "Error: Sending messages failed!" << RESET << std::endl;
 		}
 	}
@@ -119,8 +124,14 @@ void Commands::sendCommand(std::string message, Channel *target) {
 		std::cerr << BLUE "Sending to " RESET + target->getName() + BLUE ": " RESET + message << std::endl;
 
 		message += "\r\n";
+
+		int userFd;
 		for (Client *user : target->getUserList()) {
-			if (send(user->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+			userFd = user->getSocketFd();
+			if (userFd == -1) {
+				reinterpret_cast<Bot *>(user)->handleBotMessage(message, target);
+			}
+			else if (send(userFd, message.c_str(), message.length(), 0) == -1) {
 				std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
 			}
 		}
@@ -137,10 +148,16 @@ void Commands::sendCommand(std::string message, Channel *target, Client *exclude
 		std::cerr << BLUE "Sending to " RESET + target->getName() + BLUE " excluding user " RESET + exclude->getNickname() + BLUE ": " RESET + message << std::endl;
 
 		message += "\r\n";
+
+		int userFd;
 		for (Client *user : target->getUserList()) {
+			userFd = user->getSocketFd();
 			if (user == exclude)
 				continue ;
-			if (send(user->getSocketFd(), message.c_str(), message.length(), 0) == -1) {
+			if (userFd == -1) {
+				reinterpret_cast<Bot *>(user)->handleBotMessage(message, target);
+			}
+			else if (send(userFd, message.c_str(), message.length(), 0) == -1) {
 				std::cerr << RED << "Error: Sending message to " RESET + user->getNickname() + RED " failed!" << RESET << std::endl;
 			}
 		}

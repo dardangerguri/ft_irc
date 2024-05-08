@@ -11,6 +11,20 @@ Server::Server(char *port, char *password) {
 	catch (std::bad_alloc) {
 		throw std::runtime_error("Memory allocation for commands object failed!");
 	}
+
+	try {
+		this->ircBot = new Bot(commands);
+		try {
+			clients.push_back(this->ircBot);
+		}
+		catch (std::bad_alloc) {
+			delete this->ircBot;
+			throw std::runtime_error("Memory allocation for IRC bot failed!");
+		}
+	}
+	catch (std::bad_alloc) {
+		throw std::runtime_error("Memory allocation for IRC bot failed!");
+	}
 }
 
 Server::~Server() {
@@ -73,6 +87,7 @@ Channel *Server::addChannel(std::string const channelName) {
 			return (nullptr);
 		}
 		channels.insert({channelName, newChannel});
+		newChannel->userJoin(this->ircBot);
 		return (newChannel);
 	}
 	catch (...) {
