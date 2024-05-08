@@ -13,7 +13,7 @@ PING &PING::operator = (PING const &copy) {
 	return (*this);
 }
 
-void PING::handleCommand(std::string message, Client *source) {
+void PING::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 	if (!message.empty()) {
 		try {
@@ -34,6 +34,6 @@ void PING::handleCommand(std::string message, Client *source) {
 }
 
 // FIXME: temporary solution (need unique token?)
-std::string PING::arranger() {
+std::string PING::arranger() const {
 	return (this->command + " noot noot");
 }

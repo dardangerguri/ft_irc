@@ -10,8 +10,8 @@ class PING : public ACommand {
 
 		PING &operator=(PING const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger(void);
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger(void) const;
 
 	private:
 		PING(void);
