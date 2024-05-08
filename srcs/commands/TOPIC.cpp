@@ -13,7 +13,7 @@ TOPIC &TOPIC::operator = (TOPIC const &copy) {
 	return (*this);
 }
 
-void TOPIC::handleCommand(std::string message, Client *source) {
+void TOPIC::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string>	parameters;
 	Channel						*channel;
 
@@ -71,7 +71,7 @@ void TOPIC::handleCommand(std::string message, Client *source) {
 	}
 }
 
-std::string TOPIC::arranger(Channel *channel, std::string topic) {
+std::string TOPIC::arranger(Channel *channel, std::string const topic) const {
 	std::string	channelName;
 
 	if (channel)
@@ -80,14 +80,14 @@ std::string TOPIC::arranger(Channel *channel, std::string topic) {
 	return (command + " " + channelName + " :" + topic);
 }
 
-std::time_t	TOPIC::getCurrTime(void) {
+std::time_t	TOPIC::getCurrTime(void) const {
 	std::chrono::system_clock::time_point n = std::chrono::system_clock::now();
 	std::chrono::seconds s = std::chrono::duration_cast<std::chrono::seconds>(n.time_since_epoch());
 	std::time_t unix_timestamp = s.count();
 	return (unix_timestamp);
 }
 
-std::vector<std::string> TOPIC::parseMessage(std::string message) {
+std::vector<std::string> TOPIC::parseMessage(std::string const message) const {
 
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
