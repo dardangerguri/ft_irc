@@ -13,7 +13,7 @@ MODE &MODE::operator = (MODE const &copy) {
 	return (*this);
 }
 
-void MODE::handleCommand(std::string message, Client *source) {
+void MODE::handleCommand(std::string const message, Client *source) {
 	std::vector<std::string> parameters;
 	if (!message.empty()) {
 		try {
@@ -54,7 +54,7 @@ void MODE::handleCommand(std::string message, Client *source) {
 	}
 }
 
-void MODE::handleClientModes(std::vector<std::string> parameters, Client *source, Client *targetClient) {
+void MODE::handleClientModes(std::vector<std::string> const parameters, Client *source, Client *targetClient) {
 	size_t	i = 0;
 	bool	unknownModeFlag = false;
 	bool	modeFlag = false;
@@ -77,7 +77,7 @@ void MODE::handleClientModes(std::vector<std::string> parameters, Client *source
 		commands->sendCommand(commands->errUModeUnknownFlag->arranger(source), source);
 }
 
-void MODE::handleChannelModes(std::vector<std::string> parameters, Client *source, Channel *targetChannel) {
+void MODE::handleChannelModes(std::vector<std::string> const parameters, Client *source, Channel *targetChannel) {
 	size_t						i = 0;
 	size_t						parameter = 2;
 	bool						setFlag = true;
@@ -188,7 +188,7 @@ void MODE::handleChannelModes(std::vector<std::string> parameters, Client *sourc
 		commands->sendCommand(arranger(message, targetChannel), source, targetChannel);
 }
 
-bool MODE::handleChannelOperatorMode(std::string parameter, bool setFlag, Client *source, Channel *targetChannel) {
+bool MODE::handleChannelOperatorMode(std::string const parameter, bool const setFlag, Client *source, Channel *targetChannel) {
 	Client *targetClient = commands->server->getClient(parameter);
 	if (!targetClient || !targetChannel->userIsJoined(targetClient)) {
 		if (!targetClient)
@@ -205,7 +205,7 @@ bool MODE::handleChannelOperatorMode(std::string parameter, bool setFlag, Client
 	}
 }
 
-bool MODE::handleKeyMode(std::string parameter, bool setFlag, bool &keyFlag, Channel *targetChannel) {
+bool MODE::handleKeyMode(std::string const parameter, bool const setFlag, bool  const keyFlag, Channel *targetChannel) {
 	if (setFlag) {
 		if (!keyFlag) {
 			targetChannel->setPassword(parameter);
@@ -224,7 +224,7 @@ bool MODE::handleKeyMode(std::string parameter, bool setFlag, bool &keyFlag, Cha
 	return (true);
 }
 
-bool MODE::handleClientLimitMode(std::string parameter, bool setFlag, bool &clientLimitFlag, Channel *targetChannel) {
+bool MODE::handleClientLimitMode(std::string const parameter, bool const setFlag, bool const clientLimitFlag, Channel *targetChannel) {
 	if (setFlag) {
 		int	userLimit;
 		try {
@@ -247,21 +247,21 @@ bool MODE::handleClientLimitMode(std::string parameter, bool setFlag, bool &clie
 	return (true);
 }
 
-void MODE::handleInviteOnlyMode(bool setFlag, Channel *targetChannel) {
+void MODE::handleInviteOnlyMode(bool const setFlag, Channel *targetChannel) {
 	if (setFlag)
 		targetChannel->addMode('i');
 	else
 		targetChannel->delMode('i');
 }
 
-void MODE::handleTopicMode(bool setFlag, Channel *targetChannel) {
+void MODE::handleTopicMode(bool const setFlag, Channel *targetChannel) {
 	if (setFlag)
 		targetChannel->addMode('t');
 	else
 		targetChannel->delMode('t');
 }
 
-std::string MODE::parseModeMessage(std::string modeString, std::vector<std::string> modeParameters) {
+std::string MODE::parseModeMessage(std::string modeString, std::vector<std::string> const modeParameters) {
 	if (modeString[0] && modeString[0] != '+' && modeString[0] != '-')
 		modeString = "+" + modeString;
 
@@ -289,7 +289,7 @@ std::string MODE::parseModeMessage(std::string modeString, std::vector<std::stri
 	return (modeString);
 }
 
-std::string MODE::arranger(std::string message, Channel *targetChannel) {
+std::string MODE::arranger(std::string const message, Channel *targetChannel) const {
 	std::string	targetChannelName;
 
 	if (targetChannel)
@@ -298,7 +298,7 @@ std::string MODE::arranger(std::string message, Channel *targetChannel) {
 	return (command + " " + targetChannelName + " " + message);
 }
 
-std::string MODE::arranger(std::string message, Client *targetClient) {
+std::string MODE::arranger(std::string const message, Client *targetClient) const {
 	std::string	targetClientNickname;
 
 	if (targetClient)
