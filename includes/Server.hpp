@@ -25,13 +25,13 @@ class Server {
 		~Server();
 
 		void			run();
-		bool			checkPassword(std::string input);
-		bool			nickExists(std::string input);
-		unsigned int	getClientCount();
-		Channel			*addChannel(std::string channelName);
+		bool			checkPassword(std::string const input);
+		bool			nickExists(std::string const input);
+		unsigned int	getClientCount() const;
+		Channel			*addChannel(std::string const channelName);
 		void			delChannel(Channel *channel);
-		Channel			*getChannel(std::string channelName);
-		Client			*getClient(std::string nickname);
+		Channel			*getChannel(std::string const channelName);
+		Client			*getClient(std::string const nickname) const;
 
 	private:
 		Server();
@@ -50,9 +50,9 @@ class Server {
 		void	validatePassword(char *password);
 		void	initListenSocket();
 		void	handleNewConnection();
-		void	handleClientData(size_t pollFdIndex);
-		void	parseMsg(std::string message, Client *client);
-		Client	*getClientBySocketFd(int socketFd);
+		void	handleClientData(size_t const pollFdIndex);
+		void	parseMsg(std::string const message, Client *client);
+		Client	*getClientBySocketFd(int const socketFd) const;
 };
 
 # include "Commands.hpp"

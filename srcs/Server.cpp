@@ -24,18 +24,19 @@ Server::~Server() {
 	pfds.clear();
 }
 
-void	Server::validatePort(char *port) {
-	for (size_t i = 0; i < strlen(port); ++i) {
+void Server::validatePort(char *port) {
+	const size_t	len = strlen(port);
+	for (size_t i = 0; i < len; ++i) {
 		if (!std::isdigit(port[i]))
 			throw std::runtime_error("Error: Port must be a number!");
 	}
-	int p = std::atoi(port);
+	const int	p = std::atoi(port);
 	if (p < 0 || p > 65535)
 		throw std::runtime_error("Error: Port must be between 0 and 65536!");
 	this->port = p;
 }
 
-void	Server::validatePassword(char *password) {
+void Server::validatePassword(char *password) {
 	if (password[0]	== '\0')
 		throw std::runtime_error("Error: Password cannot be empty!");
 	if (std::string(password).find(' ') != std::string::npos)
@@ -43,13 +44,13 @@ void	Server::validatePassword(char *password) {
 	this->password = password;
 }
 
-bool Server::checkPassword(std::string input) {
+bool Server::checkPassword(std::string const input) {
 	if (input == password)
 		return (true);
 	return (false);
 }
 
-bool Server::nickExists(std::string input) {
+bool Server::nickExists(std::string const input) {
 	for (size_t i = 0; i < clients.size(); ++i) {
 		if (clients[i]->getNickname() == input)
 			return (true);
@@ -57,12 +58,12 @@ bool Server::nickExists(std::string input) {
 	return (false);
 }
 
-unsigned int Server::getClientCount() {
+unsigned int Server::getClientCount() const {
 	return (clients.size());
 }
 
-Channel *Server::addChannel(std::string channelName) {
-	Channel *newChannel;
+Channel *Server::addChannel(std::string const channelName) {
+	Channel	*newChannel;
 
 	try {
 		try {
@@ -91,13 +92,13 @@ void Server::delChannel(Channel *channel) {
 	}
 }
 
-Channel *Server::getChannel(std::string channelName) {
+Channel *Server::getChannel(std::string const channelName) {
 	if (channels.find(channelName) != channels.end())
 		return (channels[channelName]);
 	return (nullptr);
 }
 
-Client *Server::getClient(std::string nickname) {
+Client *Server::getClient(std::string const nickname) const {
 	for (size_t i = 0; i < clients.size(); ++i) {
 		if (clients[i]->getNickname() == nickname)
 			return (clients[i]);
@@ -207,7 +208,7 @@ void Server::handleNewConnection() {
 	std::cout << GREEN << "New client connected: " << clientSocket  << " from " << newClient->getIp() << RESET << std::endl;
 }
 
-void Server::handleClientData(size_t pollFdIndex) {
+void Server::handleClientData(size_t const pollFdIndex) {
 	// get client from the list of clients based on the pollFdIndex
 	Client *client = getClientBySocketFd(pfds[pollFdIndex].fd);
 	if (!client)
@@ -241,7 +242,7 @@ void Server::handleClientData(size_t pollFdIndex) {
 }
 
 // Checks if the command is valid and checks if it can find in the commandList
-void Server::parseMsg(std::string message, Client *client) {
+void Server::parseMsg(std::string const message, Client *client) {
 	//Debug
 	std::cerr << RED "Received: " RESET +  message << std::endl;
 
@@ -285,7 +286,7 @@ void Server::parseMsg(std::string message, Client *client) {
 	}
 }
 
-Client *Server::getClientBySocketFd(int socketFd) {
+Client *Server::getClientBySocketFd(int const socketFd) const {
 	for (size_t i = 0; i < clients.size(); ++i) {
 		if (clients[i]->getSocketFd() == socketFd)
 			return (clients[i]);
