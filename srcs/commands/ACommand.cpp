@@ -6,7 +6,7 @@ ACommand::ACommand(void) {
 ACommand::~ACommand(void) {
 }
 
-std::vector<std::string> ACommand::parseMessage(std::string message) {
+std::vector<std::string> ACommand::parseMessage(std::string const message) const {
 	//split them based on the spaces
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(message);
@@ -22,12 +22,12 @@ void ACommand::handleCommand(std::string message, Client *source) {
 	(void)source;
 }
 
-bool ACommand::getRequireRegistration(void) {
+bool ACommand::getRequireRegistration(void) const {
 	return (requireRegistration);
 }
 
 // NOTE: The function can fail with an exception
-std::vector<std::string> ACommand::splitComma(std::string input) const {
+std::vector<std::string> ACommand::splitComma(std::string const input) const {
 	std::vector<std::string>	parameters;
 	std::stringstream			ss(input);
 	std::string					param;
