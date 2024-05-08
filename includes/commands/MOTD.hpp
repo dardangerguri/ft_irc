@@ -11,8 +11,8 @@ class MOTD : public ACommand {
 
 		MOTD &operator=(MOTD const &copy);
 
-		void		handleCommand(std::string message, Client *source);
-		std::string	arranger();
+		void		handleCommand(std::string const message, Client *source);
+		std::string	arranger() const;
 
 	private:
 		MOTD(void);

@@ -13,7 +13,7 @@ MOTD &MOTD::operator = (MOTD const &copy) {
 	return (*this);
 }
 
-void MOTD::handleCommand(std::string message, Client *source) {
+void MOTD::handleCommand(std::string const message, Client *source) {
 	(void)message;
 
 	std::vector<std::string>	motd = {
@@ -36,6 +36,6 @@ void MOTD::handleCommand(std::string message, Client *source) {
 	}
 }
 
-std::string MOTD::arranger() {
+std::string MOTD::arranger() const {
 	return (this->command);
 }
