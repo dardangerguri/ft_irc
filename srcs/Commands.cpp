@@ -151,33 +151,27 @@ void Commands::sendCommand(std::string const message, Client *source, Channel *t
 	sendCommand(":" + source->getNickname() + " " + message, target, exclude);
 }
 
-//FIXME: check ISupport values
 void Commands::registrationReply(Client *target) {
 	if (target) {
 		sendCommand(rplWelcome->arranger(target), target);
 		sendCommand(rplYourHost->arranger(target), target);
 		sendCommand(rplCreated->arranger(target), target);
 		sendCommand(rplMyInfo->arranger(target), target);
-		sendCommand(rplISupport->arranger(target, "AWAYLEN=200"), target);
 		sendCommand(rplISupport->arranger(target, "CASEMAPPING=rfc7613"), target);
 		sendCommand(rplISupport->arranger(target, "CHANLIMIT=#:"), target);
 		sendCommand(rplISupport->arranger(target, "CHANMODES=,k,l,it"), target);
 		sendCommand(rplISupport->arranger(target, "CHANNELLEN=32"), target);
 		sendCommand(rplISupport->arranger(target, "CHANTYPES=#"), target);
-		sendCommand(rplISupport->arranger(target, "ELIST="), target);
-		sendCommand(rplISupport->arranger(target, "EXCEPTS"), target);
-		sendCommand(rplISupport->arranger(target, "EXTBAN="), target);
 		sendCommand(rplISupport->arranger(target, "HOSTLEN=64"), target);
-		sendCommand(rplISupport->arranger(target, "INVEX"), target);
 		sendCommand(rplISupport->arranger(target, "KICKLEN=255"), target);
-		sendCommand(rplISupport->arranger(target, "MAXLIST=beI:25"), target);
+		sendCommand(rplISupport->arranger(target, "MAXLIST="), target);
 		sendCommand(rplISupport->arranger(target, "MAXTARGETS=1"), target);
-		sendCommand(rplISupport->arranger(target, "MODES=12"), target);
+		sendCommand(rplISupport->arranger(target, "MODES=2"), target);
 		sendCommand(rplISupport->arranger(target, "NETWORK=IRC\x20\\BOYS\x20Network"), target);
 		sendCommand(rplISupport->arranger(target, "NICKLEN=12"), target);
 		sendCommand(rplISupport->arranger(target, "PREFIX=(o)@"), target);
 		sendCommand(rplISupport->arranger(target, "SILENCE"), target);
-		sendCommand(rplISupport->arranger(target, "STATUSMSG=@"), target);
+		sendCommand(rplISupport->arranger(target, "STATUSMSG="), target);
 		sendCommand(rplISupport->arranger(target, "TOPICLEN=307"), target);
 		sendCommand(rplISupport->arranger(target, "USERLEN=12"), target);
 		sendCommand(rplLUserClient->arranger(target), target);
