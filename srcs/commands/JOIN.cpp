@@ -62,6 +62,9 @@ void JOIN::handleCommand(std::string const message, Client *source) {
 				continue ;
 			}
 
+			if (channels[i].size() > 32)
+				channels[i].resize(32);
+
 			channel = commands->server->getChannel(channels[i]);
 			if (!channel) {
 				channel = commands->server->addChannel(channels[i]);
