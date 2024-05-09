@@ -2,7 +2,6 @@
 # define MOTD_HPP
 
 # include "ACommand.hpp"
-# include <fstream>
 
 class MOTD : public ACommand {
 	public:
