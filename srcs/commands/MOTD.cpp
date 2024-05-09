@@ -16,13 +16,7 @@ MOTD &MOTD::operator = (MOTD const &copy) {
 void MOTD::handleCommand(std::string const message, Client *source) {
 	(void)message;
 
-	std::vector<std::string>	motd = {
-	"  ___ ___  ___   ___  _____   _____",
-	" |_ _| _ \\/ __| | _ )/ _ \\ \\ / / __|",
-	"  | ||   / (__  | _ \\ (_) \\ V /\\__ \\",
-	" |___|_|_\\\\___| |___/\\___/ |_| |___/",
-	"                                    "
-	};
+	std::vector<std::string> motd = getRandomMotd();
 
 	if (motd.empty())
 		commands->sendCommand(commands->errNoMotd->arranger(source), source);
@@ -38,4 +32,22 @@ void MOTD::handleCommand(std::string const message, Client *source) {
 
 std::string const MOTD::arranger() const {
 	return (this->command);
+}
+
+std::vector<std::string> const MOTD::getRandomMotd(void) const {
+	std::vector<std::vector <std::string>> const motds = {
+	{
+	"  ___ ___  ___   ___  _____   _____",
+	" |_ _| _ \\/ __| | _ )/ _ \\ \\ / / __|",
+	"  | ||   / (__  | _ \\ (_) \\ V /\\__ \\",
+	" |___|_|_\\\\___| |___/\\___/ |_| |___/",
+	"                                    "
+	}
+	};
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> distr(0, motds.size() - 1);
+
+	return (motds[distr(gen)]);
 }

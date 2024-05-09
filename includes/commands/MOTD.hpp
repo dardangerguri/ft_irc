@@ -2,6 +2,8 @@
 # define MOTD_HPP
 
 # include "ACommand.hpp"
+# include <random>
+# include <vector>
 
 class MOTD : public ACommand {
 	public:
@@ -16,6 +18,8 @@ class MOTD : public ACommand {
 	private:
 		MOTD(void);
 		MOTD(MOTD const &copy);
+
+		std::vector<std::string> const	getRandomMotd(void) const;
 };
 
 #endif
